@@ -41,6 +41,11 @@
 $route['default_controller'] = "login";
 $route['404_override'] = '';
 
+//Admin
+$route['admin'] = "admin/admin/index";
+$route['specialities'] = "admin/admin/specialities";
+$route['create_spe'] = "admin/admin/create_spe";
+$route['update_spe'] = "admin/admin/update_spe";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
