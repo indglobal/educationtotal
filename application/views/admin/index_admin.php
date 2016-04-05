@@ -33,7 +33,7 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="<?php echo base_url(); ?>"><b>Admin</b>&nbsp;SheDoctor</a>
+        <a href="<?php echo base_url(); ?>"><b>Admin</b>&nbsp;Educationtotal</a>
       </div><!-- /.login-logo -->
       <span id="login_error"></span>
       <div class="login-box-body">
@@ -118,7 +118,7 @@
         $.ajax({
           
           type:"POST",
-          url:"<?php echo base_url('login/signin_form'); ?>",
+          url:"<?php echo base_url('admin/login/signin_form'); ?>", 
           data:data,
           success:function(result)
           {
@@ -129,7 +129,7 @@
             }
             else if(result == 1)
             {
-              window.location="<?php echo base_url('admin/index'); ?>";
+              window.location="<?php echo base_url('admin/admin/index'); ?>"; 
             }
           }
         });
