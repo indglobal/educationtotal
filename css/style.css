@@ -1,0 +1,551 @@
+body
+{
+    overflow-x: hidden; 
+    position: relative;
+    background-color: #fff;
+}
+/*@font-face {
+    font-family: yFont;
+    src: url(Open_Sans/OpenSans-Bold.tf);
+}*/
+.master-werap{
+    background-color: #F5F1F0;
+}
+a, a:hover, a:focus, a:active{
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+a:focus { 
+    	outline: none; 
+}
+/*.animated{
+	visibility: hidden;
+}*/
+.ease{
+	-webkit-transition: all .4s ease-in-out;
+	   -moz-transition: all .4s ease-in-out;
+		-ms-transition: all .4s ease-in-out;
+		 -o-transition: all .4s ease-in-out;
+			transition: all .4s ease-in-out;
+}
+p{
+	color: #000;
+	font-size: 12px;
+	line-height:21px;
+	margin: 0;
+}
+h1,h2,h3,h4,h5,h6{
+	margin: 0;
+	font-weight: normal;
+}
+ul,ol{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+@media (min-width: 1280px) and (max-width: 5000px) {
+	.container{
+		max-width: 1200px;
+	}
+}
+
+.valign{
+	position: relative;
+  	top: 50%;
+  	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+.img-responsive{
+	width: 100%;
+	height: auto;
+}
+.clear-float {
+	clear: both;
+}
+.left-float{
+	float: left;
+}
+.right-float{
+	float: right;
+}
+.content-wrpr select{
+	appearance:none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+}
+.content-wrpr select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #666;
+}
+.fullwidth{
+	width: 100%;
+	position: relative;
+}
+ select{
+	background:url(../images/down.png) no-repeat;
+	background-size: 10px;
+	background-position: 95% 50%;
+	/*border-radius: 5px;*/
+	border:1px solid:#ddd;
+	font-size: 15px;
+	color: #666;
+}
+
+/*.pad-top{
+	padding: 5% 0;
+}*/
+
+/*=====================================================================*/
+
+/*================Sticky Header Starts*/
+.fixed{
+	position: fixed;
+	z-index: 9;
+	background-color: #fff;
+	top: 0;
+	left: 0;
+}
+.all-header-wrp{
+	border-bottom:2px solid #FFAD00;
+	padding-bottom: 5px;
+}
+.logo-wrp{
+	width: 180px;
+	height: 50px;
+}
+.all-header-wrp .header-top{
+	padding-top:10px;
+}
+.all-header-wrp .header-top input, select{
+	border:1px solid #ddd;
+	background-color: #fff;
+	padding: 10px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+.all-header-wrp .header-top input{
+	margin-left: -5px;
+}
+.all-header-wrp .header-top select{
+	background:url(../images/down.png) no-repeat;
+	background-size: 7px;
+	background-position: 95% 50%;
+	padding-right: 20px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-right: none!important;
+	font-size: 15px;
+	color: #666;
+}
+.all-header-wrp .header-top input#serch-btn{
+ 	margin-top: 3px;
+ 	border: 1px solid #FFAD00;
+ 	display: inline;
+ 	background-color: #FFAD00;
+ 	color: #fff;
+ 	border-top-right-radius:5px;
+ 	border-bottom-right-radius:5px;
+ 	padding: 10px 15px;
+ 	font-size: 14px;
+ 	font-weight: 600;
+ }
+.all-header-wrp .header-top input#serch-area{
+	width: 280px;
+	color: #888;
+}
+.all-header-wrp .header-top .header-signin-wrp span{
+	padding: 5px 10px;
+	background-color: #157AC8;
+	color:#fff;
+	font-size: 12px;
+	font-weight: 600;
+	border-radius: 3px;
+	display: inline;
+}
+.all-header-wrp .header-top .header-signin-wrp ul{
+	display: inline-block;
+	padding-top: 10px;
+	padding-left: 20px;
+}
+.all-header-wrp .header-top .header-signin-wrp ul li{
+	display: inline-block;
+	border-right:2px solid #aaa;
+	line-height: 10px;
+	padding-right: 5px;
+	color: #aaa;
+}
+.all-header-wrp .header-top .header-signin-wrp ul li:last-child{
+	border-right: none;
+}
+
+
+
+/*============================================= footer top section*/
+.footer-top{
+	background-color: #307488;
+	padding: 30px 0;
+	margin-top: 20px;
+}
+.footer-top h4{
+	color: #fff;
+	font-weight: 800;
+	font-size: 20px;
+	line-height: 35px;
+	text-align: right;
+}
+.footer-top input{
+	width: 100%;
+	padding: 7px 12px;
+	color: #000;
+	font-weight: 600;
+}
+.footer-top input#newsltr-regstr{
+	max-width: 120px;
+	border:none;
+	border-radius: 5px;
+	background-color: #FFAD00;
+	color: #fff;
+	font-weight: 600;
+}
+ .footer-top input {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+}
+ 
+.footer-top  input:focus {
+  box-shadow: 0 0 5px rgba(255,173,0, 1);
+  border: 1px solid rgba(255,173,0, 1);
+}
+
+
+
+
+/*====================================================Footer*/
+.footer-outer{
+	background: url(../images/footer.png) no-repeat;
+	background-size: cover;
+	position: relative;
+	
+}
+.footer-outer .overlay{
+	background-color: rgba(0,0,0,0.7);
+}
+.footer-outer .footer-wrp{
+	width: 100%;
+	height: 100%;
+	padding: 50px 0;
+	border-bottom: 1px solid #307488;
+}
+.futer-each-col h5{
+	color: #307488;
+	font-weight: 600;
+	padding-bottom: 20px;
+}
+.futer-each-col a{
+	color: #fff;
+	padding-bottom: 5px;
+}
+.footer-bottom {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 10px 100px;
+	border-top:2px solid #307488;
+}
+.footer-bottom p{
+	display: inline;
+	color: #307488;
+	font-weight: 600;
+}
+.footer-bottom .fut-botm-left{
+	width: 50%;
+	text-align: right;
+	display: inline;
+	left: 100px;
+}
+.footer-bottom .fut-botm-right{
+	width: 50%;
+	text-align: right;
+	display: inline;
+	right: 100px;
+	position: absolute;
+}
+
+
+
+
+
+/*================================================================================*/
+/*================================================================================*/
+/*================================================================================*/
+
+/*====================================== SIGNIN PAGE*/
+.error{
+	box-shadow: 0 0 3px rgba(255,0,0, 1);
+ 	/*border: 2px solid rgba(21,122,200, 1);*/
+ 	color: rgba(255,0,0, 1);
+}
+
+.signin-all-wrap{
+	background:url(../images/school-education.jpg) no-repeat;
+	width: 100%;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+}
+.overlay{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+.signin-all-wrap .signin-form-wrp{
+	margin: 0 auto;
+	margin-top: 15%;
+	max-width: 600px;
+	padding: 20px;
+	background-color: rgba(255,255,255,0.5);
+	border:1px solid #aaa;
+}
+.signin-form-wrp .form-head{
+	margin: 10px 0;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.form-head h3 span{
+	border-bottom: 2px solid #157AC8;
+	font-weight: 400;
+	color: #000;
+}
+form.form-signin span{
+	padding-right: 20px;
+}
+form.form-signin .form-group#user-data-grp label{
+	margin-bottom: 0;
+	color: #333;
+}
+form.form-signin .form-group#user-data-grp input{
+	width: 100%;
+	padding: 7px 12px;
+	margin-bottom: 10px;
+	background-color: rgba(255,255,255,0.5);
+	font-weight: 400;
+}
+form.form-signin .form-group#user-data-grp input[type=text] {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+}
+form.form-signin .form-group#user-data-grp input[type=text]:focus {
+  box-shadow: 0 0 5px rgba(255,173,0, 1);
+  border: 1px solid rgba(255,173,0, 1);
+}
+input#btn-signin{
+ 	margin: 0 auto;
+ 	display: block;
+ 	background-color: #FFAD00;
+ 	border: none;
+ 	padding:7px 15px;
+ 	color:#fff;
+ 	font-weight: 400;
+}
+
+/*RADIO BUTTON STYLE*/
+input[type=radio].css-checkbox {
+position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+}
+input[type=radio].css-checkbox + label.css-label {
+padding-left:24px;
+height:14px; 
+display:inline-block;
+line-height:14px;
+background-repeat:no-repeat;
+background-position: 0 0;
+font-size:14px;
+vertical-align:middle;
+cursor:pointer;
+}
+input[type=radio].css-checkbox:checked + label.css-label {
+background-position: 0 -14px;
+}
+label.css-label {
+background-image:url(../images/radiobtn.png);
+background-size: 14px;
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+/*RADIO BUTTON STYLE END*/
+
+
+
+/*=========================================================================*/
+/*=========================================================================*/
+/*=========================================================================*/
+/*=================================== USER SIGNUP PAGE*/
+/*.user-sinup-wrp*/
+/*signin-form-wrp*/
+/*form-signin*/
+/*form-usr-signup;*/
+/*user-signup-data-grp*/
+/*user-data-grp*/
+.user-sinup-wrp{
+	background:url(../images/user-singup.jpg) no-repeat;
+	width: 100%;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+}
+.overlay{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+.user-sinup-wrp .user-signup-form{
+	margin: 0 auto;
+margin-top: 15%;
+	max-width: 700px;
+	padding: 20px;
+	background-color: rgba(255,255,255,0.5);
+	border:1px solid #aaa;
+}
+.user-signup-form .form-head{
+	margin: 10px 0;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.form-head h3 span{
+	border-bottom: 2px solid #157AC8;
+	font-weight: 400;
+	color: #000;
+}
+form.form-usr-signup span{
+	padding-right: 20px;
+}
+form.form-usr-signup .form-group#user-signup-data-grp label{
+	margin-bottom: 0;
+	color: #333;
+}
+form.form-usr-signup .form-group#user-signup-data-grp input{
+	width: 100%;
+	padding: 7px 12px;
+	margin-bottom: 10px;
+	background-color: rgba(255,255,255,0.5);
+	font-weight: 400;
+}
+form.form-usr-signup .form-group#user-signup-data-grp input[type=text],input[type=password],input[type=email] {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+}
+form.form-usr-signup .form-group#user-signup-data-grp input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  box-shadow: 0 0 5px rgba(255,173,0, 1);
+  border: 1px solid rgba(255,173,0, 1);
+}
+#user-signup-data-grp input#btn-signup{
+ 	margin: 0 auto;
+ 	display: block;
+ 	background-color: #FFAD00;
+ 	border: none;
+ 	padding:7px 15px;
+ 	color:#fff;
+ 	font-weight: 400;
+ 	max-width: 150px;
+}
+
+
+
+
+/*=========================================================================*/
+/*=========================================================================*/
+/*=========================================================================*/
+/*=================================== PROVIDER SIGNUP PAGE*/
+
+.provdr-sinup-wrp{
+	background:url(../images/provider-signup.jpg) no-repeat;
+	width: 100%;
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+}
+.overlay{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+.provdr-sinup-wrp .provdr-signup-form{
+	margin: 0 auto;
+margin-top: 15%;
+	max-width: 700px;
+	padding: 20px;
+	background-color: rgba(255,255,255,0.5);
+	border:1px solid #aaa;
+}
+.provdr-signup-form .form-head{
+	margin: 10px 0;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.form-head h3 span{
+	border-bottom: 2px solid #157AC8;
+	font-weight: 400;
+	color: #000;
+}
+form.form-usr-signup span{
+	padding-right: 20px;
+}
+form.form-usr-signup .form-group#provdr-signup-data-grp label{
+	margin-bottom: 0;
+	color: #333;
+}
+form.form-usr-signup .form-group#provdr-signup-data-grp input{
+	width: 100%;
+	padding: 7px 12px;
+	margin-bottom: 10px;
+	background-color: rgba(255,255,255,0.5);
+	font-weight: 400;
+}
+form.form-usr-signup .form-group#provdr-signup-data-grp input[type=text],input[type=password],input[type=email] {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+}
+form.form-usr-signup .form-group#provdr-signup-data-grp input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  box-shadow: 0 0 5px rgba(255,173,0, 1);
+  border: 1px solid rgba(255,173,0, 1);
+}
+#provdr-signup-data-grp input#btn-signup{
+ 	margin: 0 auto;
+ 	display: block;
+ 	background-color: #FFAD00;
+ 	border: none;
+ 	padding:7px 15px;
+ 	color:#fff;
+ 	font-weight: 400;
+ 	max-width: 150px;
+}
