@@ -7,7 +7,7 @@ class Categories extends CI_Controller
 	{
 		 parent::__construct();
 		 $this->load->model('admin/admin_model');
-		  $this->load->model('admin/categories_model');
+		 $this->load->model('admin/categories_model');
 		 $this->load->view('admin/header');
 		$this->load->view('admin/leftbar');
 		$this->load->view('admin/footer');

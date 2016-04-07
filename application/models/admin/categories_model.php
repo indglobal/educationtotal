@@ -33,11 +33,11 @@ class categories_model extends CI_Controller
      {
         $this->db->select('*');
         $this->db->from('master_categories');
-        //$this->db->join('master_branch', 'pension_receipt_file_master.Branch_Code = master_branch.Branch_Code', 'inner');
-        //$this->db->where(array('pension_receipt_file_master.Branch_Code' =>1004));
         $result = $this->db->get();
         return $result->result_array();
      }
+
+
 	
 	function get_details($id)
 	{
