@@ -21,10 +21,11 @@ class Categories extends CI_Controller
      	$this->load->view('admin/dashboard');
 	}
 
-	function categories()
-	{	
-		print_r()
+	function categories_list()
+	{			
 		$data['categories']=$this->categories_model->get_categories();
+		print_r($data['categories']);
+		exit();
      	$this->load->view('admin/category/list_of_category',$data);
 	}
 
