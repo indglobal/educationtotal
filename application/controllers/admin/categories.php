@@ -6,8 +6,8 @@ class Categories extends CI_Controller
 	function __construct()
 	{
 		 parent::__construct();
-		 $this->load->model('admin/admin_model');
 		 $this->load->model('admin/categories_model');
+		  // $this->load->model('admin/admin_model');
 		 $this->load->view('admin/header');
 		$this->load->view('admin/leftbar');
 		$this->load->view('admin/footer');
@@ -22,48 +22,47 @@ class Categories extends CI_Controller
 	}
 
 	function categories_list()
-	{			
+	{	
+	//$this->load->model('admin/categories_model');		
 		$data['categories']=$this->categories_model->get_categories();
-		print_r($data['categories']);
-		exit();
      	$this->load->view('admin/category/list_of_category',$data);
 	}
 
-	function create_spe()
+	function create_cat()
 	{		
-		$this->load->view('admin/specialities/create_spe');
+		$this->load->view('admin/category/create_cat');
 	}
-
-	function edit_spe()
+   
+	function edit_cat()
 	{
-		$data['id'] = $this->uri->segment(3, 0);
-		$data['details'] = $this->admin_model->get_details($data['id']);		
-		$this->load->view('admin/specialities/create_spe',$data);
+		$data['id'] = $this->uri->segment(4,0);
+		$data['details'] = $this->categories_model->get_details($data['id']);	
+		$this->load->view('admin/category/create_cat',$data);
 	}
 
-	function update_spe()
+	function update_cat()
 	{
 		$id = $this->input->post('id');		
-		$name = $this->input->post('name');
+		$name = $this->input->post('cat_name');
 		if($id !='')
 		{
-		$this->admin_model->update_spe($name,$id);
+		$this->categories_model->update_cat($name,$id);
 		}
 		else
 		{
-		$this->admin_model->save_spe($name);			
+		$this->categories_model->save_cat($name);			
 		}
-		redirect("specialities");
+		redirect("categories");
 		
 	}
 
-	function delete_spe()
+	function delete_cat()
 	{
 		if($this->uri->segment(3, 0) != ""){
 			
-			$this->admin_model->delete_spe($this->uri->segment(3, 0));	
+			$this->categories_model->delete_cat($this->uri->segment(4, 0));	
 		}
-		redirect("specialities");
+		redirect("categories");
 	}
 
 	

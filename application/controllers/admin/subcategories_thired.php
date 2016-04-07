@@ -25,7 +25,6 @@ class Subcategories_thired extends CI_Controller
 	function subcategories_list_thired()
 	{	
 		$data['subcategories']=$this->subcategories_model_thired->get_subcategories_thired();
-		print_r($data['subcategories']);
      	$this->load->view('admin/subcategory_thired/list_of_subcategory_thired',$data);
 	}
 
