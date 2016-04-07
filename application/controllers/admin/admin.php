@@ -22,7 +22,6 @@ class Admin extends CI_Controller
 
 	function specialities()
 	{	
-		
 		$data['special']=$this->admin_model->get_specialities();
      	$this->load->view('admin/specialities/specialities',$data);
 	}

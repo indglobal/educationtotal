@@ -47,5 +47,33 @@ $route['specialities'] = "admin/admin/specialities";
 $route['create_spe'] = "admin/admin/create_spe";
 $route['update_spe'] = "admin/admin/update_spe";
 
+$route['categories'] = "admin/categories/categories_list";
+$route['create_cat'] = "admin/categories/create_cat";
+$route['update_cat'] = "admin/categories/update_cat";
+
+$route['subcategories'] = "admin/subcategories/subcategories_list";
+$route['create_subcat'] = "admin/subcategories/create_subcat";
+$route['update_subcat'] = "admin/subcategories/update_subcat";
+
+$route['subcategories_second'] = "admin/subcategories_second/subcategories_list_second";
+$route['create_subcat_second'] = "admin/subcategories_second/create_subcat_second";
+$route['update_subcat_second'] = "admin/subcategories_second/update_subcat_second";
+$route['getsubcat'] = "admin/subcategories_second/getSubcategory";
+
+
+$route['subcategories_thired'] = "admin/subcategories_thired/subcategories_list_thired";
+$route['create_subcat_thired'] = "admin/subcategories_thired/create_subcat_thired";
+$route['update_subcat_thired'] = "admin/subcategories_thired/update_subcat_thired";
+
+
+$route['getsubcat2'] = "admin/subcategories_thired/getSubcategory2";
+
+
+
+
+
+
+
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
