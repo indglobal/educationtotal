@@ -64,9 +64,31 @@ $route['getsubcat'] = "admin/subcategories_second/getSubcategory";
 $route['subcategories_thired'] = "admin/subcategories_thired/subcategories_list_thired";
 $route['create_subcat_thired'] = "admin/subcategories_thired/create_subcat_thired";
 $route['update_subcat_thired'] = "admin/subcategories_thired/update_subcat_thired";
-
-
 $route['getsubcat2'] = "admin/subcategories_thired/getSubcategory2";
+
+$route['marketing_persons'] = "admin/marketing_persons/marketing_persons_list";
+$route['create_marketing_persons'] = "admin/marketing_persons/create_marketing_persons";
+$route['update_marketing_persons'] = "admin/marketing_persons/update_marketing_persons";
+
+$route['userlist'] = "admin/userlist/list_of_user";
+$route['service_provider'] = "admin/service_provider/list_of_sp";
+
+$route['approved'] = "admin/service_provider/approved";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

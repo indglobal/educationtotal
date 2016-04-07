@@ -29,6 +29,18 @@
             <li>
          <a href="<?php echo base_url('subcategories_thired');?>"><i class="fa fa-table fa-fw"></i>Subcategories_2</a>
            </li> 
+           <li>
+         <a href="<?php echo base_url('marketing_persons');?>"><i class="fa fa-table fa-fw"></i>Marketing Person</a>
+           </li>
+
+
+           <li>
+         <a href="<?php echo base_url('userlist');?>"><i class="fa fa-table fa-fw"></i>User List</a>
+           </li>
+
+              <li>
+         <a href="<?php echo base_url('service_provider');?>"><i class="fa fa-table fa-fw"></i>Service Provider</a>
+           </li>
             
 
             <li>
