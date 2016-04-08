@@ -66,7 +66,13 @@
 						<h5>Work with us</h5>
 						<p><a href="#">Post A Add</a></p>
 						<p><a href="#">Become A vender</a></p>
+<<<<<<< HEAD
+<p><a href="<?php echo base_url();?>register_cont/provider_signup">
+Become A Service Provider
+</a></p>
+=======
 						<p><a href="#">Become Service Provider</a></p>
+>>>>>>> 2d350eb2779d0e206d980e1b86020288d28cbe51
 						<p><a href="#">Add Service Provider</a></p>
 						<p><a href="#">Grievance Redresseal</a></p>
 					</div>
@@ -122,6 +128,8 @@
 
 
 
+<<<<<<< HEAD
+=======
 <script>
 	
 $(document).ready(function(){
@@ -181,4 +189,5 @@ function formValidationSingnIn(){
 
 
 </body>
+>>>>>>> 2d350eb2779d0e206d980e1b86020288d28cbe51
 </html>

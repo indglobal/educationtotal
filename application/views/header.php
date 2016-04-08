@@ -8,6 +8,11 @@
 	<link href="<?php echo base_url();?>bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>font-awesome-4.5.0/css/font-awesome.min.css">
+<<<<<<< HEAD
+
+	
+=======
+>>>>>>> 2d350eb2779d0e206d980e1b86020288d28cbe51
 	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'> -->
 
 </head>
@@ -48,8 +53,13 @@
 						<div class="header-signin-wrp">
 							<span><a href="#">List Services</a></span>
 							<ul>
+<<<<<<< HEAD
+<li><a href="<?php echo base_url();?>register_cont/signin">Signin </a></li>
+<li><a href="<?php echo base_url();?>register_cont/user_signup"> signup </a></li>
+=======
 								<li><a href="#"> Signin </a></li>
 								<li><a href="#"> signup </a></li>
+>>>>>>> 2d350eb2779d0e206d980e1b86020288d28cbe51
 							</ul>
 						</div>
 					</article>
