@@ -31,43 +31,7 @@ class register_cont extends CI_Controller
     $this->load->view('user/user_signup.php');
     $this->load->view('footer.php');
   }
-  
-
-   public function add_sp_user()
-   {
-    $this->form_validation->set_rules('pvdrNameF', 'User Name', 'required');
-$this->form_validation->set_rules('pvdrNameL', 'User Last Name', 'required');
-$this->form_validation->set_rules('paswrd','Password','required');
-$this->form_validation->set_rules('Cpaswrd', 'Password Confirmation', 'required|matches[paswrd]');
-$this->form_validation->set_rules('pvdremail', 'E-mail', 'required');
-$this->form_validation->set_rules('pvdrMnumber', 'Mobile number', 'required|regex_match[/^[0-9]{10}$/]');
-    $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
-    if ($this->form_validation->run())
-    {
-      
-    }
-    else
-    {
-    $this->load->view('header.php');
-    $this->load->view('user/provider_signup.php');
-    $this->load->view('footer.php');
-    }
-
-
-    /*$adsp = array( 
-
-       'spfname' => $this->input->post('fc_name_sp'),
-       'splname' => $this->input->post('fc_lname_sp'),
-       'sppassword' => $this->input->post('fc_pass_sp'),
-       'spcnpassword' => $this->input->post('fc_cnpass_sp'),
-       'spemail' => $this->input->post('fc_mail_sp'),
-       'spmobno' => $this->input->post('fc_mobn_sp')
-
-                 );
-
-        $this->user_model->add_sp_mod($adsp);
-   }*/
-}
+ 
     public function add_user()
    {
   
@@ -76,8 +40,9 @@ $this->form_validation->set_rules('pvdrMnumber', 'Mobile number', 'required|rege
    $this->form_validation->set_rules('uspasw','Password','required');
    $this->form_validation->set_rules('uscnpasw', 'Password Confirmation', 'required|matches[uspasw]');
    $this->form_validation->set_rules('usemail', 'E-mail', 'required|valid_email|is_unique[user_detail.email]');
-   $this->form_validation->set_rules('usmobnum', 'Mobile number', 
-   'required|regex_match[/^[0-9]+$/]|xss_clean');
+  // $this->form_validation->set_rules('usmobnum', 'Mobile number', 'required');
+  $this->form_validation->set_rules('usmobnum', 'Mobile number', 
+  'required|regex_match[/^[0-9]+$/]|xss_clean');
     $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
     if ($this->form_validation->run())
     {
@@ -87,12 +52,15 @@ $this->form_validation->set_rules('pvdrMnumber', 'Mobile number', 'required|rege
        'lname'      => $this->input->post('usnameL'),
        'phone'      => $this->input->post('uspasw'),
        'email'      => $this->input->post('usemail'),
-       'address'    => $this->input->post('usmobnum')
+	   'password'      => $this->input->post('uspasw'),
+       'address'    => $this->input->post('usmobnum'),
+	    'user_type_id'    => $this->input->post('idtype')
                    );
-       $typeid = array ('user_type_id' => $this->input->post('idtype'));
-       $this->user_model->adduser($aduser,$typeid);
+      
+       $data['result'] = $this->user_model->adduser($aduser);
+	   
        $this->load->view('header.php');
-       $this->load->view('user/user_signup.php');
+       $this->load->view('user/home',$data);
        $this->load->view('footer.php');
     }
     else
@@ -101,32 +69,20 @@ $this->form_validation->set_rules('pvdrMnumber', 'Mobile number', 'required|rege
     $this->load->view('user/user_signup.php');
     $this->load->view('footer.php');
    }
-  //redirect('user/user_signup.php');
+  //redirect('user/index');
     }
 
-
-
-
    public function login()
-    {
-            
+    {            
     	$submitlog=$this->input->post('submit');
        
        if(isset($submitlog))
         {
- echo "user funtion is working";
       $usr=$this->input->post('uname');
       $pass=$this->input->post('pass');
-      $ulogin=array('ufname'=>$usr,'upassword'=>$pass);
-       if ($_POST['category'] == "user")
-    {
-      $rec= $this->user_model->getloginus('userreg',$ulogin);
-        }
-        else
-        {
-         $rec= $this->user_model->getloginsp('spreg',$ulogin); 
-        }
-           
+	  $category=$this->input->post('category');
+      $ulogin=array('user_name'=>$usr,'password'=>$pass,'user_type_id'=>$category);		
+	  $rec= $this->user_model->getloginus('users_table',$ulogin);           
            if(count($rec)>0)
            {
                foreach($rec as $valu)
@@ -138,10 +94,7 @@ $this->form_validation->set_rules('pvdrMnumber', 'Mobile number', 'required|rege
                redirect('register_cont/user_signup');
            }
            else
-           {
-              // $data['dt']="WRONG PASSWORD";,$data
-           //$this->load->view('register_cont/signin');
-            //redirect('register_cont/signin');
+           {             
             echo "<script>alert('WRONG PASSWORD'); </script>"; 
             redirect('register_cont/signin');
            }
@@ -159,6 +112,77 @@ $this->form_validation->set_rules('pvdrMnumber', 'Mobile number', 'required|rege
     $this->load->view('user/signin');
     $this->load->view('footer');
   }
+  
+  public function recover(){
+    //Loads the view for the recover password process.
+	$this->load->view('header');
+    $this->load->view('user/recover');
+	$this->load->view('footer');
+	}
+	
+	public function recover_password(){
+    $this->load->library('form_validation');
+    $this->form_validation->set_rules('usemail', 'Email', 'required|trim|xss_clean|callback_validate_credentials');
+		//check if email is in the database
+        if($this->user_model->email_exists()){
+            //$them_pass is the varible to be sent to the user's email 
+            $temp_pass = md5(uniqid());
+            //send email with #temp_pass as a link
+            $this->load->library('email', array('mailtype'=>'html'));
+            $this->email->from('user@yahoo.com', "Site");
+            $this->email->to($this->input->post('email'));
+            $this->email->subject("Reset your Password");
+
+            $message = "<p>This email has been sent as a request to reset our password</p>";
+            $message .= "<p><a href='".base_url()."register_cont/reset_password/$temp_pass'>Click here </a>if you want to reset your password,
+                        if not, then ignore</p>";
+						
+           // $this->email->message($message);
+		   echo $message;
+			$this->user_model->temp_reset_password($temp_pass);
+            if($this->email->send()){
+                if($this->user_model->temp_reset_password($temp_pass)){
+                    echo "check your email for instructions, thank you";
+                }
+            }
+            else{
+                echo "email was not sent, please contact your administrator";
+            }
+
+        }else{
+            echo "your email is not in our database";
+        }
+}
+
+
+public function reset_password($temp_pass){
+    if($this->user_model->is_temp_pass_valid($temp_pass)){
+		$data['temp'] = $temp_pass;
+		$this->load->view('header');
+        $this->load->view('user/reset_password',$data);
+		$this->load->view('footer');
+
+    }else{
+        echo "the key is not valid";    
+    }
+
+}
+public function update_password(){
+    $this->load->library('form_validation');
+        $this->form_validation->set_rules('uspasw', 'Password', 'required|trim');
+        $this->form_validation->set_rules('uscnpasw', 'Confirm Password', 'required|trim|matches[uspasw]');
+            if($this->form_validation->run()){
+            $update = array( 
+       'uspasw'      => $this->input->post('uspasw'),
+       'temp_pass'      => $this->input->post('temp_pass')
+                   );      
+       $data['result'] = $this->user_model->reset_pass($update);
+	   redirect('user/index');
+            }else{
+            echo "passwords do not match"; 
+			redirect('user/index');
+            }
+}
 
 
    

@@ -39,12 +39,12 @@ action="<?php echo base_url();?>register_cont/add_user" method="POST">
 <label>FIRST NAME</label>
 <input type="hidden" id="idtype" name="idtype" value="3" >
 <div>
-<input id="usnameF" name="usnameF"  type="text" placeholder="First Name">
+<input id="usnameF" name="usnameF" value="<?php if(isset($_POST['usnameF'])) echo htmlentities($_POST['usnameF']); ?>"  type="text" placeholder="First Name">
 <?php echo form_error('usnameF'); ?>
 </article>
 <article class="col-sm-6">
 <label>LAST NAME</label>
-<input id="usnameL" name="usnameL"  type="text" placeholder="Last Name">
+<input id="usnameL" name="usnameL"  value="<?php if(isset($_POST['usnameL'])) echo htmlentities($_POST['usnameL']); ?>" type="text" placeholder="Last Name">
 <?php echo form_error('usnameL'); ?>
 </article>
 </div>
@@ -52,23 +52,23 @@ action="<?php echo base_url();?>register_cont/add_user" method="POST">
 <div class="row">
 <article class="col-sm-6">
 <label>PASSWORD</label>
-<input id="uspasw" name="uspasw"  type="password" placeholder="Enter Password"><?php echo form_error('uspasw'); ?>
+<input id="uspasw" name="uspasw"  type="password" value="<?php if(isset($_POST['uspasw'])) echo htmlentities($_POST['uspasw']); ?>" placeholder="Enter Password"><?php echo form_error('uspasw'); ?>
 </article>
 <article class="col-sm-6">
 <label>CONFIRM PASSWORD</label>
-<input id="uscnpasw" name="uscnpasw" type="password" placeholder="Confirm Password"><?php echo form_error('uscnpasw');  ?>
+<input id="uscnpasw" name="uscnpasw" type="password" value="<?php if(isset($_POST['uscnpasw'])) echo htmlentities($_POST['uscnpasw']); ?>" placeholder="Confirm Password"><?php echo form_error('uscnpasw');  ?>
 </article>
 </div>
 
 <div class="row">
 <article class="col-sm-6">
 <label>EMAIL</label>
-<input id="usemail" name="usemail"  type="email" placeholder="Enter Mail">
+<input id="usemail" name="usemail"  value="<?php if(isset($_POST['usemail'])) echo htmlentities($_POST['usemail']); ?>" type="email" placeholder="Enter Mail">
 <?php echo form_error('usemail'); ?>
 </article>
 <article class="col-sm-6">
 <label>MOBILE NUMBER</label>
-<input id="usmobnum" name="usmobnum"  maxlength="10" type="text"
+<input id="usmobnum" name="usmobnum" value="<?php if(isset($_POST['usmobnum'])) echo htmlentities($_POST['usmobnum']); ?>"  maxlength="10" type="text"
  placeholder="Mobile Number"  >
 <?php echo form_error('usmobnum'); ?>
 </article>
@@ -77,6 +77,7 @@ action="<?php echo base_url();?>register_cont/add_user" method="POST">
 <input type="submit" value="SIGNUP" id="btn-signup" 
 class="user-btn">
 
+</div>
 </div>
 </form>
 

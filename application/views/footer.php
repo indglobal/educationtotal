@@ -66,13 +66,10 @@
 						<h5>Work with us</h5>
 						<p><a href="#">Post A Add</a></p>
 						<p><a href="#">Become A vender</a></p>
-<<<<<<< HEAD
+
 <p><a href="<?php echo base_url();?>register_cont/provider_signup">
 Become A Service Provider
 </a></p>
-=======
-						<p><a href="#">Become Service Provider</a></p>
->>>>>>> 2d350eb2779d0e206d980e1b86020288d28cbe51
 						<p><a href="#">Add Service Provider</a></p>
 						<p><a href="#">Grievance Redresseal</a></p>
 					</div>
@@ -128,63 +125,6 @@ Become A Service Provider
 
 
 
-<<<<<<< HEAD
-=======
-<script>
-	
-$(document).ready(function(){
-	$('.signin-form-wrp input').click(function(){
-		$('.signin-form-wrp input').removeClass('error');
-	});
-});
-
-
-function formValidationSingnIn(){
-
-	var Fname = $('#userID').val();
-	var Paswrd = $('#password').val();
-	var radioSlct = $('#').val();
-	
-	
-
-	// First Name
-	$(document).ready(function(){
-		if(Fname ==""){
-			$('#userID').addClass("error");
-			return false;
-		}else{
-			return true;
-		}
-	});
-
-	// User Name
-	$(document).ready(function(){
-		if(Paswrd ==""){
-			$('#password').addClass("error");
-			return false;
-		}else{
-			return true;
-		}
-	});
-
-	// Password
-	// $(document).ready(function(){
-	// 	if(radioSlct ==""){
-	// 		$('#paswrd').addClass("error");
-	// 		return false;
-	// 	}else{
-	// 		return true;
-	// 	}
-	// });
-
-
-
-
-		
-};
-
-
-</script>
 
 
 

@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "login";
+$route['default_controller'] = "register_cont";
 $route['404_override'] = '';
 
 //Admin
