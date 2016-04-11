@@ -36,11 +36,11 @@ action="<?php echo base_url();?>register_cont/recover_password" method="POST">
 
 <div class="row">
 
-<center><div class="row">
+<div class="row">
 <article class="col-sm-6">
-<label>EMAIL</label>
-<center><input id="usemail" name="usemail"  value="<?php if(isset($_POST['usemail'])) echo htmlentities($_POST['usemail']); ?>" type="email" placeholder="Enter Mail">
-</center>
+<h4><label class="mailtext">EMAIL</label></h4>
+ <input class="forgetmail" id="usemail" name="usemail"  value="<?php if(isset($_POST['usemail'])) echo htmlentities($_POST['usemail']); ?>" type="email" placeholder="Enter Mail">
+
 <?php echo form_error('usemail'); ?>
 </article>
 </div></center>

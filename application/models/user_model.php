@@ -70,6 +70,22 @@ public function temp_reset_password($temp_pass){
     }
 
 }
+
+    public function GetRow($keyword)
+     {        
+        $this->db->order_by('sub_cat_thired_id', 'DESC');
+        $this->db->like("subcat_thired_name", $keyword);
+        return $this->db->get('master_subcategory_thired')->result_array();
+     }
+
+     public function fetch_category()
+     {
+        $this->db->select('*');
+        $this->db->from('master_subcategory_second');
+        $query = $this->db->get();
+        return $query->result_array();
+      }
+
 public function is_temp_pass_valid($temp_pass){
     $this->db->where('password', $temp_pass);
     $query = $this->db->get('users_table');
