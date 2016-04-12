@@ -25,6 +25,7 @@ class Userlist extends CI_Controller
 	{	
 		$data['alluser']=$this->user_model->get_userlist();
 		print_r($data['alluser']);
+		exit();
      	$this->load->view('admin/user/list_of_user',$data);
 	}
 

@@ -42,6 +42,7 @@ class Marketing_persons extends CI_Controller
 	function update_marketing_persons()
 	{
 		$id = $this->input->post('id');	
+
 		if($_POST){
 		if($id !='')
 		{

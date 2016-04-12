@@ -43,11 +43,9 @@ class service_provider_model extends CI_Controller
 	
 	function get_details($id)
 	{
-		//$query=$this->db->query("select * from tbl_specialities where specialities_id='$id'");
-		//return $query->result();
+
 		$this->db->select('*');
         $this->db->from('master_categories');
-        //$this->db->join('master_branch', 'pension_receipt_file_master.Branch_Code = master_branch.Branch_Code', 'inner');
         $this->db->where(array('master_categories.cat_id' =>$id));
         $result = $this->db->get();
         return $result->result_array();
