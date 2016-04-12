@@ -9,7 +9,8 @@
 	<link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>font-awesome-4.5.0/css/font-awesome.min.css">
 	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'> -->
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -29,19 +30,27 @@
 						</div>
 					</article>
 					<article class="col-sm-6" >
-						<div class="header-serch-wrp">
-							<select style="font-family: 'FontAwesome'">
-								<option>&#xf036; All Categories</option>
-								<option>option 1</option>
-								<option>option 2</option>
-								<option>option 3</option>
-								<option>option 4</option>
-								<option>option 5</option>
-								<option>option 6</option>
+					  <div class="header-serch-wrp">
+							
+	<select id="child" style="font-family: 'FontAwesome'">
+							<option>&#xf036; All Categories</option>
+					<?php 
+                       foreach($cat as $cut){
+                     ?>
+                   
+								
+					<option value="<?php echo $cut['sub_cat_second_id'];?>">
+								<?php echo $cut['subcat_second_name'];?>
+								</option>
+							 
+                     <?php
+} ?>
+   </select>
 
-							</select>
-							<input type="text" id="serch-area" placeholder="search colleges, notes,stores..">
-							<input id="serch-btn" type="submit" value="SEARCH">
+<input type="text" id="serch_area" name="serch-area" placeholder="search colleges, notes,stores..">
+<input id="serch-btn" type="submit" value="SEARCH">
+<ul class="dropdown-menu txtcountry" style="margin-left:15px;margin-right:0px;" role="menu" aria-labelledby="dropdownMenu"  id="DropdownCountry">					
+							
 						</div>
 					</article>
 					<article class="col-sm-3" >
@@ -74,4 +83,36 @@
 
 </section><!-- full width end -->
 
+<script type="text/javascript">
 
+$(document).ready(function () {
+    $("#serch_area").keyup(function () {
+    	$.ajax({
+            type: "POST",
+            url: "<?php echo base_url();?>register_cont/GetCatename",
+            data: {
+                cat_id: $("#child").val(),
+                keyword: $("#serch_area").val()
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data.length > 0) {
+                    $('#DropdownCountry').empty();
+                    $('#serch_area').attr("data-toggle", "dropdown");
+                    $('#DropdownCountry').dropdown('toggle');
+                }
+                else if (data.length == 0) {
+                    $('#serch_area').attr("data-toggle", "");
+                }
+                $.each(data, function (key,value) {
+                    if (data.length >= 0)
+                        $('#DropdownCountry').append('<li role="presentation" >' + value['subcat_thired_name'] + '</li>');
+                });
+            }
+        });
+    });
+    $('ul.txtcountry').on('click', 'li a', function () {
+        $('#serch_area').val($(this).text());
+    });
+});
+</script>

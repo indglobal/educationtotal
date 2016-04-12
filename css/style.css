@@ -549,3 +549,12 @@ form.form-usr-signup .form-group#provdr-signup-data-grp input[type=text]:focus, 
  	font-weight: 400;
  	max-width: 150px;
 }
+.forgetmail
+{
+	margin-left: 51%;
+}
+.mailtext
+{
+margin-left: 95%;
+}
+}
