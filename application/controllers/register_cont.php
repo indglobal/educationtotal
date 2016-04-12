@@ -18,7 +18,7 @@ class register_cont extends CI_Controller
 	{
 		
     
-    $catesecond['cat']=$this->user_model->fetch_category();
+    $catesecond['cat']=$this->user_model->fetch_category(); 
     $this->load->view('header.php',$catesecond);
 		$this->load->view('user/signin.php');
 		$this->load->view('footer.php');
