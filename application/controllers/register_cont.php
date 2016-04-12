@@ -47,12 +47,11 @@ class register_cont extends CI_Controller
     if ($this->form_validation->run())
     {
        $aduser = array( 
-
        'fname'      => $this->input->post('usnameF'),
        'lname'      => $this->input->post('usnameL'),
        'phone'      => $this->input->post('uspasw'),
        'email'      => $this->input->post('usemail'),
-	   'password'      => $this->input->post('uspasw'),
+	     'password'      => $this->input->post('uspasw'),
        'address'    => $this->input->post('usmobnum'),
 	    'user_type_id'    => $this->input->post('idtype')
                    );
@@ -80,9 +79,9 @@ class register_cont extends CI_Controller
         {
       $usr=$this->input->post('uname');
       $pass=$this->input->post('pass');
-	  $category=$this->input->post('category');
+	    $category=$this->input->post('category');
       $ulogin=array('user_name'=>$usr,'password'=>$pass,'user_type_id'=>$category);		
-	  $rec= $this->user_model->getloginus('users_table',$ulogin);           
+	    $rec= $this->user_model->getloginus('users_table',$ulogin);           
            if(count($rec)>0)
            {
                foreach($rec as $valu)
@@ -90,8 +89,10 @@ class register_cont extends CI_Controller
                    $iid=$valu['usid'];
                }
                $S_A=array('UN'=>$usr,'IID'=>$iid);
-               $this->session->set_userdata($S_A);
-               redirect('register_cont/user_signup');
+               // $this->session->set_userdata($S_A);
+               //redirect('register_cont/user_signup');
+               $this->session->set_userdata('is_userlogged_in', $S_A);
+               redirect('user/user_panel');
            }
            else
            {             
