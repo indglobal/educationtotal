@@ -71,9 +71,10 @@ public function temp_reset_password($temp_pass){
 
 }
 
-    public function GetRow($keyword)
+    public function GetRow($keyword,$cat_id)
      {        
         $this->db->order_by('sub_cat_thired_id', 'DESC');
+        $this->db->where("sub_cat_second_id", $cat_id);
         $this->db->like("subcat_thired_name", $keyword);
         return $this->db->get('master_subcategory_thired')->result_array();
      }
@@ -94,20 +95,43 @@ public function is_temp_pass_valid($temp_pass){
     }
     else return FALSE;
 }
-public function reset_pass($value){
+public function reset_pass($value)
+{
     $data =array(
                 'password' =>$this->input->post('uspasw'));
                 $temp_pass = $value['temp_pass'];
 
-    if($data){
+    if($data)
+    {
         $this->db->where('password', $temp_pass);
         $this->db->update('users_table', $data);  
         return TRUE;
-    }else{
+    }
+    else
+    {
         return FALSE;
     }
-
 }	
+
+public function ratingfunction_mod ($adrate)
+   {
+    $insert = $this->db->insert('tbl_rating',$adrate);
+    return $insert;
+   }
+
+public function avrage_rate_mod()
+{
+  $this->db->select_avg('rate');
+  $query = $this->db->get('tbl_rating');
+  return $query->result_array();
+
+
+}
+
+
+
+
+
 
   } 
   ?>

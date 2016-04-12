@@ -26,15 +26,17 @@ class register_cont extends CI_Controller
 
   public function provider_signup()
   {
-    $this->load->view('header.php');
     $catesecond['cat']=$this->user_model->fetch_category();
+    $this->load->view('header.php');
+    
     $this->load->view('user/provider_signup.php');
     $this->load->view('footer.php');
   }
   public function user_signup()
   {
-    $this->load->view('header.php');
     $catesecond['cat']=$this->user_model->fetch_category();
+    $this->load->view('header.php');
+   
     $this->load->view('user/user_signup.php');
     $this->load->view('footer.php');
   }
@@ -65,7 +67,7 @@ class register_cont extends CI_Controller
                    );
       
        $data['result'] = $this->user_model->adduser($aduser);
-	   
+	     $catesecond['cat']=$this->user_model->fetch_category();
        $this->load->view('header.php');
        $catesecond['cat']=$this->user_model->fetch_category();
        $this->load->view('user/home',$data);
@@ -121,8 +123,9 @@ class register_cont extends CI_Controller
     }
     else
     {
-    $this->load->view('header');
     $catesecond['cat']=$this->user_model->fetch_category();
+    $this->load->view('header');
+    
     $this->load->view('user/signin');
     $this->load->view('footer');
    }
@@ -141,9 +144,9 @@ class register_cont extends CI_Controller
   
   public function recover(){
     //Loads the view for the recover password process.
-	$this->load->view('header');
-  $catesecond['cat']=$this->user_model->fetch_category();
-    $this->load->view('user/recover');
+	$catesecond['cat']=$this->user_model->fetch_category();
+  $this->load->view('header');
+  $this->load->view('user/recover');
 	$this->load->view('footer');
 	}
 	
@@ -188,8 +191,9 @@ public function reset_password($temp_pass){
 
     if($this->user_model->is_temp_pass_valid($temp_pass)){
 		$data['temp'] = $temp_pass;
-		$this->load->view('header');
     $catesecond['cat']=$this->user_model->fetch_category();
+		$this->load->view('header');
+   
         $this->load->view('user/reset_password',$data);
 		$this->load->view('footer');
 
@@ -217,18 +221,42 @@ public function update_password(){
 public function test()
 {
   //$this->load->view('header');
-  $catesecond['cat']=$this->user_model->fetch_category();
+  $catesecond['cat']=$this->user_model->avrage_rate_mod();
     $this->load->view('test',$catesecond);
         
+
     //$this->load->view('footer');
+}
+public function resulttest()
+{
+
+  $catesecond['cat']=$this->user_model->avrage_rate_mod();
+  $this->load->view('resulttest',$catesecond);
+
 }
 public function GetCatename()
    {
         $keyword=$this->input->post('keyword');
-        $data=$this->user_model->GetRow($keyword);        
+        $cat_id=$this->input->post('cat_id');
+        $data=$this->user_model->GetRow($keyword,$cat_id);        
         echo json_encode($data);
     }
 
+public function ratingfunction()
+{
+      //print_r($_POST);
+    $adrate= array( 
+
+       'rate' => $this->input->post('fc_rating'));
+
+        $this->user_model->ratingfunction_mod($adrate);
+       
+   }
+
+  
 
 }
 ?>
+
+
+

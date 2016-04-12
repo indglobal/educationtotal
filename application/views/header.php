@@ -87,11 +87,12 @@
 
 $(document).ready(function () {
     $("#serch_area").keyup(function () {
-        $.ajax({
+    	$.ajax({
             type: "POST",
             url: "<?php echo base_url();?>register_cont/GetCatename",
             data: {
-                keyword: $("#child").val()
+                cat_id: $("#child").val(),
+                keyword: $("#serch_area").val()
             },
             dataType: "json",
             success: function (data) {
