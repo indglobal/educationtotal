@@ -8,26 +8,35 @@ class register_cont extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('user_model');
+
     $this->load->library('form_validation');
+    
 		$autoload['helper'] = array('url');
 	}
 
 	public function index()
 	{
-		$this->load->view('header.php');
+		
+    
+    $catesecond['cat']=$this->user_model->fetch_category(); 
+    $this->load->view('header.php',$catesecond);
 		$this->load->view('user/signin.php');
 		$this->load->view('footer.php');
 	}
 
   public function provider_signup()
   {
+    $catesecond['cat']=$this->user_model->fetch_category();
     $this->load->view('header.php');
+    
     $this->load->view('user/provider_signup.php');
     $this->load->view('footer.php');
   }
   public function user_signup()
   {
+    $catesecond['cat']=$this->user_model->fetch_category();
     $this->load->view('header.php');
+   
     $this->load->view('user/user_signup.php');
     $this->load->view('footer.php');
   }
@@ -37,7 +46,7 @@ class register_cont extends CI_Controller
   
    $this->form_validation->set_rules('usnameF', 'User Name', 'required');
    $this->form_validation->set_rules('usnameL', 'User Last Name', 'required');
-   $this->form_validation->set_rules('uspasw','Password','required');
+   $this->form_validation->set_rules('uspasw','Password','required|max_length[20]|min_length[6]|alpha_numeric');
    $this->form_validation->set_rules('uscnpasw', 'Password Confirmation', 'required|matches[uspasw]');
    $this->form_validation->set_rules('usemail', 'E-mail', 'required|valid_email|is_unique[user_detail.email]');
   // $this->form_validation->set_rules('usmobnum', 'Mobile number', 'required');
@@ -57,18 +66,23 @@ class register_cont extends CI_Controller
                    );
       
        $data['result'] = $this->user_model->adduser($aduser);
-	   
+	     $catesecond['cat']=$this->user_model->fetch_category();
        $this->load->view('header.php');
+       $catesecond['cat']=$this->user_model->fetch_category();
        $this->load->view('user/home',$data);
        $this->load->view('footer.php');
     }
     else
     {
-    $this->load->view('header.php');
-    $this->load->view('user/user_signup.php');
-    $this->load->view('footer.php');
-   }
-  //redirect('user/index');
+      
+      $this->load->view('header.php');
+      $catesecond['cat']=$this->user_model->fetch_category();
+        if ($this->input->post('idtype')==3) 
+          $this->load->view('user/user_signup.php');
+       else 
+          $this->load->view('user/provider_signup.php');
+          $this->load->view('footer.php');
+     }
     }
 
    public function login()
@@ -77,11 +91,24 @@ class register_cont extends CI_Controller
        
        if(isset($submitlog))
         {
+//checking validation
+  
+   $this->form_validation->set_rules('uname', 'User Name', 'required');
+   $this->form_validation->set_rules('pass', 'Password', 'required');
+   $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+    if ($this->form_validation->run())
+    {
       $usr=$this->input->post('uname');
       $pass=$this->input->post('pass');
+<<<<<<< HEAD
 	    $category=$this->input->post('category');
       $ulogin=array('user_name'=>$usr,'password'=>$pass,'user_type_id'=>$category);		
 	    $rec= $this->user_model->getloginus('users_table',$ulogin);           
+=======
+    $category=$this->input->post('category');
+      $ulogin=array('user_name'=>$usr,'password'=>$pass,'user_type_id'=>$category);   
+    $rec= $this->user_model->getloginus('users_table',$ulogin);           
+>>>>>>> 3bbc494bfecd0b6f34a902e4bdce4249d6406eaa
            if(count($rec)>0)
            {
                foreach($rec as $valu)
@@ -99,10 +126,18 @@ class register_cont extends CI_Controller
             echo "<script>alert('WRONG PASSWORD'); </script>"; 
             redirect('register_cont/signin');
            }
-    }
 
-   
-	     }
+    }
+    else
+    {
+    $catesecond['cat']=$this->user_model->fetch_category();
+    $this->load->view('header');
+    
+    $this->load->view('user/signin');
+    $this->load->view('footer');
+   }
+  }
+ }
       
 
 
@@ -116,16 +151,19 @@ class register_cont extends CI_Controller
   
   public function recover(){
     //Loads the view for the recover password process.
-	$this->load->view('header');
-    $this->load->view('user/recover');
+	$catesecond['cat']=$this->user_model->fetch_category();
+  $this->load->view('header');
+  $this->load->view('user/recover');
 	$this->load->view('footer');
 	}
 	
 	public function recover_password(){
+
     $this->load->library('form_validation');
     $this->form_validation->set_rules('usemail', 'Email', 'required|trim|xss_clean|callback_validate_credentials');
 		//check if email is in the database
-        if($this->user_model->email_exists()){
+        if($this->user_model->email_exists())
+        {
             //$them_pass is the varible to be sent to the user's email 
             $temp_pass = md5(uniqid());
             //send email with #temp_pass as a link
@@ -157,14 +195,17 @@ class register_cont extends CI_Controller
 
 
 public function reset_password($temp_pass){
+
     if($this->user_model->is_temp_pass_valid($temp_pass)){
 		$data['temp'] = $temp_pass;
+    $catesecond['cat']=$this->user_model->fetch_category();
 		$this->load->view('header');
+   
         $this->load->view('user/reset_password',$data);
 		$this->load->view('footer');
 
     }else{
-        echo "the key is not valid";    
+        echo "The key is not valid";    
     }
 
 }
@@ -184,13 +225,45 @@ public function update_password(){
 			redirect('user/index');
             }
 }
+public function test()
+{
+  //$this->load->view('header');
+  $catesecond['cat']=$this->user_model->avrage_rate_mod();
+    $this->load->view('test',$catesecond);
+        
 
+    //$this->load->view('footer');
+}
+public function resulttest()
+{
 
-   
+  $catesecond['cat']=$this->user_model->avrage_rate_mod();
+  $this->load->view('resulttest',$catesecond);
 
+}
+public function GetCatename()
+   {
+        $keyword=$this->input->post('keyword');
+        $cat_id=$this->input->post('cat_id');
+        $data=$this->user_model->GetRow($keyword,$cat_id);        
+        echo json_encode($data);
+    }
 
+public function ratingfunction()
+{
+      //print_r($_POST);
+    $adrate= array( 
 
+       'rate' => $this->input->post('fc_rating'));
 
+        $this->user_model->ratingfunction_mod($adrate);
+       
+   }
+
+  
 
 }
 ?>
+
+
+

@@ -17,7 +17,7 @@ method="POST" >
 
 <div class="form-group" id="radio-grp">
 <span class="radio-usr">
-<input type="radio" checked="checked" name="category" value="3" id="radio3" class="css-checkbox"required />
+<input type="radio" checked="checked" name="category" value="3" id="radio3" class="css-checkbox" />
 <label for="radio3" class="css-label radGroup1">USER</label>
 </span>
 
@@ -30,9 +30,12 @@ method="POST" >
 
 <div class="form-group" id="user-data-grp">
 <label>USER NAME</label>
-<input id="userID" type="text" required name="uname" placeholder="User Name">
+<input id="userID" type="text"  name="uname"
+value="<?php if(isset($_POST['uname'])) echo htmlentities($_POST['uname']); ?>" placeholder="User Name">
+<?php echo form_error('uname'); ?>
 <label>PASSWORD</label>
-<input id="password" type="text" required name="pass" placeholder="Password">
+<input id="password" type="text"  name="pass" placeholder="Password">
+<?php echo form_error('pass'); ?>
 </div>
 
 <input type="submit" name="submit" value="SIGNIN" id="btn-signin">
