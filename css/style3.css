@@ -1,0 +1,116 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font-size: 14px;
+	font-family: Arial;
+}
+.thebread .breadcrumb{
+    padding: 8px 15px;
+    margin-bottom: 7px;
+    list-style: none;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+.container {
+    width: 1170px;
+}
+.container.maincontent {
+    position: relative;
+    margin-top: -310px;
+}
+.main_info {
+    margin-top: 215px;
+}
+.attachment-small.wp-post-image {
+    width: 150px;
+    height: 150px;
+}
+.header-img > img {
+    width: 100%;
+}
+img {
+    vertical-align: middle;
+}
+.sitename h2{
+	margin-top: 29px;
+	margin-left: 0px;
+	color: #ffffff;
+	font-size: 20px;
+}
+.sitename span{
+	color: #ffffff;
+	
+}
+.detailed_info{
+	margin-top: 30px;
+	font-weight: normal;
+	color: #ffffff;
+}
+.detailed_info > span {
+    margin-left: 10px;
+    margin-right: 8px;
+	font-weight: normal;
+    color: #fff;
+}
+#post-ratings-163 em {
+    display: inline;
+    margin-left: 14px;
+    color: #000;
+    font-weight: bold;
+}
+.links {
+    background: #ebebeb none repeat scroll 0 0;
+    margin-top: 25px;
+    overflow: hidden;
+    padding: 11px 0;
+}
+.links > li {
+    float: left;
+    list-style: outside none none;
+    padding: 0 19px;
+    text-decoration: none;
+    font-size: 13px;
+
+}
+.links a {
+    color: #707070;
+    text-decoration: none;
+}
+.abut_sec h2 {
+    border-bottom: 2px solid #dfdfdf;
+    color: #015786;
+    font-size: 20px;
+    padding-bottom: 18px;
+}
+.wr-megamenu-container.primary_324 {background: #000 !important;}.primary_324 .wr-mega-menu > li:hover > a, .primary_324 .wr-mega-menu > li.focus > a {background: #1cba70 !important;}.primary_324 .wr-mega-menu > li > a > i, .primary_324 .wr-mega-menu .sub-menu a i {display:none !important;}.primary_324 .wr-mega-menu > li > a > i {font-size: 16px !important;}
+.col-sm-3.rigt_side {
+    margin-top: 31px;
+}
+.rigt_side > a {
+    background: rgba(0, 0, 0, 0) url("../images/color.png") repeat scroll 0 0;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 18px;
+    padding: 11px 40px;
+}
+.rigt_side > a:hover{
+	text-decoration: none;
+	opacity: .7;
+}
+#widget-area ul li{
+	 list-style-type: none;
+
+}
+#widget-area ul li a {
+    border-bottom: 1px solid;
+    display: block;
+    padding-top: 9px;
+    padding-bottom: 9px;
+   text-decoration: none;
+}
+#recent-posts-2 a {
+    color: #6d6d6d;
+    
+}
