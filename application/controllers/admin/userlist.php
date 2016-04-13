@@ -7,7 +7,7 @@ class Userlist extends CI_Controller
 	{
 		 parent::__construct();
 		 $this->load->model('admin/user_model');
-		  // $this->load->model('admin/admin_model');
+		 // $this->load->model('admin/admin_model');
 		 $this->load->view('admin/header');
 		$this->load->view('admin/leftbar');
 		$this->load->view('admin/footer');
@@ -17,14 +17,13 @@ class Userlist extends CI_Controller
 
 	function index()
 	{
-		
      	$this->load->view('admin/dashboard');
 	}
 
 	function list_of_user()
 	{	
+	
 		$data['alluser']=$this->user_model->get_userlist();
-		print_r($data['alluser']);
      	$this->load->view('admin/user/list_of_user',$data);
 	}
 
@@ -37,7 +36,6 @@ class Userlist extends CI_Controller
 	{
 		$data['id'] = $this->uri->segment(4,0);
 		$data['details'] = $this->marketing_persons_model->get_details($data['id']);
-		print_r($data['details']);
 		$this->load->view('admin/marketing_persons/create_marketing_persons',$data);
 	}
 

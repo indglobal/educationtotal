@@ -29,8 +29,8 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         <div class="box-header">
-                        <h3 class="box-title"><div> <a href="<?php echo base_url('create_cat'); ?>"><button class='btn btn-success'>Add Categories</button></a></h3>
-                    </div>
+<!--                         <h3 class="box-title"><div> <a href="<?php echo base_url('create_cat'); ?>"><button class='btn btn-success'>Add Categories</button></a></h3>
+ -->                    </div>
                     <div class="dataTable_wrapper">
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
@@ -46,11 +46,11 @@
                      <?php if(count($allservice_provider)>0):  ?>
                     <?php foreach($allservice_provider as $val): 
                     $status =$val['status'];
-                    $id=$val['id'];
+                    $id=$val['user_id'];
                     ?>
                     <tr>   
 
-                    <td id="id_<?php echo $id;?>"><?php echo $val['id'];?></td>
+                    <td id="id_<?php echo $id;?>"><?php echo $val['user_id'];?></td>
                     <td><?php echo $val['fname'];?></td>
                     <td><?php echo $val['phone'];?></td>
                     <td><?php echo $val['email'];?></td>

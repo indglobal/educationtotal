@@ -31,9 +31,20 @@ class user_model extends CI_Controller
 
 	 function get_userlist()
      {
+        // $this->db->select('user_detail_id');
+        // $this->db->from('user_detail');
+        // // $this->db->join('users_table', 'users_table.id = user_detail.id', 'inner');
+        // // $this->db->where(array('users_table.user_type_id' =>3));
+        // // $result = $this->db->get();
+        // // return $result->result_array();
+        // //$last_id = $this->db->insert_id();
+        // $id = $this->db->mysqli_insert_id();
+
+        // return $id; 
+
         $this->db->select('*');
         $this->db->from('user_detail');
-        $this->db->join('users_table', 'users_table.id = user_detail.id', 'inner');
+        $this->db->join('users_table', 'users_table.user_id = user_detail.user_id', 'inner');
         $this->db->where(array('users_table.user_type_id' =>3));
         $result = $this->db->get();
         return $result->result_array();
@@ -43,11 +54,8 @@ class user_model extends CI_Controller
 	
 	function get_details($id)
 	{
-		//$query=$this->db->query("select * from tbl_specialities where specialities_id='$id'");
-		//return $query->result();
 		$this->db->select('*');
         $this->db->from('master_categories');
-        //$this->db->join('master_branch', 'pension_receipt_file_master.Branch_Code = master_branch.Branch_Code', 'inner');
         $this->db->where(array('master_categories.cat_id' =>$id));
         $result = $this->db->get();
         return $result->result_array();

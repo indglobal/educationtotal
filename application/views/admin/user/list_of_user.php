@@ -46,7 +46,7 @@
                      <?php if(count($alluser)>0):  ?>
                     <?php foreach($alluser as $val): ?>
                     <tr>   
-                    <td><?php echo $val['id'];?></td>
+                    <td><?php echo $val['user_id'];?></td>
                     <td><?php echo $val['fname'];?></td>
                     <td><?php echo $val['phone'];?></td>
                     <td><?php echo $val['email'];?></td>

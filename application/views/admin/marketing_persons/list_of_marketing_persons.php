@@ -47,12 +47,12 @@
                     <?php foreach($allmarketing_persons as $val): ?>
                     <tr>   
 
-                    <td><?php echo $val['id'];?></td>
+                    <td><?php echo $val['user_id'];?></td>
                     <td><?php echo $val['fname'].' '.$val['lname'];?></td>
                     <td><?php echo $val['phone'];?></td>
                     <td><?php echo $val['email'];?></td>
                     <td>
-                    <a href="<?php echo base_url(); ?>admin/marketing_persons/edit_marketing_persons/<?php echo $val['id']; ?>" class="btn btn-info">Edit</a>
+                    <a href="<?php echo base_url(); ?>admin/marketing_persons/edit_marketing_persons/<?php echo $val['user_id']; ?>" class="btn btn-info">Edit</a>
 <!--                     <a href="<?php echo base_url(); ?>admin/marketing_persons/delete_marketing_persons/<?php echo $val['id']; ?>" class="btn btn-danger" onclick = "return delConfirm()">Delete</a>
  -->                    </td></tr>
                     <?php endforeach;?>
