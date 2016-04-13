@@ -78,9 +78,10 @@ class subcategories_model extends CI_Controller
 		
 	}
 
-	function delete_cat($id)
+	function delete_subcat($id)
 	{
-		$this->db->delete('master_categories', array('cat_id' => $id));
+		
+		$this->db->delete('master_subcategory', array('subcat_id' => $id));
 	}
 
 	

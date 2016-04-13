@@ -61,13 +61,13 @@ class Subcategories extends CI_Controller
 		
 	}
 
-	function delete_cat()
+	function delete_subcat()
 	{
 		if($this->uri->segment(4, 0) != ""){
 			
-			$this->categories_model->delete_cat($this->uri->segment(4, 0));	
+			$this->subcategories_model->delete_subcat($this->uri->segment(4, 0));	
 		}
-		redirect("categories");
+		redirect("subcategories");
 	}
 
 	

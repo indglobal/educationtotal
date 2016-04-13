@@ -43,10 +43,6 @@
            </li>
             
 
-            <li>
-                <a href="<?php echo base_url('specialities');?>"><i class="fa fa-table fa-fw"></i> Specialities</a>
-            </li> 
-			
                                             
         </ul>
     </div>
