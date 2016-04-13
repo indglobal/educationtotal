@@ -15,9 +15,7 @@ class register_cont extends CI_Controller
 	}
 
 	public function index()
-	{
-		
-    
+	{    
     $catesecond['cat']=$this->user_model->fetch_category(); 
     $this->load->view('header.php',$catesecond);
 		$this->load->view('user/signin.php');
@@ -100,15 +98,9 @@ class register_cont extends CI_Controller
     {
       $usr=$this->input->post('uname');
       $pass=$this->input->post('pass');
-<<<<<<< HEAD
-	    $category=$this->input->post('category');
-      $ulogin=array('user_name'=>$usr,'password'=>$pass,'user_type_id'=>$category);		
-	    $rec= $this->user_model->getloginus('users_table',$ulogin);           
-=======
     $category=$this->input->post('category');
       $ulogin=array('user_name'=>$usr,'password'=>$pass,'user_type_id'=>$category);   
-    $rec= $this->user_model->getloginus('users_table',$ulogin);           
->>>>>>> 3bbc494bfecd0b6f34a902e4bdce4249d6406eaa
+    $rec= $this->user_model->getloginus('users_table',$ulogin);     
            if(count($rec)>0)
            {
                foreach($rec as $valu)
