@@ -76,6 +76,14 @@ $route['service_provider'] = "admin/service_provider/list_of_sp";
 $route['approved'] = "admin/service_provider/approved";
 
 
+$route['service/add_service'] = "service/service/add_service";
+$route['sub_menu/(:num)'] = "service/service/sub_menu/$1";
+$route['get_category/(:num)'] = "service/service/get_category/$1";
+$route['get_sub_category/(:num)'] = "service/service/get_sub_category/$1";
+$route['regular_playschool'] = "service/service/regular_playschool";
+$route['save_service'] = "service/service/save_service";
+
+
 
 
 

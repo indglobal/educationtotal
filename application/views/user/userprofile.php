@@ -687,7 +687,15 @@
 								  	</div>
 								  	<div class="row edit_about">
 								  		<div class="col-sm-12">
+<<<<<<< HEAD
 									  		<h2><i class="fa fa-user"></i>About</h2>
+=======
+<<<<<<< HEAD
+									  		<h2><i class="fa fa-user"></i>About</h2>
+=======
+									  		<h2><i class="fa fa-user"></i>Abou</h2>
+>>>>>>> 3bbc494bfecd0b6f34a902e4bdce4249d6406eaa
+>>>>>>> d79b8d3faf61b1ee05af03dc26c95477c971e1cf
 									  		<div class="border"></div>
 								  		</div>
 <!-- 							  		<form class="myForm" method="post" action="">
