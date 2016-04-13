@@ -14,14 +14,7 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= "";
-<<<<<<< HEAD
-$config['base_url'] = 'http://localhost/educationtotal/';
-=======
-$config['base_url'] = '';
-//$config['base_url'] = 'http://localhost:/educationtotal/';
->>>>>>> 8a9ba4288421dab5185d5a647bf88fa52fa7f742
-
+$config['base_url']	= "";
 
 /*
 |--------------------------------------------------------------------------

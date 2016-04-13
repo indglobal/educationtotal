@@ -6,6 +6,7 @@ class Service extends CI_Controller
 	function __construct()
 	{
 		 parent::__construct();
+     $this->load->model('user_model');
 		 $this->load->model('service/service_model');
 		// $this->load->view('admin/header');
 		//$this->load->view('admin/leftbar');
@@ -14,38 +15,44 @@ class Service extends CI_Controller
 		//return	redirect('admin/login/index');
 	}
 
-	// function index()
-	// {
-	// 	$data['menu']=$this->demo_model->get_menu();
- //     	$this->load->view('demo/demo_view',$data);
-	// }
 
   function search_result()
   {
-    //echo "<pre>";print_r($_POST['category']);die();
     
     $level3_id  = $_POST['category'];
-   $level4_id = $_POST['sub_cat'];
-    
+    $level4_id = $_POST['sub_cat'];
+
+    //echo "<pre>";print_r($_POST);
+   // echo "cat".$level3_id;
+   // echo "sub_cat".$level4_id;
+
     $data['result'] = $this->service_model->get_search_result($level3_id,$level4_id);
 
-echo "<pre>";
-print_r($data['result']);
-die();
-     // $data['menu']=$this->service_model->get_menu();
+  //  echo "<pre>";print_r($data['result']);die();
       $this->load->view('service/search_result',$data);
+  }
+
+  function search_result_service($id)
+  {
+    //echo $id;
+    $data['result'] = $this->service_model->get_service($id);
+
+   // echo "<pre>";print_r($data['result']);die();
+    $this->load->view('service/service',$data);
+
   }
 
 	function add_service()
 	{
 		  $data['menu']=$this->service_model->get_menu();
      	$this->load->view('service/add_service',$data);
+      $data['cat']=$this->user_model->fetch_category();
+      $this->load->view('header',$data);
 	}
 
 	function save_service()
 	{
 		//echo "<pre>";print_r($_POST);die();
-
 		if(isset($_POST['user_id']))
 	   {
 	   	$user_id = $_POST['user_id'];
@@ -123,14 +130,16 @@ die();
        		$board = $_POST['board'];
         }
         if(!empty($_FILES['logo'])){
-			 // $logo_name	= $_FILES['logo']['name'];
-			 // $logo_image 	=	"dist/service_images/".$logo_name;
-			 // copy($_FILES['logo']['tmp_name'],$logo_image );			
+          $logo_name  = strtotime(Date('Y-m-d h:i:s')).$_FILES['logo']['name'];
+          $logo_image   = "dist/service_images/".$logo_name;
+          copy($_FILES['logo']['tmp_name'],$logo_image );
+          chmod(base_url(). $logo_image , 0777);     
         }
         if(!empty($_FILES['profile_image'])){
-       		 // $profile_name	= $_FILES['profile_image']['name'];
-			 // $profile_image 	=	"dist/service_images/".$profile_name;
-			//  copy($_FILES['logo']['tmp_name'],$profile_image );
+       		 $profile_name	=  strtotime(Date('Y-m-d h:i:s')).$_FILES['profile_image']['name'];
+			     $profile_image 	=	"dist/service_images/".$profile_name;
+			     copy($_FILES['profile_image']['tmp_name'],$profile_image );
+           chmod(base_url(). $profile_image, 0777);
         }
         if(!empty($_POST['website'])){
        		$website = $_POST['website'];
@@ -165,8 +174,8 @@ die();
 				'year_established' => $year_established,
 				'days_open'=> $days_open,
 				'board' => $board,
-				//'logo' =>  $logo_image ,
-				//'profile_image' => $profile_image,
+				'logo' =>  $logo_image ,
+				'profile_image' => $profile_image,
 				'website' => $website,
 				'about_school' => $about_school,
 				'ownership_type' => $ownership_type,
@@ -388,7 +397,7 @@ die();
    		$options = $this->service_model->get_sub_category($id);
 		$result = '<option value="" selected="selected">Select sub categories</option>';
 		foreach ($options as $key => $value) {
-			$result.='<option value="'.$value->sub_cat_second_id.'">'.$value->subcat_thired_name.'</option>';
+			$result.='<option value="'.$value->sub_cat_thired_id.'">'.$value->subcat_thired_name.'</option>';
 		}
 		echo $result;
    	}

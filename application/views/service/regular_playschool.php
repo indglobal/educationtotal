@@ -40,8 +40,6 @@
 			<input type="text" name="year_established" placeholder="Year established">
 	    </div>
 
-	    
-
 	    <div class="form-group"> 
 	       <input type="text"name="days_open" placeholder="Days Open">
 	    </div>
@@ -52,12 +50,14 @@
 
 	    <div class="form-group"> 
 	    	<label>Logo</label>
-			<input type="file" name="logo[]" >
-	    </div>
+	    	    <input type="file" id="logo" name="logo" >
+	    		<img style="display:;width:30%;display:none;" id="logo_preview" src="#" alt="your image" />	
+		</div>
 
 	    <div class="form-group"> 
 	    	<label>Image for profile</label>
-			<input type="file" name="profile_image[]" >
+			<input type="file" id="profile_image" name="profile_image" >
+	        <img style="display:;width:30%;display:none;" id="profile_preview" src="#" alt="your image" />   
 	    </div>
 
 	     <div class="form-group"> 
@@ -182,25 +182,36 @@
 
 	    <div class="form-group"> 
 			<label for="file">Image</label>
-            <input type="file" name="images[]" id="file">
-	    </div>
+            <input type="file"  id="gallery_video" name="gallery_video" >
+            <!--video style="display:;" id="gallery_vpreview" width="320" height="240"alt="your image" controls>
+                <source src="#" type="video/mp4">
+                <source src="#" type="video/webm"/>
+                <source src="#" type="video/ogg">
+            </video-->
+		</div>		
+
+                
 
 	    <div class="form-group"> 
 			<label for="file">Campus</label>
-            <input type="file" name="campus[]" id="file">	
+            <input type="file" name="gallery_campus" >	
 	    </div>
 
 	    <div class="form-group"> 
 			<label for="file">Classrooms</label>
-            <input type="file" name="classrooms[]" id="file">
+            <input type="file" name="gallery_classrooms">
 	    </div>
 
 	    <div class="form-group"> 
-    		<input type="text"  placeholder="sports">
+	    	<label for="file">sports</label>
+            <input type="file" name="gallery_sports">
+    		<!-- <input type="text"  placeholder="sports"> -->
 	    </div>
 	    
 	    <div class="form-group"> 
-			<input type="text"  placeholder="Transportation">
+	    	<label for="file">Transportation</label>
+            <input type="file" name="gallery_transportation">
+			<!-- <input type="text"  placeholder="Transportation"> -->
 	    </div> 
 
 	    <div class="form-head">
@@ -271,3 +282,54 @@
 
     
 </div>
+
+<script type="text/javascript">
+	$(function () {
+    $("#logo").change(function () {
+    	alert();
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded1;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
+function imageIsLoaded1(e) {
+		 $('#logo_preview').show();
+    $('#logo_preview').attr('src', e.target.result);
+};
+</script>
+<script type="text/javascript">
+$(function () {
+    $("#profile_image").change(function () {
+    	
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
+function imageIsLoaded(e) {
+		 $('#profile_preview').show();
+    $('#profile_preview').attr('src', e.target.result);
+};
+
+	$(function () {
+    $("#gallery_video").change(function () {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = videoIsLoaded3;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
+
+function videoIsLoaded3(e) {
+	// $('#myImg').show();
+	// $('#myVideo').show();
+	
+    $('#gallery_vpreview').attr('src', e.target.result);
+};
+
+</script>

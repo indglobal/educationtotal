@@ -84,6 +84,7 @@ $route['regular_playschool'] = "service/service/regular_playschool";
 $route['save_service'] = "service/service/save_service";
 
 $route['service/search_result'] = "service/service/search_result";
+$route['service/search_result_service/(:num)'] = "service/service/search_result_service/$1";
 //$route['user'] = "user/user";
 
 

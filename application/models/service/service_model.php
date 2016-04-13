@@ -90,9 +90,35 @@ function get_category($id)
 
 		public function get_search_result($level3_id,$level4_id)
 	{
-		$result = $this->db->query("SELECT * FROM service WHERE sub_cat_second_id ='$level3_id' AND sub_cat_thired_id='$level3_id'  ");
-		return $result->result();
+		$this->db->select('*');
+		$this->db->from('service');
+		$this->db->join('basic_details', 'service.service_id = basic_details.service_id');
+		$this->db->where('sub_cat_thired_id', $level4_id);
+		$query = $this->db->get();
+		return $query->result();
+		//$result = $this->db->query("SELECT * FROM service WHERE sub_cat_second_id ='$level3_id' AND sub_cat_thired_id='$level4_id'  ");
+		//return $result->result();
 	}
+
+    public function get_service($id)
+	{
+		$this->db->select('*');
+		$this->db->from('service');
+		$this->db->join('basic_details', 'service.service_id = basic_details.service_id');
+		$this->db->join('facilities_available_details', 'service.service_id = facilities_available_details.service_id');
+		$this->db->join('contact_details', 'service.service_id = contact_details.service_id');	
+		$this->db->where('service.service_id', $id);
+		$query = $this->db->get();
+		return $query->result();
+		/*$result = $this->db->query(
+		"SELECT * FROM service 
+		JOIN basic_details ON basic_details.service_id = service.service_id   
+		JOIN facilities_available_details ON facilities_available_details.service_id = service.service_id 
+		JOIN contact_details ON contact_details.service_id = service.service_id
+		WHERE service.service_id ='$id' ");
+		return $result->result(); */
+	}
+
 
 
 	}

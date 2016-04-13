@@ -13,77 +13,7 @@
 	<link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet">
 	<!-- <link rel="stylesheet" type="text/css" href="font-awesome-4.5.0/css/font-awesome.min.css">--> 
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-    
-    <style>
-.error {
-color: #D8000C;
-font-size:120%;
-/*background-color: #FFBABA;*/
-/*background-image: url('error.png');*/
-}
-.success {
-color: #4F8A10;
-background-color: #DFF2BF;
-/*background-image:url('success.png');*/
-}
-.reg_success{
-color: #4F8A10;
-background-color: #DFF2BF;
-}
 
-.reg_error {
-color: #D8000C;
-font-size:120%;
-/*background-color: #FFBABA;*/
-/*background-image: url('error.png');*/
-}
-</style>
-
-</head>
-
-<body style="font-family: 'Open Sans', sans-serif;">
-
-<section class="fullwidth fixed"><!-- full width starts -->
-
-	<div class="all-header-wrp" ><!-- all header wrap start -->
-
-		<div class="header-top"><!-- header top start -->
-			<div class="container" >
-				<div class="row">
-					<article class="col-sm-3" >
-						<!-- <h3>Educationtotal</h3> -->
-						<div class="logo-wrp">
-							<a href="#"><img src="<?php echo base_url('images/logo.jpg'); ?>" class="img-responsive"></a>
-						</div>
-					</article>
-					<article class="col-sm-6" >
-						<div class="header-serch-wrp">
-							<select style="font-family: 'FontAwesome'">
-								<option>&#xf036; All Categories</option>
-								<option>option 1</option>
-								<option>option 2</option>
-								<option>option 3</option>
-								<option>option 4</option>
-								<option>option 5</option>
-								<option>option 6</option>
-
-							</select>
-							<input type="text" id="serch-area" placeholder="search colleges, notes,stores..">
-							<input id="serch-btn" type="submit" value="SEARCH">
-						</div>
-					</article>
-					<article class="col-sm-3" >
-						<div class="header-signin-wrp">
-							<span><a href="#">List Services</a></span>
-							<ul>
-								<li><a href="#"> Signin </a></li>
-								<li><a href="#"> signup </a></li>
-							</ul>
-						</div>
-					</article>
-				</div>
-			</div>
-		</div><!-- header top end -->
 
 		<div class="header-bottom"><!-- header bottom start -->
 			<div class="container">
@@ -111,10 +41,7 @@ font-size:120%;
 					<section class="forum-outer">
 						<div class="forum-wrp">
 							<form id="search" method="post" enctype="multipart/form-data" class="forum-form">
-                                
-                                <div id="f_success" class="success"></div>
-                                <div id="f_error" class="error"></div>
-       
+               
 								<div class="form-head">
 									<h3><span>ADD SERVICE</span></h3>
 								</div>
@@ -296,6 +223,7 @@ $(document).on('change','#cat_id',function(){
     $('#sub_cat_second_id').val('');   
     $('#sub_cat_thired_id').val('');
     var value = $(this).val();
+
     if(value != 0){
         var url = "<?php echo base_url()?>sub_menu/"+value;
         $.ajax({
@@ -318,6 +246,7 @@ $(document).on('change','#subcat_id',function(){
     $('#sub_cat_second_id').val('');   
     $('#sub_cat_thired_id').val('');
     var value = $(this).val();
+
     if(value != 0){
         var url = "<?php echo base_url()?>get_category/"+value;
         $.ajax({
@@ -339,6 +268,7 @@ $(document).on('change','#sub_cat_second_id',function(){
 	$('#menu_sub_category').hide(); 
     $('#sub_cat_thired_id').val('');
     var value = $(this).val();
+
     if(value != 0){
     	var url = "<?php echo base_url()?>get_sub_category/"+value;
         $.ajax({
@@ -361,13 +291,17 @@ $(document).on('change','#sub_cat_second_id',function(){
 $(document).on('change','#sub_cat_thired_id',function(){
 
 var value = $(this).val();
-//alert(value);
+    alert(value);
     if(value != 0){	 
     	if(value == 1)
     	{
     		var url = "<?php echo base_url()?>regular_playschool";
+        }
+        if(value == 2)
+    	{
+    		var url = "<?php echo base_url()?>regular_school";
         }		
-    	
+	
         $.ajax({
         url: url,	   	
         dataType: 'html',

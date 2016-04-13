@@ -178,5 +178,21 @@ public function reset_pass($value){
 
 }	
 
+public function fetch_category()
+{
+$this->db->select('*');
+$this->db->from('master_subcategory_second');
+$query = $this->db->get();
+return $query->result_array();
+}
+
+public function GetRow($keyword,$cat_id)
+{
+$this->db->order_by('sub_cat_thired_id', 'DESC');
+$this->db->where("sub_cat_second_id", $cat_id);
+$this->db->like("subcat_thired_name", $keyword);
+return $this->db->get('master_subcategory_thired')->result_array();
+}
+
   } 
   ?>

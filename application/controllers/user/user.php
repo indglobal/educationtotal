@@ -18,8 +18,6 @@ class User extends CI_Controller
 	 function index()
 	 {
 	 	 $data['cat']=$this->user_model->fetch_category();
-	 	//echo "hi";
-	// //	$data['menu']=$this->demo_model->get_menu();
      	$this->load->view('header',$data);
 	}
 
