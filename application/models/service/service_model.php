@@ -86,6 +86,14 @@ function get_category($id)
 		 return $insert;		
 	}
 
+	/********* End  ********/
+
+		public function get_search_result($level3_id,$level4_id)
+	{
+		$result = $this->db->query("SELECT * FROM service WHERE sub_cat_second_id ='$level3_id' AND sub_cat_thired_id='$level3_id'  ");
+		return $result->result();
+	}
+
 
 	}
 	?>

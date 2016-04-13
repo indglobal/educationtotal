@@ -37,9 +37,9 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-
-$route['default_controller'] = "register_cont";
-$route['404_override'] = '';
+$route['default_controller'] = "user/user";
+//$route['default_controller'] = "register_cont";
+//$route['404_override'] = '';
 
 //Admin
 $route['admin'] = "admin/admin/index";
@@ -82,6 +82,9 @@ $route['get_category/(:num)'] = "service/service/get_category/$1";
 $route['get_sub_category/(:num)'] = "service/service/get_sub_category/$1";
 $route['regular_playschool'] = "service/service/regular_playschool";
 $route['save_service'] = "service/service/save_service";
+
+$route['service/search_result'] = "service/service/search_result";
+//$route['user'] = "user/user";
 
 
 

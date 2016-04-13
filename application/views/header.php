@@ -31,8 +31,9 @@
 					</article>
 					<article class="col-sm-6" >
 					  <div class="header-serch-wrp">
-							
-	<select id="child" style="font-family: 'FontAwesome'">
+	 <form action="<?php echo base_url();?>service/search_result"  method="post" >	
+
+	<select id="child" name="category" style="font-family: 'FontAwesome'">
 							<option>&#xf036; All Categories</option>
 					<?php 
                        foreach($cat as $cut){
@@ -47,10 +48,11 @@
 } ?>
    </select>
 
-<input type="text" id="serch_area" name="serch-area" placeholder="search colleges, notes,stores..">
+<input type="select" id="serch_area" name="serch-area" placeholder="search colleges, notes,stores..">
+<input type="hidden" id="sub_cat" value="" name="sub_cat">
 <input id="serch-btn" type="submit" value="SEARCH">
-<ul class="dropdown-menu txtcountry" style="margin-left:15px;margin-right:0px;" role="menu" aria-labelledby="dropdownMenu"  id="DropdownCountry">					
-							
+<ul class="dropdown-menu txtcountry" style="left:32%;margin-left:15px;margin-right:0px;" role="menu" aria-labelledby="dropdownMenu"  id="DropdownCountry">					
+							</form>
 						</div>
 					</article>
 					<article class="col-sm-3" >
@@ -106,7 +108,7 @@ $(document).ready(function () {
                 }
                 $.each(data, function (key,value) {
                     if (data.length >= 0)
-                        $('#DropdownCountry').append('<li role="presentation" >' + value['subcat_thired_name'] + '</li>');
+                        $('#DropdownCountry').append('<li role="presentation" class="autosuggests" id="'+value['sub_cat_thired_id'] +'">' + value['subcat_thired_name'] + '</li>');
                 });
             }
         });
@@ -114,5 +116,12 @@ $(document).ready(function () {
     $('ul.txtcountry').on('click', 'li a', function () {
         $('#serch_area').val($(this).text());
     });
+    $('#DropdownCountry').on('click','.autosuggests',function(){
+    	$('#serch_area').attr('data_id',$(this).attr('id'));
+    	$('#serch_area').val($(this).html());
+    	$('#sub_cat').val($(this).attr('id'));
+    //var data	$('#serch_area').attr('data_id');
+
+    })
 });
 </script>

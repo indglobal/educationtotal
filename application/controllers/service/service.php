@@ -20,12 +20,26 @@ class Service extends CI_Controller
  //     	$this->load->view('demo/demo_view',$data);
 	// }
 
+  function search_result()
+  {
+    //echo "<pre>";print_r($_POST['category']);die();
+    
+    $level3_id  = $_POST['category'];
+   $level4_id = $_POST['sub_cat'];
+    
+    $data['result'] = $this->service_model->get_search_result($level3_id,$level4_id);
+
+echo "<pre>";
+print_r($data['result']);
+die();
+     // $data['menu']=$this->service_model->get_menu();
+      $this->load->view('service/search_result',$data);
+  }
+
 	function add_service()
 	{
-		$data['menu']=$this->service_model->get_menu();
+		  $data['menu']=$this->service_model->get_menu();
      	$this->load->view('service/add_service',$data);
-
-
 	}
 
 	function save_service()
