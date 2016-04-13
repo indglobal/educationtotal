@@ -38,8 +38,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Phone</th>
-                    <th>email</th>
-                    <th>Action</th>
+                    <th>email</th>                   
                     </tr>
                     </thead>
                     <tbody>
@@ -49,11 +48,7 @@
                     <td><?php echo $val['user_id'];?></td>
                     <td><?php echo $val['fname'];?></td>
                     <td><?php echo $val['phone'];?></td>
-                    <td><?php echo $val['email'];?></td>
-                    <td>
-                    <!-- <a href="<?php echo base_url(); ?>admin/categories/edit_cat/<?php echo $val['usid']; ?>" class="btn btn-info">Edit</a>
-                    <a href="<?php echo base_url(); ?>admin/categories/delete_cat/<?php echo $val['usid']; ?>" class="btn btn-danger" onclick = "return delConfirm()">Delete</a> -->
-                    </td>
+                    <td><?php echo $val['email'];?></td>                   
                 </tr>
                     <?php endforeach;?>
                     <?php else: ?>
