@@ -27,7 +27,7 @@
                       <label>Phone *</label>
                       <input id="phone_marketing" name="phone_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['phone'];?>"><span id="error_phone" class="error_phone"></span><br>
                       <label>Userid *</label>
-                      <input id="userid_marketing" name="userid_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['userid'];?>"><span id="error_userid" class="error_userid"></span><br>
+                      <input id="userid_marketing" name="userid_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['user_name'];?>"><span id="error_userid" class="error_userid"></span><br>
                       <label>Password *</label>
                       <input id="password_marketing" name="password_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['password'];?>"><span id="error_password" class="error_password"></span><br>
                       <label>Address *</label>
