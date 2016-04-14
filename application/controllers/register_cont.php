@@ -102,11 +102,8 @@ class register_cont extends CI_Controller
 
     $category=$this->input->post('category');
       $ulogin=array('user_name'=>$usr,'password'=>$pass,'user_type_id'=>$category);   
-<<<<<<< HEAD
 
-=======
     $rec= $this->user_model->getloginus('users_table',$ulogin);     
->>>>>>> e71a6739cbd3a9007c9a14b6b72dd4d5cb454d3b
            if(count($rec)>0)
            {
                foreach($rec as $valu)

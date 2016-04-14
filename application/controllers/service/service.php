@@ -44,8 +44,8 @@ class Service extends CI_Controller
 	{
 		  $data['menu']=$this->service_model->get_menu();
      	$this->load->view('service/add_service',$data);
-      $data['cat']=$this->user_model->fetch_category();
-      $this->load->view('header',$data);
+     // $data['cat']=$this->user_model->fetch_category();
+    //  $this->load->view('header',$data);
 	}
 
 	function save_service()
@@ -131,13 +131,13 @@ class Service extends CI_Controller
           $logo_name  = strtotime(Date('Y-m-d h:i:s')).$_FILES['logo']['name'];
           $logo_image   = "dist/service_images/".$logo_name;
           copy($_FILES['logo']['tmp_name'],$logo_image );
-          chmod(base_url(). $logo_image , 0777);     
+          //chmod(base_url(). $logo_image , 0777);     
         }
         if(!empty($_FILES['profile_image'])){
        		 $profile_name	=  strtotime(Date('Y-m-d h:i:s')).$_FILES['profile_image']['name'];
 			     $profile_image 	=	"dist/service_images/".$profile_name;
 			     copy($_FILES['profile_image']['tmp_name'],$profile_image );
-           chmod(base_url(). $profile_image, 0777);
+          // chmod(base_url(). $profile_image, 0777);
         }
         if(!empty($_POST['website'])){
        		$website = $_POST['website'];

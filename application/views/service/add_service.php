@@ -1,52 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Education</title>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="<?php echo base_url();?>user_panel_design/css/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>user_panel_design/font-awesome-4.5.0/css/font-awesome.min.css">
+  	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>user_panel_design/css/style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="<?php echo base_url('js/jquery.form.js'); ?>"></script>
-	<!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url('bower_components/bootstrap/dist/css/bootstrap.css'); ?>" rel="stylesheet">
-	 <!-- Custom Fonts -->
-    <link href="<?php echo base_url('bower_components/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet"  type="text/css">
-	<!-- <link href="bootstrap/css/bootstrap.css" rel="stylesheet"> -->
-	<link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet">
-	<!-- <link rel="stylesheet" type="text/css" href="font-awesome-4.5.0/css/font-awesome.min.css">--> 
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
+    <style>
+		.error {
+		color: #D8000C;
+		font-size:120%;
+		/*background-color: #FFBABA;*/
+		/*background-image: url('error.png');*/
+		}
+		.success {
+		color: #4F8A10;
+		background-color: #DFF2BF;
+		/*background-image:url('success.png');*/
+		}
+    </style>
+</head>
 
-		<div class="header-bottom"><!-- header bottom start -->
-			<div class="container">
-				<div class="row">
-					<article class="col-sm-3" >
-					</article>
-					<article class="col-sm-6" >
-					</article>
-					<article class="col-sm-3" >
-					</article>
-				</div>
+<body>
+	<!-- Start header content.............................................. -->
+	<div class="container-fluid header_cont">
+		<div class="row">
+			<div class="col-sm-10">
+				<h2><img src="<?php echo base_url();?>user_panel_design/images/logo.png" alt="logo" width="40" height="40">   Educationtotal</h2>
 			</div>
-		</div><!-- header bottom end -->
+			<div class="col-sm-2 chip dropdown">
+				<img src="<?php echo base_url();?>user_panel_design/images/ra.png" alt="ra" class="img-circle img-responsive" width="50" height="50"> Ramesh
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">My Profile</a></li>
+		            <li><a href="#">Edit Profile</a></li>
+		            <li><a href="#">Logout</a></li>
+		          </ul>
+			</div>
+		</div>
+	</div>
+    <!-- End header content.............................................. -->
 
-	</div><!-- all header wrap End -->
+	<!-- Start body content.............................................. -->
+	<div class="container-fluid main_body">
+	<div class="row main_face">
 
-</section><!-- full width end -->
-	<br><br><br><br><br>
-		<div class="container" style="padding: 0;">
-			<div class="row">
+		<div class="col-sm-1 left_cont">
+			<ul class="nav nav-tabs">
+				<li><a data-toggle="tab" href="<?php echo base_url();?>user/provider_panel"><img src="<?php echo base_url();?>user_panel_design/images/profile.png" alt="profile"><p>Profile</p></a></li>
+				<li class="active"><a data-toggle="tab" href="<?php echo base_url();?>service/add_service"><img src="http://115.118.113.154/edutotal/wp-content/uploads/2015/10/download.png" alt="profile"><p> Add Service</p></a></li>
+				<li><a data-toggle="tab" href="<?php echo base_url();?>service/list_service"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>List Services</p></a></li>
+				<li><a data-toggle="tab" href="#"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>Document</p></a></li>
+			</ul>
+		</div>
 
-				<article class="col-md-2"></article>
+		<div class="col-sm-11 mid_cont">
+		<div class="tab-content">
+		<div id="profile" class="tab-pane fade in active">
+		 
+			<div class="col-sm-12 body_header">
+			    <ol class="breadcrumb">
+				    <li><a href="#">Home</a></li>
+					<li><a href="#">Pages</a></li>
+					<li class="active">Provider Profile Pages</li>
+				</ol>
+			</div>
+			<div class="col-sm-12 body_header_caption">
+				<h2>Add Service</h2>
+			</div>
 
-				<article class="col-md-10" style="padding:0; ">
-					<section class="forum-outer">
+		    <div class="col-sm-10 body_right">
+		    	<div class="col-sm-12 ">
+
+                    <div id="f_success" class="success"></div>
+                    <div id="f_error" class="error"></div>
+
 						<div class="forum-wrp">
 							<form id="search" method="post" enctype="multipart/form-data" class="forum-form">
                
-								<div class="form-head">
-									<h3><span>ADD SERVICE</span></h3>
-								</div>
 	                            <input type="hidden" name="user_id" value="1">
 								
+
 								<div class="form-group"> 
 									<input type="text" id="title" name="title" placeholder="Title">
 								</div>
@@ -89,121 +129,16 @@
 								</div>
 
                           <!--  <input id="save_add_service" type="submit" value="SEARCH">
-                             -->   <button type="submit" >search</button>  
+                             -->   <button type="submit" >submit</button>  
 							</form>
 						</div>
-					</section>
-				</article>
-			</div>
+				</div>	
+			</div>	
+	    </div>	
 		</div>
-
-		
-
-
-
-<!-- ALL FOOTER STARTS -->
-
-<!-- footer top start -->
-<section class="footer-top">
-	<div class="wraper">
-		<div class="container">
-			<div class="row">
-				<article class="col-sm-3">
-					<h4>Register For Newsletter</h4>
-				</article>
-
-				<article class="col-sm-3">
-					<input type="text" placeholder="Name" id="newsltr-name"> 
-				</article>
-
-				<article class="col-sm-3">
-					<input type="email" placeholder="email" id="newsltr-email">
-				</article>
-
-				<article class="col-sm-3">
-					<input type="submit" value="Register Now" id="newsltr-regstr">
-				</article>
-
-			</div>
-		</div>
-	</div>
-</section>
-<!-- footer top ends -->
-
-
-<!-- footer starts -->
-<section class="footer-outer">
-
-<div class="overlay"></div>
-
-	<div class="footer-wrp">
-		<div class="container">
-			<div class="row">
-				<article class="col-sm-2">
-					<div class="futer-each-col">
-						<h5>Education Total</h5>
-						<p><a href="#">About Us</a></p>
-						<p><a href="#">In The Media</a></p>
-						<p><a href="#">Contact Us</a></p>
-						<p><a href="#">Customer Speak</a></p>
-						<p><a href="#">Grievance Redresseal</a></p>
-					</div>
-				</article>
-
-				<article class="col-sm-2">
-					<div class="futer-each-col">
-						<h5>Article</h5>
-						<p><a href="#">About Us</a></p>
-						<p><a href="#">In The Media</a></p>
-						<p><a href="#">Contact Us</a></p>
-						<p><a href="#">Customer Speak</a></p>
-						<p><a href="#">Grievance Redresseal</a></p>
-					</div>
-				</article>
-
-				<article class="col-sm-2">
-					<div class="futer-each-col">
-						<h5>Work with us</h5>
-						<p><a href="#">Post A Add</a></p>
-						<p><a href="#">Become A vender</a></p>
-						<p><a href="#">Become Service Provider</a></p>
-						<p><a href="#">Add Service Provider</a></p>
-						<p><a href="#">Grievance Redresseal</a></p>
-					</div>
-				</article>
-
-				<article class="col-sm-2">
-					<div class="futer-each-col">
-						<h5>For business</h5>
-						<p><a href="#">Corporate Training</a></p>
-						<p><a href="#">Training Partner</a></p>
-						
-					</div>
-				</article>
-
-
-			</div>
-		</div>
-
-	</div>
-
-	<div class="footer-bottom">
-		<div class="">
-			<div class="row">
-				<article class="fut-botm-left">
-					<p>@ 2009-2015-Education Total. All Right Reserved</p>
-				</article>
-				<article class="fut-botm-right">
-					<p>Terms of use &#8226; Disclaimer &#8226; Privacy Policy</p>
-				</article>
-			</div>
-		</div>
-	</div>
-
-</section>
-
-
-
+	    </div>	
+	</div>	
+	</div>	
 
 <script>
 	$(document).ready(function(){
