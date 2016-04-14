@@ -75,7 +75,7 @@ $route['service_provider'] = "admin/service_provider/list_of_sp";
 
 $route['approved'] = "admin/service_provider/approved";
 
-
+/**** bharath      ********/
 $route['service/add_service'] = "service/service/add_service";
 $route['sub_menu/(:num)'] = "service/service/sub_menu/$1";
 $route['get_category/(:num)'] = "service/service/get_category/$1";
@@ -86,8 +86,11 @@ $route['save_service'] = "service/service/save_service";
 $route['service/search_result'] = "service/service/search_result";
 $route['service/search_result_service/(:num)'] = "service/service/search_result_service/$1";
 //$route['user'] = "user/user";
+$route['service/list_service'] = "service/service/list_service";
 
+$route['logout'] = "register_cont/logout";
 
+/*** bharath end *******/
 
 
 

@@ -40,12 +40,30 @@ class Service extends CI_Controller
 
   }
 
+  function list_service()
+  {
+      //$data['menu']=$this->service_model->get_menu();
+      if(isset($this->session->userdata['is_userlogged_in']['IID']) ) 
+      { 
+         $user_id = $this->session->userdata['is_userlogged_in']['IID'];
+         
+         $data['result'] = $this->service_model->list_service($user_id);
+         $this->load->view('service/list_service',$data);
+          $data['cat']=$this->user_model->fetch_category();
+          $this->load->view('header',$data);
+      }      
+
+     
+     // $data['cat']=$this->user_model->fetch_category();
+    //  $this->load->view('header',$data);
+  }
+
 	function add_service()
 	{
 		  $data['menu']=$this->service_model->get_menu();
      	$this->load->view('service/add_service',$data);
-     // $data['cat']=$this->user_model->fetch_category();
-    //  $this->load->view('header',$data);
+     $data['cat']=$this->user_model->fetch_category();
+    $this->load->view('header',$data);
 	}
 
 	function save_service()

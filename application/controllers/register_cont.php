@@ -119,6 +119,8 @@ class register_cont extends CI_Controller
 			 
 			   if($category == 2)
 			   {
+               //$data['cat']=$this->user_model->fetch_category();
+               //$this->load->view('header.php',$data);
                redirect('user/provider_panel');
 			   }
 			   else
@@ -143,10 +145,13 @@ class register_cont extends CI_Controller
    }
   }
  }
-      
 
-
-   
+ public function logout()
+  {
+    $this->session->sess_destroy();
+    $this->index();
+  }
+       
        public function signin()
   {
     $data['cat']=$this->user_model->fetch_category();

@@ -32,7 +32,11 @@ class Provider_panel extends CI_Controller
 		{
 			$data['edu_details'] = 1;			
 		}
+		$data['cat']=$this->user_model->fetch_category();
+        $this->load->view('header.php',$data);
      	$this->load->view('user/provider_profile',$data);
+     	
+
 	}
 
 	function specialities()

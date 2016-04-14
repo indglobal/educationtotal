@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
+  <script src="<?php echo base_url('js/jquery.form.js'); ?>"></script>
 
   <script>
       $(document).ready(function(){
@@ -32,13 +32,13 @@
 
 <body>
 	<!-- Start header content.............................................. -->
-	<div class="container-fluid header_cont">
+	<!--div class="container-fluid header_cont">
 		<div class="row">
 			<div class="col-sm-10">
-				<h2><img src="<?php echo base_url();?>user_panel_design/images/logo.png" alt="logo" width="40" height="40">   Educationtotal</h2>
+				<h2><img src="<?php //echo base_url();?>user_panel_design/images/logo.png" alt="logo" width="40" height="40">   Educationtotal</h2>
 			</div>
 			<div class="col-sm-2 chip dropdown">
-				<img src="<?php echo base_url();?>user_panel_design/images/ra.png" alt="ra" class="img-circle img-responsive" width="50" height="50"> Ramesh
+				<img src="<?php //echo base_url();?>user_panel_design/images/ra.png" alt="ra" class="img-circle img-responsive" width="50" height="50"> Ramesh
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
 		          <ul class="dropdown-menu">
 		            <li><a href="#">My Profile</a></li>
@@ -47,10 +47,10 @@
 		          </ul>
 			</div>
 		</div>
-	</div>
+	</div-->
 <!-- End header content.............................................. -->
 
-
+<br><br><br>
 <!-- Start body content.............................................. -->
 	<div class="container-fluid main_body">
 		<div class="row main_face">
@@ -58,6 +58,7 @@
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="#profile"><img src="<?php echo base_url();?>user_panel_design/images/profile.png" alt="profile"><p>Profile</p></a></li>
 					<li><a data-toggle="tab" href="<?php echo base_url();?>service/add_service"><img src="http://115.118.113.154/edutotal/wp-content/uploads/2015/10/download.png" alt="profile"><p> Add Service</p></a></li>
+			     	<li><a data-toggle="tab" href="<?php echo base_url();?>service/list_service"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>List Services</p></a></li>		
 					<li><a data-toggle="tab" href="#"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>Document</p></a></li>
 				</ul>
 			</div>

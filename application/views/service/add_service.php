@@ -29,7 +29,7 @@
 
 <body>
 	<!-- Start header content.............................................. -->
-	<div class="container-fluid header_cont">
+	<!--<div class="container-fluid header_cont">
 		<div class="row">
 			<div class="col-sm-10">
 				<h2><img src="<?php echo base_url();?>user_panel_design/images/logo.png" alt="logo" width="40" height="40">   Educationtotal</h2>
@@ -44,9 +44,9 @@
 		          </ul>
 			</div>
 		</div>
-	</div>
+	</div> -->
     <!-- End header content.............................................. -->
-
+<br><br><br>
 	<!-- Start body content.............................................. -->
 	<div class="container-fluid main_body">
 	<div class="row main_face">
@@ -83,8 +83,10 @@
 
 						<div class="forum-wrp">
 							<form id="search" method="post" enctype="multipart/form-data" class="forum-form">
-               
-	                            <input type="hidden" name="user_id" value="1">
+               <?php if(isset($this->session->userdata['is_userlogged_in']['IID']) )  
+               $user_id = $this->session->userdata['is_userlogged_in']['IID'];
+               ?>
+	                            <input type="hidden" name="user_id" value="<?php echo  $user_id; ?> ">
 								
 
 								<div class="form-group"> 
@@ -134,6 +136,7 @@
 						</div>
 				</div>	
 			</div>	
+
 	    </div>	
 		</div>
 	    </div>	

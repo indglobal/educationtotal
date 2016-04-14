@@ -10,7 +10,25 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>font-awesome-4.5.0/css/font-awesome.min.css">
 	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'> -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+-->
+<style type="text/css">
+	
+	.dropdown img{
+	width: 60px;
+	float: left;
+
+	}
+
+	.dropdown a.dropdown-toggle{
+		line-height: 50px;
+		margin-left: 5px;
+		font-size: 14px;
+	}
+
+
+</style>
+
 </head>
 
 
@@ -37,13 +55,10 @@
 							<option>&#xf036; All Categories</option>
 					<?php 
                        foreach($cat as $cut){
-                     ?>
-                   
-								
+                     ?>			
 					<option value="<?php echo $cut['sub_cat_second_id'];?>">
 								<?php echo $cut['subcat_second_name'];?>
-								</option>
-							 
+				    </option>		 
                      <?php
 } ?>
    </select>
@@ -55,6 +70,22 @@
 							</form>
 						</div>
 					</article>
+  				    
+                    <?php if(isset($this->session->userdata['is_userlogged_in']['UN']) )  
+	                { ?>
+                 	<article class="col-sm-3" >
+           			<div class="col-sm-12 chip dropdown" style="padding:0;">
+				    <img src="<?php echo base_url();?>user_panel_design/images/ra.png" alt="ra" class="img-circle img-responsive" width="50" height="50"> <?php echo $this->session->userdata['is_userlogged_in']['UN']; ?>
+				     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+		            <ul class="dropdown-menu">
+		              <li><a href="#">My Profile</a></li>
+		              <li><a href="#">Edit Profile</a></li>
+		              <li><a href="<?php echo base_url();?>logout">Logout</a></li>
+		            </ul>
+			        </div>
+			        </article>
+		       <?php   }else
+		       {  ?>
 					<article class="col-sm-3" >
 						<div class="header-signin-wrp">
 							<span><a href="#">List Services</a></span>
@@ -64,6 +95,8 @@
 							</ul>
 						</div>
 					</article>
+    			<?php } ?>
+
 				</div>
 			</div>
 		</div><!-- header top end -->

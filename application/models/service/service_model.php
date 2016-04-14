@@ -110,14 +110,23 @@ function get_category($id)
 		$this->db->where('service.service_id', $id);
 		$query = $this->db->get();
 		return $query->result();
-		/*$result = $this->db->query(
-		"SELECT * FROM service 
-		JOIN basic_details ON basic_details.service_id = service.service_id   
-		JOIN facilities_available_details ON facilities_available_details.service_id = service.service_id 
-		JOIN contact_details ON contact_details.service_id = service.service_id
-		WHERE service.service_id ='$id' ");
-		return $result->result(); */
 	}
+
+	public function list_service($id)
+	{
+		$this->db->select('*');
+		$this->db->from('service');
+		$this->db->join('master_categories', 'service.cat_id = master_categories.cat_id');
+		$this->db->join('master_subcategory', 'service.subcat_id = master_subcategory.subcat_id');
+		$this->db->join('master_subcategory_second', 'service.sub_cat_second_id = master_subcategory_second.sub_cat_second_id');	
+		$this->db->join('master_subcategory_thired', 'service.sub_cat_thired_id = master_subcategory_thired.sub_cat_thired_id');
+		
+		$this->db->where('service.user_id', $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+
 
 
 
