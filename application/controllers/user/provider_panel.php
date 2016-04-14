@@ -1,6 +1,6 @@
 <?php
 
-class User_panel extends CI_Controller
+class Provider_panel extends CI_Controller
 {
 
 	function __construct()
@@ -32,7 +32,7 @@ class User_panel extends CI_Controller
 		{
 			$data['edu_details'] = 1;			
 		}
-     	$this->load->view('user/userprofile',$data);
+     	$this->load->view('user/provider_profile',$data);
 	}
 
 	function specialities()

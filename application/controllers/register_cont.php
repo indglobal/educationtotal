@@ -56,7 +56,7 @@ class register_cont extends CI_Controller
        $aduser = array( 
        'fname'      => $this->input->post('usnameF'),
        'lname'      => $this->input->post('usnameL'),
-       'phone'      => $this->input->post('uspasw'),
+       'phone'      => $this->input->post('usmobnum'),
        'email'      => $this->input->post('usemail'),
 	     'password'      => $this->input->post('uspasw'),
        'address'    => $this->input->post('usmobnum'),
@@ -67,8 +67,9 @@ class register_cont extends CI_Controller
 	     $catesecond['cat']=$this->user_model->fetch_category();
        $this->load->view('header.php');
        $catesecond['cat']=$this->user_model->fetch_category();
-       $this->load->view('user/home',$data);
-       $this->load->view('footer.php');
+	  
+     redirect('register_cont');
+	   exit;
     }
     else
     {
@@ -106,13 +107,23 @@ class register_cont extends CI_Controller
            {
                foreach($rec as $valu)
                {
-                   $iid=$valu['usid'];
+				  // print_r($valu);
+                   $iid=$valu['user_id'];
                }
                $S_A=array('UN'=>$usr,'IID'=>$iid);
+			  
                // $this->session->set_userdata($S_A);
                //redirect('register_cont/user_signup');
                $this->session->set_userdata('is_userlogged_in', $S_A);
-               redirect('user/user_panel');
+			  
+			   if($category == 2)
+			   {
+               redirect('user/provider_panel');
+			   }
+			   else
+			   {
+				redirect('user/user_panel');   
+			   }
            }
            else
            {             

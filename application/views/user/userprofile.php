@@ -687,15 +687,7 @@
 								  	</div>
 								  	<div class="row edit_about">
 								  		<div class="col-sm-12">
-<<<<<<< HEAD
 									  		<h2><i class="fa fa-user"></i>About</h2>
-=======
-<<<<<<< HEAD
-									  		<h2><i class="fa fa-user"></i>About</h2>
-=======
-									  		<h2><i class="fa fa-user"></i>Abou</h2>
->>>>>>> 3bbc494bfecd0b6f34a902e4bdce4249d6406eaa
->>>>>>> d79b8d3faf61b1ee05af03dc26c95477c971e1cf
 									  		<div class="border"></div>
 								  		</div>
 <!-- 							  		<form class="myForm" method="post" action="">
@@ -842,7 +834,7 @@
 								  		</div>
 								  		<!-- <div class="col-sm-12 edu_cont">
 									  		<div class="col-sm-5 listItems"> -->
-					<input type="hidden" name="count_edu" id="count_edu" value="<?php echo count($edu_details);?>">
+					<input type="h" name="count_edu" id="count_edu" value="<?php echo count($edu_details);?>">
 					   <div class="col-sm-12 container">
                        <div id="row0" class=" col-sm-5 rowIndex fixedRow">
 <!--                   <input  id="edu_0" type="text" name="edu_0"  value="hhh"/>

@@ -27,8 +27,6 @@ class Service extends CI_Controller
    // echo "sub_cat".$level4_id;
 
     $data['result'] = $this->service_model->get_search_result($level3_id,$level4_id);
-
-  //  echo "<pre>";print_r($data['result']);die();
       $this->load->view('service/search_result',$data);
   }
 
