@@ -34,7 +34,7 @@ method="POST" >
 value="<?php if(isset($_POST['uname'])) echo htmlentities($_POST['uname']); ?>" placeholder="User Name">
 <?php echo form_error('uname'); ?>
 <label>PASSWORD</label>
-<input id="password" type="text"  name="pass" placeholder="Password">
+<input id="password" type="password"  name="pass" placeholder="Password">
 <?php echo form_error('pass'); ?>
 </div>
 
