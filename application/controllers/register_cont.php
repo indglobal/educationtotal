@@ -24,16 +24,16 @@ class register_cont extends CI_Controller
 
   public function provider_signup()
   {
-    $catesecond['cat']=$this->user_model->fetch_category();
-    $this->load->view('header.php');
+    $data['cat']=$this->user_model->fetch_category();
+    $this->load->view('header.php',$data);
     
     $this->load->view('user/provider_signup.php');
     $this->load->view('footer.php');
   }
   public function user_signup()
   {
-    $catesecond['cat']=$this->user_model->fetch_category();
-    $this->load->view('header.php');
+    $data['cat']=$this->user_model->fetch_category();
+    $this->load->view('header.php',$data);
    
     $this->load->view('user/user_signup.php');
     $this->load->view('footer.php');
@@ -134,8 +134,8 @@ class register_cont extends CI_Controller
     }
     else
     {
-    $catesecond['cat']=$this->user_model->fetch_category();
-    $this->load->view('header');
+    $data['cat']=$this->user_model->fetch_category();
+    $this->load->view('header',$data);
     
     $this->load->view('user/signin');
     $this->load->view('footer');
@@ -148,7 +148,8 @@ class register_cont extends CI_Controller
    
        public function signin()
   {
-    $this->load->view('header');
+    $data['cat']=$this->user_model->fetch_category();
+    $this->load->view('header',$data);
     $this->load->view('user/signin');
     $this->load->view('footer');
   }

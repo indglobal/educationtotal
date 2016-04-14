@@ -3,7 +3,6 @@
    <!--  <div class="row">
 
 	<div class="forum-wrp">	 -->
-    
 	    <div class="form-head">
 			<h3><span>Basic detail</span></h3>
 	    </div>
