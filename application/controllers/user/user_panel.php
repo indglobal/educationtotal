@@ -10,7 +10,7 @@ class User_panel extends CI_Controller
 		//  $this->load->view('admin/header');
 		// $this->load->view('admin/leftbar');
 		// $this->load->view('admin/footer');
-		if( ! $this->session->userdata('is_logged_in'))
+		if( ! $this->session->userdata('is_userlogged_in'))
 		return	redirect('admin/login/index');
 	}
 
