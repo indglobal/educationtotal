@@ -127,11 +127,14 @@
 
 								<div style="height:auto;" id="result">
 									
-
+                                   
 								</div>
-
+                                
+                                <div id="submit" style="display:none;">
+								<button type="submit" >submit</button> 
+                                </div> 
                           <!--  <input id="save_add_service" type="submit" value="SEARCH">
-                             -->   <button type="submit" >submit</button>  
+                             -->   
 							</form>
 						</div>
 				</div>	
@@ -227,7 +230,7 @@ $(document).on('change','#sub_cat_second_id',function(){
 });
 
 $(document).on('change','#sub_cat_thired_id',function(){
-
+//$('#result').hide(); 
 var value = $(this).val();
     alert(value);
     if(value != 0){	 
@@ -246,6 +249,7 @@ var value = $(this).val();
         success: function(data)
            { 
                 $('#result').html(data);
+                $('#submit').show();
            }
         });
 
