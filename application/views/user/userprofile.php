@@ -8,48 +8,26 @@
   	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>user_panel_design/css/style.css">
 
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-
-  <script>
+ <script>
       $(document).ready(function(){
 
   $(function() {
     $( "#datepicker" ).datepicker();
     //e.preventDefault();
   });
-
-
     $('body').on('focus',"#dob", function(){
         $(this).datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true, yearRange: '1900:+0'});
     });
 });
   </script>
-
- </head>
+</head>
 
 <body>
-	<!-- Start header content.............................................. -->
-	<div class="container-fluid header_cont">
-		<div class="row">
-			<div class="col-sm-10">
-				<h2><img src="<?php echo base_url();?>user_panel_design/images/logo.png" alt="logo" width="40" height="40">   Educationtotal</h2>
-			</div>
-			<div class="col-sm-2 chip dropdown">
-				<img src="<?php echo base_url();?>user_panel_design/images/ra.png" alt="ra" class="img-circle img-responsive" width="50" height="50"> Ramesh
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="#">My Profile</a></li>
-		            <li><a href="#">Edit Profile</a></li>
-		            <li><a href="#">Logout</a></li>
-		          </ul>
-			</div>
-		</div>
-	</div>
-<!-- End header content.............................................. -->
-
+<br><br><br>
 
 <!-- Start body content.............................................. -->
 	<div class="container-fluid main_body">
@@ -73,18 +51,27 @@
 								</ol>
 					      </div>
 						  <div class="col-sm-12 body_header_caption">
-						      	<h2>My Profile</h2>
+						      	<h2>My Profile
+						      	   
+                    </h2>
 						  </div>
+						  <?php $msg = $this->session->flashdata('message'); 
+                           echo $msg;
+                           
+                        
+                        ?>
 						   <div class="col-sm-2 left_panel">
 							  <div class="col-sm-12 body_left">
 									<div class="col-sm-12 line_border">
 									</div>
 									<div class="col-sm-12 text-right">
-										<p><a href="#"> Change Password</a></p><br>
-									</div>
+<!-- 										<p><a href="#">Change Password</a></p><br>
+ -->									</div>
 									<div class="col-sm-12 ">
-										<img src="<?php echo base_url();?>user_panel_design/images/ramesh.png" alt="ramesh" class="img-responsive"><br>
-										<h4>Ramesh Krishnan</h4><br>
+<!-- 		<img src="<?php echo base_url();?>user_panel_design/images/ramesh.png" alt="ramesh" class="img-responsive"><br>
+ -->
+										<img src="<?php if(!$getDetails_fromsignup[0]['image_url']==""){echo base_url($getDetails_fromsignup[0]['image_url']);}?>" alt="ramesh" class="img-responsive"><br>
+										<h4><?php echo $getDetails_fromsignup[0]['fname'];?>&nbsp;<?php echo $getDetails_fromsignup[0]['lname'];?></h4><br>
 									</div>
 							  	</div>
 						 	 	<br><br>
@@ -126,7 +113,7 @@
 							      			<p>Birthday</p>
 							      		</div>
 							      		<div class="col-sm-3">
-							      			<p>N/A</p>
+							      			<p><?php if(isset($getDetails_fromsignup[0]['dob'])){ echo $getDetails_fromsignup[0]['dob'];}else{echo "N/A";}?></p>
 							      		</div>
 							      	</div>
 							      	<div class="row">
@@ -140,7 +127,7 @@
 							      			<p>Interests</p>
 							      		</div>
 							      		<div class="col-sm-3">
-							      			<p><?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['interest'];?></p>
+							      			<p><?php if(!empty($getDetails_fromsignup[0]['interest'])){echo $getDetails_fromsignup[0]['interest'];}else{echo "N/A";}?></p>
 							      		</div>
 							      	</div>
 							      	<div class="row">
@@ -154,7 +141,7 @@
 							      			<p>Website</p>
 							      		</div>
 							      		<div class="col-sm-3">
-							      			<p>N/A</p>
+							      			<p>www.educationtotal.com</p>
 							      		</div>
 							      	</div>
 							      	<div class="row">
@@ -162,13 +149,13 @@
 							      			<p>City</p>
 							      		</div>
 							      		<div class="col-sm-2">
-							      			<p><?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['city'];?></p>
+							      			<p><?php if(!empty($getDetails_fromsignup[0]['city'])){ echo $getDetails_fromsignup[0]['city'];}else{echo "N/A";}?></p>
 							      		</div>
 							      		<div class="col-sm-2">
 							      			<p> Phone</p>
 							      		</div>
 							      		<div class="col-sm-3">
-							      			<p>+91 <?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['phone'];?></p>
+							      			<p>+91 9845698456</p>
 							      		</div>
 							      	</div>
 							      	<div class="row">
@@ -176,7 +163,7 @@
 							      			<p> Country</p>
 							      		</div>
 							      		<div class="col-sm-2">
-							      			<p><?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['country'];?></p>
+							      			<p> India</p>
 							      		</div>
 							      	</div>
 									</section> <!-- End of about section -->
@@ -184,7 +171,23 @@
 										<div class="col-sm-12">
 											<h2> <i class="fa fa-graduation-cap"></i> Education</h2>
 											<ul>
-												<li>
+
+			<?php if(empty($getDetails_fromedu_user)){ 
+                   	?>
+                 <?php }else{
+                 	$i=1;
+                      foreach ($edu_details as $key => $value) { ?>
+                 <li class="justlist" id="<?php echo $i;?>">
+		   <p><i class="fa fa-circle-thin circle_font" ></i>&nbsp<?php echo $value;?>&nbsp<i class='close fa fa-times'></i> <br></p>
+			     </li>
+
+                     <?php  
+                     $i++;
+                    }?>
+
+            <?php  }
+                 ?>
+												<!-- <li>
 													<p><i class="fa fa-circle-thin circle_font"></i> Bachelor's degree ,E-Commerce/Electronic Commerce at <a href="#">PSET</a><br> <span>August 2003 ~ july 2008</span></p>
 												</li>
 												<li>
@@ -195,7 +198,7 @@
 												</li>
 												<li>
 													<p><i class="fa fa-circle-thin circle_font"></i> Student at St. Monica Junior High School <br><span>August 1998 ~ july 2000</span></p>
-												</li>
+												</li> -->
 											</ul>
 										</div>
 									</section> <!-- End of Education section -->
@@ -203,7 +206,28 @@
 										<div class="col-sm-12">
 											<h2> <img src="<?php echo base_url();?>user_panel_design/images/skill.png" alt=""> Skills</h2>
 										</div>
-										<div class="col-sm-10">
+
+										 <?php if(empty($getDetails_fromskill_user)){?>
+
+                 <?php }else{
+                 	$i=1;
+                      foreach ($skill_details as $key => $value) { ?>
+                                       <div class="col-sm-10">
+											<p><?php echo $value;?></p>
+											<div class="progress">
+											  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+											  aria-valuemin="0" aria-valuemax="100" style="width:90%">
+											  </div>
+											</div>
+										</div>
+
+                     <?php  
+                     $i++;
+                    }?>
+
+            <?php  }
+                 ?>
+										<!-- <div class="col-sm-10">
 											<p>Photoshop</p>
 											<div class="progress">
 											  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
@@ -253,7 +277,7 @@
 											    
 											  </div>
 											</div>
-										</div>
+										</div> -->
 									</section> <!-- End of skill section -->
 						    	</div><!-- End of myprofile tab -->
 						   <div id="cour" class="tab-pane fade in ">
@@ -653,12 +677,12 @@
 								</ol>
 					      </div>
 						  <div class="col-sm-10 body_header_caption">
-						  <h2>Edit Profile</h2>
+						      	<h2>Edit Profile</h2>
 						  </div>
-<form class="myForm" method="post" action="<?php echo site_url('user/user_panel/user_edit_myprofile_section/'); ?>">
+						  <form class="myForm"  method="post" action="<?php echo site_url('user/user_panel/user_edit_myprofile_section/'); ?>" enctype="multipart/form-data">
 						  <div class="col-sm-2 body_header_caption">
 						  	<button class="btn btn-primary btnSave">Save</button>
-						  	<button class="btn btn-primary btnCancel">Cancel</button>
+						  	<button class="btn btn-primary btnCancel" type="button">Cancel</button>
 						  </div>
 						  <div class="clear"></div>
 							<div class="row" id="main_cont">
@@ -666,22 +690,36 @@
 								  	<div class="row profile_img">
 									  	<div class="col-sm-1">
 											<div class="ImageProfile">
-												<img id="image_upload_preview" src="<?php echo base_url();?>user_panel_design/images/ra.png" alt="your image" class="img-rounded" width="80" height="120" />
-											    <input type='file' id="inputFile"/ style="visibility: hidden;">
+										<?php if(isset($getDetails_fromsignup[0]['user_id'])) {
+						                      $pre_image_url=$getDetails_fromsignup[0]['image_url'];
+						                      //echo $pre_image_url;
+
+									  	}
+									  	?>
+											    <input type="hidden" name="pre_image_url" value="<?php echo $pre_image_url?>">
+												<img id="image_upload_preview" src="<?php if(!$getDetails_fromsignup[0]['image_url']==""){echo base_url($getDetails_fromsignup[0]['image_url']);}?>" alt="your image" class="img-rounded" width="80" height="120" />
+											    <input type='file' name="photograph"  id="inputFile" style="visibility: hidden;">
+                                
 											   <i class="fa fa-camera change_pic_btn"></i>
 											</div>
 									  	</div>
 									  	<div class="col-sm-5 name_details">
-									  		<h3>Rameshk12</h3>
-									  		<p>rameshzz@gmail.com<br><br>
+									  		<h3><?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['user_name'];?></h3>
+									  		<p><?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['email'];?><br><br>
 									  		<a href="#" id="cpass">Change Password</a>
 									  		</p>
 									  	</div>
 									  	<div class="col-sm-6 address_details">
-									  		<h3>Delivery Address <a href="#"><span id="cp" align="right">Change Address</span></a></h3>
-									  		<address>
-									  			Indglobal Consultancy Solutions<br>
-									  			No. 60 &amp; 61 1st Floor, Dr. Rajkumar Road,<br> Bengaluru 560021, Prakash Nagar, <br>Bengaluru, Karnataka 560021
+									  		<h3>Address <a href="#"><span id="cp" align="right"></span></a></h3>
+
+<!--  <input type="text" name="address" style="width:220px;height:80px;" value="<?php if(isset($getDetails_fromsignup[0]['address'])) echo $getDetails_fromsignup[0]['address'];?>">
+ -->
+ <textarea  name="address" class="form-control parsley-validated" style="width:220px;height:80px">
+<?php if(isset($getDetails_fromsignup[0]['address'])) echo $getDetails_fromsignup[0]['address'];?>
+
+</textarea>
+									  			<!-- Indglobal Consultancy Solutions<br>
+									  			No. 60 &amp; 61 1st Floor, Dr. Rajkumar Road,<br> Bengaluru 560021, Prakash Nagar, <br>Bengaluru, Karnataka 560021 -->
 									  		</address>
 									  	</div>
 								  	</div>
@@ -690,10 +728,7 @@
 									  		<h2><i class="fa fa-user"></i>About</h2>
 									  		<div class="border"></div>
 								  		</div>
-<!-- 							  		<form class="myForm" method="post" action="">
- -->							  			
-
-							  				<div class="col-sm-3">
+								  		<div class="col-sm-3">
 							  					<label>First Name</label><br>
 							  					<input type="text" class="form-control special_text" name="fname_of_user" placeholder="&nbsp; Ramesh" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['fname'];?>">
 							  				</div>
@@ -705,7 +740,7 @@
 							  				</div>
 						  				<div class="col-sm-3">
 							  					<label>Birth Date</label><br>
-                                              <input type="text" class="form-control" style="width:200px" id="dob" name="dob" placeholder="Enter Date of Birth:">
+                                              <input type="text" class="form-control" style="width:200px" id="dob" name="dob" placeholder="Enter Date of Birth:" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['dob'];?>">
 
 							  					<!-- <select>
 							  						<option>01</option>
@@ -825,36 +860,38 @@
 							  					<input type="text" name="country" class="form-control special_text" placeholder="&nbsp; India" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['country'];?>">
 							  				</div>
 							  				
-						<!--  </form> -->
+								  		
 								  	</div> <!-- End of edit about row -->
 								  	<div class="row edit_education">
 								  		<div class="col-sm-12">
 									  		<h2> <i class="fa fa-graduation-cap"></i> Education</h2>
 									  		<div class="border"></div>
 								  		</div>
-								  		<!-- <div class="col-sm-12 edu_cont">
-									  		<div class="col-sm-5 listItems"> -->
-					<input type="h" name="count_edu" id="count_edu" value="<?php echo count($edu_details);?>">
+								  	<input type="hidden" name="count_edu" id="count_edu" value="<?php echo count($edu_details);?>">
 					   <div class="col-sm-12 container">
                        <div id="row0" class=" col-sm-5 rowIndex fixedRow">
 <!--                   <input  id="edu_0" type="text" name="edu_0"  value="hhh"/>
  --> 
-                   <?php if(empty($getDetails_fromedu_user)){ 
+                   <?php if(empty($getDetails_fromedu_user)){ //print_r("empty");
                    	?>
+                 <div id="row1" class="rowIndex fixedRow">
+                 <input  id="edu_1" type="text"  style="display:none;" name="edu_1"  value="" />
+                  </div>
                  <?php }else{
-                 	$i=1;
-                      foreach ($edu_details as $key => $value) {?>
+                 	  $i=1;
+                   foreach ($edu_details as $key => $value) { ?>
                     <div id="row<?php echo $i?>" class="rowIndex fixedRow">
-                    <input  id="edu_<?php echo $i?>" type="text"  name="edu_<?php echo $i;?>"  value="<?php echo $value;?>" style="display:none;"/>
+                    <input id="edu_<?php echo $i?>" type="text"  name="edu_<?php echo $i;?>"  value="<?php echo $value;?>" style="display:none;"/>
                     </div>
                      <?php  
                      $i++;
                     }
-                  }
+                  
+              }
                  ?>
            
 				<ul class="justList" name="education">
-		              <?php if(empty($getDetails_fromedu_user)){ 
+		            <?php if(empty($getDetails_fromedu_user)){ 
                    	?>
                  <?php }else{
                  	$i=1;
@@ -869,65 +906,69 @@
 
             <?php  }
                  ?>
-
-                  
-
-
-
-									  				<!-- <li class="active">
-														<p> <i class="fa fa-circle-thin circle_font"></i>
-Bachelor's degree ,E-Commerce/Electronic Commerce at <a href="#">PSET</a>&nbsp;<i class='close fa fa-times'></i><br> <span>August 2003 ~ july 2008</span></p>
-													</li>
-													<li>
-														<p> <i class="fa fa-circle-thin circle_font"></i>
-Student at Web Design Education&nbsp;<i class='close fa fa-times'></i><br> <span>March 2006 ~ February 2007</span></p>
-													</li>
-													<li>
-														<p> <i class="fa fa-circle-thin circle_font"></i>
-Student at St. Louis High School&nbsp;<i class='close fa fa-times'></i> <br><span>August 2000 ~ july 2003</span></p>
-													</li>
-													<li>
-														<p><i class="fa fa-circle-thin circle_font"></i>
-Student at St. Monica Junior High School&nbsp;<i class='close fa fa-times'></i> <br><span>August 1998 ~ july 2000</span></p>
-													</li> -->
-
+</ul>
 									  			</ul>
-
 									  		</div>
 									  		<div class="col-sm-4">
 									  		</div>
 									  		<div class="col-sm-3">
 									  			<button id="btnCollege" type="button" class="btn btn-primary">+ ADD<br>COLLEGE/INSTITUTE</button>
-					
-<!--  <a href="#" id="btnCollege" class="btn btn-primary">+ ADD<br>COLLEGE/INSTITUTE</a>
- -->
 									  		</div>
 								  		</div>
 								  	</div> <!-- End of edit education row -->
-								  </form>
 								  	<div class="row edit_skill">
 								  		<div class="col-sm-12">
 									  		<h2> <img src="<?php echo base_url();?>user_panel_design/images/skill.png" alt=""> Skills</h2>
 									  		<div class="border"></div>
 								  		</div>
-								  		<div class="col-sm-12 skill_cont">
-									  		<div class="col-sm-7 listItems2">
-									  			<ul class="justList1">
-									  				<li>2d Drawing&nbsp;<i class='close fa fa-times'></i></li>
-									  				<li>Web Design&nbsp;<i class='close fa fa-times'></i></li>
-									  				<li>Graphic Design&nbsp;<i class='close fa fa-times'></i></li>
-									  				<li>Logo Design&nbsp;<i class='close fa fa-times'></i></li>
-									  				<li>UI/UX Design&nbsp;<i class='close fa fa-times'></i></li>
+						<input type="hidden" name="count_skill" id="count_skill" value="<?php echo count($skill_details);?>">
+					   <div class="col-sm-12 container1">
+                       <div id="row0" class="col-sm-7 rowIndex1 fixedRow">
+<!--                   <input  id="edu_0" type="text" name="edu_0"  value="hhh"/>
+ --> 
+                   <?php if(empty($getDetails_fromskill_user)){ //print_r("empty");
+                   	?>
+                 <div id="row0" class="rowIndex1 fixedRow">
+                 <input  id="skill_0" type="text"  name="skill_0" style="display:none;" value="skill" />
+                 </div>
+                 <?php }else{
+                 	  $i=1;
+                   foreach ($skill_details as $key => $value) { ?>
+                    <div id="row<?php echo $i?>" class="rowIndex1 fixedRow">
+                    <input id="skill_<?php echo $i?>" type="text"  name="skill_<?php echo $i;?>" style="display:none;" value="<?php echo $value;?>"/>
+                    </div>
+                     <?php  
+                     $i++;
+                    }
+                  
+              }
+                 ?>
 
-									  			</ul>
+					<ul class="justList1" name="education">
+		            <?php if(empty($getDetails_fromskill_user)){?>
+
+                 <?php }else{
+                 	$i=1;
+                      foreach ($skill_details as $key => $value) { ?>
+               		<li><?php echo $value?>&nbsp;<i class='close fa fa-times'></i></li>
+
+
+                     <?php  
+                     $i++;
+                    }?>
+
+            <?php  }
+                 ?>
+                 </ul>
 									  		</div>
 									  		<div class="col-sm-2">
 									  		</div>
 									  		<div class="col-sm-3">
-									  			<button id="btnSkill" class="btn btn-primary">+ ADD SKILLS</button>
+									  			<button id="btnSkill" type="button" class="btn btn-primary">+ ADD SKILLS</button>
 									  		</div>
 									  	</div>
 								  	</div> <!-- End of edit skill row -->
+								  	</form>
 								</div>
 							</div>
 						</article> <!-- End of edit profile section -->
@@ -938,7 +979,7 @@ Student at St. Monica Junior High School&nbsp;<i class='close fa fa-times'></i> 
 		</div>
 	</div>
 <!-- End body content.............................................. -->
- 
+
 
 
 <!-- Start footer content.............................................. -->
@@ -961,16 +1002,9 @@ Student at St. Monica Junior High School&nbsp;<i class='close fa fa-times'></i> 
 		</div>
 	</div>
 <!-- End footer content.............................................. -->
-	<script src="<?php echo base_url();?>user_panel_design/js/jquery.min.js"></script>
-  	<script src="<?php echo base_url();?>user_panel_design/js/bootstrap.min.js"></script>
-
- 	 <script type"text/Javascript">
-//  $(document).ready(function(){
-// 	$('.close').on('click',function(){
-//  	alert("ok");
-// 	});
-// });
-//  // //    </script>
+	<script src="<?php //echo base_url();?>user_panel_design/js/jquery.min.js"></script>
+  	<script src="<?php //echo base_url();?>user_panel_design/js/bootstrap.min.js"></script>
+	
   	<script type"text/Javascript">
 		 $(function(){
     $(".dropdown").hover(            
@@ -1014,32 +1048,37 @@ Student at St. Monica Junior High School&nbsp;<i class='close fa fa-times'></i> 
     		$('#inputFile').trigger('click');
     	});
     });
-    $('#btnCollege').click(function(){
+ //    $('#btnCollege').click(function(){
+ //    var text = prompt("Enter your college/ Institute details !");
+ //    if(text.length){
+ //        $('<li />', {html:"<i class='fa fa-circle-thin circle_font'></i> &nbsp;"+ text + " &nbsp;<i class='close fa fa-times'></i>"}).appendTo('ul.justList')
+ //    }
+	// });
+
+	  $('#btnCollege').click(function(){
     var i = $('.container .rowIndex:last').attr('id').replace("row","");
     i++;
-   // alert(i);
-   $('#count_edu').val(i);
+    $('#count_edu').val(i);
     var text = prompt("Enter your college/ Institute details !");
-    var row = '<div id="row'+i+'" class="rowIndex addedRow"><input type="text" id="edu'+i+'"  style="display:none" name="edu_'+i+'" value="'+text+'"/></div>';
+    var row = '<div id="row'+i+'" class="rowIndex addedRow1"><input type="text" id="edu_'+i+'"  style="display:none" name="edu_'+i+'" value="'+text+'"/></div>';
     $('.container').append(row);
+
+    //   var row = '<div id="row'+i+'" class="rowIndex1 addedRow"><input type="text" id="skill_'+i+'" style="display:none" name="skill_'+i+'" value="'+text+'"/></div>';
+    // $('.container1').append(row);
       
     if(text.length){
     	var a='<li class="justlist" id="'+i+'"><p><i class="fa fa-circle-thin circle_font"></i>&nbsp'+text+'&nbsp<i class="close fa fa-times"></i><br></p>';
     	$('ul.justList').append(a);
-   // <li class="justlist_<?php echo $i;?>">
-		 //   <p><i class="fa fa-circle-thin circle_font" ></i><?php echo $value;?>&nbsp;<i class='close fa fa-times'></i> <br><span></span></p>
-         //$('<li/>', {html:"<i class='fa fa-circle-thin circle_font'></i> &nbsp;"+ text + " &nbsp;<i class='close fa fa-times'></i>"}).appendTo('ul.justList')
+
     }
 	});
 
-
-
-	$('.justList').on('click', '.close',function(){
+	  $('.justList').on('click', '.close',function(){
 	// var currentId = $(this).attr('id');
 	// alert(currentId);
 	//$('.justlist_1').on('click','.close',function(){
       var i = $('.container .rowIndex:last').attr('id').replace("row","");
-     // alert(i);
+     //alert(i);
        $('#row'+i).remove();
        i--;
        //alert(i);
@@ -1048,23 +1087,50 @@ Student at St. Monica Junior High School&nbsp;<i class='close fa fa-times'></i> 
     $('#count_edu').val(i);
 
 	});
+
+	// $('.justList').on('click', '.close',function(el){
+	//     $(this).parent().remove();
+
+	// });
+
+
+	// $('#btnSkill').click(function(){
+ //    var text = prompt("Enter your skill details!");
+ //    if(text.length){
+ //        $('<li />',{html: text + " &nbsp;<i class='close fa fa-times'></i>"}).appendTo('ul.justList1')
+ //    }
+	// });
+
+	// $('.justList1').on('click', '.close',function(el){
+	//     $(this).parent().remove();
+	// });
+
 	$('#btnSkill').click(function(){
+	 var i = $('.container1 .rowIndex1:last').attr('id').replace("row","");
+    i++;
+    //alert(i);
+    $('#count_skill').val(i);
     var text = prompt("Enter your skill details!");
+     var row = '<div id="row'+i+'" class="rowIndex1 addedRow"><input type="text" id="skill_'+i+'" style="display:none" name="skill_'+i+'" value="'+text+'"/></div>';
+    $('.container1').append(row);
     if(text.length){
         $('<li />',{html: text + " &nbsp;<i class='close fa fa-times'></i>"}).appendTo('ul.justList1')
     }
 	});
 
 	$('.justList1').on('click', '.close',function(el){
-	    $(this).parent().remove();
+	// var currentId = $(this).attr('id');
+	// alert(currentId);
+	//$('.justlist_1').on('click','.close',function(){
+      var i = $('.container1 .rowIndex1:last').attr('id').replace("row","");
+      //alert(i);
+       $('#row'+i).remove();
+       i--;
+       //alert(i);
+		//alert("ok");
+     $(this).parent().remove();
+    $('#count_skill').val(i);
 	});
-    
-
-
-	  // $('body').on('focus',"#dob", function(){
-   //      $(this).datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true, yearRange: '1900:+0'});
-   //  });
 	</script>
-	 
 </body>
 </html>

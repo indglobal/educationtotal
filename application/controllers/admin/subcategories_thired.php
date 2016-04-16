@@ -30,7 +30,7 @@ class Subcategories_thired extends CI_Controller
 
 	function create_subcat_thired()
 	{		
-	   $data['cat_id']=1234;
+	    $data['cat_id']=1234;
 	    $data['all_category']=$this->subcategories_model_thired->get_allcategory();
 	    $data['all_subcategory']=$this->subcategories_model_thired->get_allsubcategory();
 	    $data['all_subcategory2']=$this->subcategories_model_thired->get_allsubcategory2();
@@ -45,7 +45,6 @@ class Subcategories_thired extends CI_Controller
 	    $data['all_subcategory2']=$this->subcategories_model_thired->get_allsubcategory2();
 
 		$data['details'] = $this->subcategories_model_thired->get_details($data['id']);
-		// exit();
 		$this->load->view('admin/subcategory_thired/create_subcat_thired',$data);
 	}
 

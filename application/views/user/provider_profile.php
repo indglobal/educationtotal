@@ -31,24 +31,7 @@
  </head>
 
 <body>
-	<!-- Start header content.............................................. -->
-	<!--div class="container-fluid header_cont">
-		<div class="row">
-			<div class="col-sm-10">
-				<h2><img src="<?php //echo base_url();?>user_panel_design/images/logo.png" alt="logo" width="40" height="40">   Educationtotal</h2>
-			</div>
-			<div class="col-sm-2 chip dropdown">
-				<img src="<?php //echo base_url();?>user_panel_design/images/ra.png" alt="ra" class="img-circle img-responsive" width="50" height="50"> Ramesh
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="#">My Profile</a></li>
-		            <li><a href="#">Edit Profile</a></li>
-		            <li><a href="#">Logout</a></li>
-		          </ul>
-			</div>
-		</div>
-	</div-->
-<!-- End header content.............................................. -->
+	
 
 <br><br><br>
 <!-- Start body content.............................................. -->
@@ -57,9 +40,9 @@
 			<div class="col-sm-1 left_cont">
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="#profile"><img src="<?php echo base_url();?>user_panel_design/images/profile.png" alt="profile"><p>Profile</p></a></li>
-					<li><a data-toggle="tab" href="<?php echo base_url();?>service/add_service"><img src="http://115.118.113.154/edutotal/wp-content/uploads/2015/10/download.png" alt="profile"><p> Add Service</p></a></li>
-			     	<li><a data-toggle="tab" href="<?php echo base_url();?>service/list_service"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>List Services</p></a></li>		
-					<li><a data-toggle="tab" href="#"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>Document</p></a></li>
+					<li><a  href="<?php echo base_url();?>service/add_service"><img src="http://115.118.113.154/edutotal/wp-content/uploads/2015/10/download.png" alt="profile"><p> Add Service</p></a></li>
+			     	<li><a  href="<?php echo base_url();?>service/list_service"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>List Services</p></a></li>		
+					<li><a  href="#"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>Document</p></a></li>
 				</ul>
 			</div>
 			<div class="col-sm-11 mid_cont">
@@ -180,399 +163,116 @@
 							      			<p><?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['country'];?></p>
 							      		</div>
 							      	</div>
-									</section> <!-- End of about section -->
+									</section> <!-- End of about section -->					
 									
-									
-						    	</div><!-- End of myprofile tab -->
-						   <div id="cour" class="tab-pane fade in ">
-						      <section id="about">
-						      	<div class="col-sm-8">
-						      		<h2>Courses</h2>
-						      	</div>
-						      	<div class="col-sm-4">
-						      		<button class="btn btn-primary btnEdit">
-						      			<i class="fa fa-pencil"></i> Edit
-									</button>
-						      	</div>
-						      	<div class="clear"></div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>First Name</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Ramesh</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Birthday</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>Jan 22,1984</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>User Name</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Rameshk12</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Interests</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>Basketball, Web Design, etc</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>Email</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>rameshzz@gmail.com</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Website</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>www.educationtotal.com</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>City</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Bangalore</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p> Phone</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>+91 9845698456</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p> Country</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p> India</p>
-						      		</div>
-						      	</div>
-								</section><!-- End of about section -->
-								</div>
-								 <div id="orders" class="tab-pane fade in ">
-						      <section id="about">
-						      	<div class="col-sm-8">
-						      		<h2>My Orders</h2>
-						      	</div>
-						      	<div class="col-sm-4">
-						      		<button class="btn btn-primary btnEdit">
-						      			<i class="fa fa-pencil"></i> Edit
-									</button>
-						      	</div>
-						      	<div class="clear"></div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>First Name</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Ramesh</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Birthday</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>Jan 22,1984</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>User Name</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Rameshk12</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Interests</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>Basketball, Web Design, etc</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>Email</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>rameshzz@gmail.com</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Website</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>www.educationtotal.com</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>City</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Bangalore</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p> Phone</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>+91 9845698456</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p> Country</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p> India</p>
-						      		</div>
-						      	</div>
-								</section><!-- End of about section -->
-								</div>
-								 <div id="fav" class="tab-pane fade in ">
-						      <section id="about">
-						      	<div class="col-sm-8">
-						      		<h2>My favourate</h2>
-						      	</div>
-						      	<div class="col-sm-4">
-						      		<button class="btn btn-primary btnEdit">
-						      			<i class="fa fa-pencil"></i> Edit
-									</button>
-						      	</div>
-						      	<div class="clear"></div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>First Name</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Ramesh</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Birthday</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>Jan 22,1984</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>User Name</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Rameshk12</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Interests</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>Basketball, Web Design, etc</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>Email</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>rameshzz@gmail.com</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Website</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>www.educationtotal.com</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>City</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Bangalore</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p> Phone</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>+91 9845698456</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p> Country</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p> India</p>
-						      		</div>
-						      	</div>
-								</section><!-- End of about section -->
-								</div>
-									 <div id="group" class="tab-pane fade in ">
-						      <section id="about">
-						      	<div class="col-sm-8">
-						      		<h2>My groups</h2>
-						      	</div>
-						      	<div class="col-sm-4">
-						      		<button class="btn btn-primary btnEdit">
-						      			<i class="fa fa-pencil"></i> Edit
-									</button>
-						      	</div>
-						      	<div class="clear"></div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>First Name</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Ramesh</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Birthday</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>Jan 22,1984</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>User Name</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Rameshk12</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Interests</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>Basketball, Web Design, etc</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>Email</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>rameshzz@gmail.com</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Website</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>www.educationtotal.com</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>City</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Bangalore</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p> Phone</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>+91 9845698456</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p> Country</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p> India</p>
-						      		</div>
-						      	</div>
-								</section><!-- End of about section -->
-								</div>
-								 <div id="review" class="tab-pane fade in ">
-						      <section id="about">
-						      	<div class="col-sm-8">
-						      		<h2>My reviews</h2>
-						      	</div>
-						      	<div class="col-sm-4">
-						      		<button class="btn btn-primary btnEdit">
-						      			<i class="fa fa-pencil"></i> Edit
-									</button>
-						      	</div>
-						      	<div class="clear"></div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>First Name</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Ramesh</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Birthday</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>Jan 22,1984</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>User Name</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Rameshk12</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Interests</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>Basketball, Web Design, etc</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>Email</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>rameshzz@gmail.com</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Website</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>www.educationtotal.com</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p>City</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p>Bangalore</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p> Phone</p>
-						      		</div>
-						      		<div class="col-sm-3">
-						      			<p>+91 9845698456</p>
-						      		</div>
-						      	</div>
-						      	<div class="row">
-						      		<div class="col-sm-2">
-						      			<p> Country</p>
-						      		</div>
-						      		<div class="col-sm-2">
-						      			<p> India</p>
-						      		</div>
-						      	</div>
-								</section><!-- End of about section -->
-								</div>
+						    	</div><!-- End of myprofile tab -->		
 						  </div> <!-- End of the innner tab content -->
 					  </div> <!-- End of body_right section -->
 					</article><!-- End of my profile section -->
-					
+	<script src="<?php echo base_url();?>user_panel_design/js/jquery.min.js"></script>
+  	<script src="<?php echo base_url();?>user_panel_design/js/bootstrap.min.js"></script>
+
+ 	 <script type"text/Javascript">
+//  $(document).ready(function(){
+// 	$('.close').on('click',function(){
+//  	alert("ok");
+// 	});
+// });
+//  // //    </script>
+  	<script type"text/Javascript">
+		 $(function(){
+    $(".dropdown").hover(            
+            function() {
+                $('.header_cont .dropdown-menu', this).stop( true, true ).fadeIn("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            },
+            function() {
+                $('.header_cont.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            });
+    });
+		$("#edit_profile").hide();
+		 $('.btnEdit').click(function(){
+		 		$("#about_profile").hide();
+		 		$("#edit_profile").show();
+		 });
+		 $('.btnCancel').click(function(){
+		 		$("#about_profile").show();
+		 		$("#edit_profile").hide();
+		 });
+		 function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image_upload_preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#inputFile").change(function () {
+        readURL(this);
+    });
+    $(document).ready(function(){
+    	$('.change_pic_btn').click(function(){
+    		$('#inputFile').trigger('click');
+    	});
+    });
+    $('#btnCollege').click(function(){
+    var i = $('.container .rowIndex:last').attr('id').replace("row","");
+    i++;
+   // alert(i);
+   $('#count_edu').val(i);
+    var text = prompt("Enter your college/ Institute details !");
+    var row = '<div id="row'+i+'" class="rowIndex addedRow"><input type="text" id="edu'+i+'"  style="display:none" name="edu_'+i+'" value="'+text+'"/></div>';
+    $('.container').append(row);
+      
+    if(text.length){
+    	var a='<li class="justlist" id="'+i+'"><p><i class="fa fa-circle-thin circle_font"></i>&nbsp'+text+'&nbsp<i class="close fa fa-times"></i><br></p>';
+    	$('ul.justList').append(a);
+   // <li class="justlist_<?php echo $i;?>">
+		 //   <p><i class="fa fa-circle-thin circle_font" ></i><?php echo $value;?>&nbsp;<i class='close fa fa-times'></i> <br><span></span></p>
+         //$('<li/>', {html:"<i class='fa fa-circle-thin circle_font'></i> &nbsp;"+ text + " &nbsp;<i class='close fa fa-times'></i>"}).appendTo('ul.justList')
+    }
+	});
+
+
+
+	$('.justList').on('click', '.close',function(){
+	// var currentId = $(this).attr('id');
+	// alert(currentId);
+	//$('.justlist_1').on('click','.close',function(){
+      var i = $('.container .rowIndex:last').attr('id').replace("row","");
+     // alert(i);
+       $('#row'+i).remove();
+       i--;
+       //alert(i);
+		//alert("ok");
+     $(this).parent().remove();
+    $('#count_edu').val(i);
+
+	});
+	$('#btnSkill').click(function(){
+    var text = prompt("Enter your skill details!");
+    if(text.length){
+        $('<li />',{html: text + " &nbsp;<i class='close fa fa-times'></i>"}).appendTo('ul.justList1')
+    }
+	});
+
+	$('.justList1').on('click', '.close',function(el){
+	    $(this).parent().remove();
+	});
+    
+
+
+	  // $('body').on('focus',"#dob", function(){
+   //      $(this).datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true, yearRange: '1900:+0'});
+   //  });
+	</script>
 	 
 </body>
 </html>

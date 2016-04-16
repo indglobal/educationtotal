@@ -38,7 +38,8 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Phone</th>
-                    <th>email</th>                   
+                    <th>email</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -48,7 +49,8 @@
                     <td><?php echo $val['user_id'];?></td>
                     <td><?php echo $val['fname'];?></td>
                     <td><?php echo $val['phone'];?></td>
-                    <td><?php echo $val['email'];?></td>                   
+                    <td><?php echo $val['email'];?></td>
+                   
                 </tr>
                     <?php endforeach;?>
                     <?php else: ?>

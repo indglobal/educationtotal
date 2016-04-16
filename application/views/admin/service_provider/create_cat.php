@@ -46,8 +46,9 @@ $("#category").on('click',function(){
     return false;
   }
 
-  var name_exp = /^[A-Za-z]+$/;
-  if(!(name_exp.test($("#name").val())))
+  var name_exp=/^[A-Za-z ]+$/;
+  // var name_exp =' ';
+  if((name_exp.test($("#name").val())))
   {
         $("#name").focus().val('');
         $("#error").html("Enter only alphabets");

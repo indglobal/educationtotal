@@ -97,8 +97,20 @@ if ($this->db->trans_status() === FALSE) {
 
 	function delete_marketing_persons($id)
 	{
-		$this->db->delete('marketing_persons', array('id' => $id));
-	    $this->db->delete('marketing_persons_id', array('id' => $id));
+		//$this->db->delete('marketing_persons', array('id' => $id));
+	    //$this->db->delete('marketing_persons_id', array('id' => $id));
+
+    $this->db->trans_begin();
+    $this->db->where('user_id', $id)->delete('user_detail');
+    $this->db->where('user_id', $id)->delete('users_table');
+    $this->db->trans_complete();
+
+    if ($this->db->trans_status() === FALSE) {
+            return 'false';
+        } else {
+            return 'true';
+        }
+
 
 	}
 

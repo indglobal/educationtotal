@@ -11,9 +11,9 @@
                     </span>
                 </div>
             </li>--> 
-            <li>
+           <!-- <li>
                 <a href="<?php echo base_url('admin');?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-            </li>
+            </li>-->
             <li>
          <a href="<?php echo base_url('categories');?>"><i class="fa fa-table fa-fw"></i>categories</a>
            </li> 
@@ -43,6 +43,10 @@
            </li>
             
 
+            <li>
+                <a href="<?php echo base_url('specialities');?>"><i class="fa fa-table fa-fw"></i> Specialities</a>
+            </li> 
+			
                                             
         </ul>
     </div>

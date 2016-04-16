@@ -77,6 +77,7 @@ class register_cont extends CI_Controller
       $this->load->view('header.php');
       $catesecond['cat']=$this->user_model->fetch_category();
         if ($this->input->post('idtype')==3) 
+			
           $this->load->view('user/user_signup.php');
        else 
           $this->load->view('user/provider_signup.php');
@@ -119,12 +120,10 @@ class register_cont extends CI_Controller
 			 
 			   if($category == 2)
 			   {
-               //$data['cat']=$this->user_model->fetch_category();
-               //$this->load->view('header.php',$data);
-               redirect('user/provider_panel');
+                 redirect('user/provider_panel');
 			   }
 			   else
-			   {
+			   {			   
 				redirect('user/user_panel');   
 			   }
            }

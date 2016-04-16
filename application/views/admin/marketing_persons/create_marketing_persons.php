@@ -18,7 +18,7 @@
                       <form role="form" class="form-specialities" action="<?php echo base_url('update_marketing_persons'); ?>" method="post">
                       <div class="form-group">
                       <input  name="id" class="form-control" value="<?php if(isset($id)) echo $id; ?>" style="display: none" readonly>
-                      <label>first Name *</label>
+                      <label>First Name *</label>
                       <input id="fname_marketing" name="fname_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['fname'];?>"><span id="fname_error" class="fname_error"></span><br>
                       <label>Last Name*</label>
                       <input id="lname_marketing" name="lname_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['lname'];?>"><span id="lname_error" class="fname_error"></span><br>
@@ -67,7 +67,7 @@ $("#submit").on('click',function(){
     return false;
   }
 
-  var name_exp = /^[A-Za-z]+$/;
+  var name_exp=/^[A-Za-z ]+$/;
   if(!(name_exp.test($("#name_marketing").val())))
   {
         $("#name_marketing").focus().val('');

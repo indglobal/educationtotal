@@ -10,28 +10,44 @@ class User_panel extends CI_Controller
 		//  $this->load->view('admin/header');
 		// $this->load->view('admin/leftbar');
 		// $this->load->view('admin/footer');
-	if( ! $this->session->userdata('is_userlogged_in'))
+		if( ! $this->session->userdata('is_userlogged_in'))
 		return	redirect('register_cont');
 	}
 
 	function index()
 	{
-		 $data['userid']=$this->session->userdata('is_userlogged_in');
+		$data['userid']=$this->session->userdata('is_userlogged_in');
 		//print_r($data['userid']['UN']);
 		//exit();
 		$data['getDetails_fromsignup']=$this->user_model->getDetails_fromsignup($data['userid']['UN']);
-		//print_r($data['getDetails_fromsignup'][0]['user_id']);
+		// print_r($data['getDetails_fromsignup']);
 		$data['getDetails_fromedu_user']=$this->user_model->getDetails_fromedu_user($data['getDetails_fromsignup'][0]['user_id']);
-		// print_r($data['getDetails_fromedu_user']);
-		// exit();
-		if(isset($data['getDetails_fromedu_user'][0]['edu_name']))
-		{
+		//print_r($data['getDetails_fromedu_user']);
+		//exit();
+		if(!empty($data['getDetails_fromedu_user'])){
         $data['edu_details']=unserialize($data['getDetails_fromedu_user'][0]['edu_name']);
-		}
-		else
-		{
-			$data['edu_details'] = 1;			
-		}
+        }else{
+    	$data['edu_details']="1";
+        }
+        //print_r($data['edu_details']);
+        //exit();
+        // if($data['edu_details']){
+
+        // }
+        // exit();
+        // print_r($data['edu_details']);
+        // exit();
+		//}
+
+	$data['getDetails_fromskill_user']=$this->user_model->getDetails_fromskill_user($data['getDetails_fromsignup'][0]['user_id']);
+    if(!empty($data['getDetails_fromskill_user'])){
+  $data['skill_details']=unserialize($data['getDetails_fromskill_user'][0]['skill_name']);
+  // print_r(count($data['skill_details']));
+        }else{
+        	$data['skill_details']=1;
+        }
+        $data['cat']=$this->user_model->fetch_category();
+               $this->load->view('header.php',$data);
      	$this->load->view('user/userprofile',$data);
 	}
 
@@ -80,22 +96,87 @@ class User_panel extends CI_Controller
     
 
     function user_edit_myprofile_section(){
+
     		 if($_POST)
   	      {
-  	      	 $user_id=$this->input->post('user_id');
+          $pre_image_url=$this->input->post('pre_image_url');
+  	      $user_id=$this->input->post('user_id');
+  	      $folderName=$user_id;
 
-  	     if($this->user_model->save_user_detail_my_profile($user_id))
+  	    	$pathToUpload ='uploads/user_image/'.$folderName."/";
+
+  	    	if ( ! file_exists($pathToUpload) ) {
+			       $create = mkdir($pathToUpload, 0777, TRUE);
+			  }
+             
+			    $this->load->library('upload');
+			    if($_FILES['photograph']['name']){
+               $fileName=$_FILES['photograph']['name'];
+
+                $config['upload_path'] = $pathToUpload;
+	            $config['allowed_types'] ='gif|jpg|png|pdf';
+	            $config['max_size'] = '0';
+	            $config['max_width']  = '5120';
+	            $config['max_height']  = '3840';
+	            $config['file_name'] = $fileName;
+	            $this->upload->initialize($config);
+
+	            if ($this->upload->do_upload('photograph')) {
+                    $data = $this->upload->data();
+                    $filePath =$data['file_name'];
+                    $filepath=$pathToUpload.$filePath;
+                    print_r("upload");
+                    //exit();
+                  
+                } else {
+                  $errors='';
+                }
+              }else{  ///no pic selected
+               $fileName=$pre_image_url;
+               $filepath=$fileName;
+              }
+
+            	
+                //print_r($config);
+                // exit();
+                 
+
+	             // $this->upload->initialize($config);
+              //   if ($this->upload->do_upload('photograph')) {
+              //       $data = $this->upload->data();
+              //       $filePath =$data['file_name'];
+              //        $filepath=$pathToUpload.$filePath;
+              //       print_r("upload");
+              //       //exit();
+                  
+              //   } else {
+         
+               // print_r("noupload");
+               // exit();
+                    //$errors = $this->upload->display_errors();
+               // }
+                  
+              //       if(!empty($errors)) {
+
+	            	// $this->session->set_flashdata('message', '<div class="alert alert-danger">'.$errors.'</div>');
+	            	// redirect(site_url('user/user_panel'));
+	             //    } else {
+	            	//$filePath =$data['file_name'];
+	              
+	               ###################
+  	            if($this->user_model->save_user_detail_my_profile($filepath,$user_id))
 	        	{ 
                     
 	        		$this->session->set_flashdata('message',"<div class='alert alert-success'>Successfully Saved </div>");
 			 	    redirect('user/user_panel');
 
 	        	}
+	        // }
 
   	     
   	    	
 
           }
-                                             }
+      }
 	
 }

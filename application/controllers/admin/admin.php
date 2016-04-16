@@ -6,7 +6,7 @@ class Admin extends CI_Controller
 	function __construct()
 	{
 		 parent::__construct();
-		 $this->load->model('admin/admin_model');
+		$this->load->model('admin/categories_model');
 		 $this->load->view('admin/header');
 		$this->load->view('admin/leftbar');
 		$this->load->view('admin/footer');
@@ -16,8 +16,8 @@ class Admin extends CI_Controller
 
 	function index()
 	{
-		
-     	$this->load->view('admin/dashboard');
+		$data['categories']=$this->categories_model->get_categories();
+     	$this->load->view('admin/category/list_of_category',$data);
 	}
 
 	function specialities()

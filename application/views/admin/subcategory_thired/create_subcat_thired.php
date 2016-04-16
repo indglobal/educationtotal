@@ -48,7 +48,7 @@
                   </select>
 
                   
-                      <label>Name *</label>
+                      <label>Subcategory3 *</label>
                       <input id="name" name="subcat_name" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_thired_name'];?>">
                       <span id="error" class="name_error"></span>
                       </div>
@@ -76,7 +76,7 @@ $("#category").on('click',function(){
     return false;
   }
 
-  var name_exp = /^[A-Za-z]+$/;
+  var name_exp=/^[A-Za-z ]+$/;
   if(!(name_exp.test($("#name").val())))
   {
         $("#name").focus().val('');
