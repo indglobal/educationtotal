@@ -51,7 +51,7 @@
 	<div class="container-fluid main_body">
 	<div class="row main_face">
 
-	<?php include("leftbar.php");?>
+	<?php include("left_panel_provider.php");?>
 
 		<div class="col-sm-11 mid_cont">
 		<div class="tab-content">
@@ -87,13 +87,12 @@
                     <th>subcat</th>
                     </tr>
                     </thead>
-
-                    <tbody>
-
-
+					  <tbody>
                     <?php 
-                     foreach ($result as $res) {  ?>
-                     	
+                     foreach ($result as $res) {
+                     	//echo "<pre>";
+                     	//print_r($res);  ?>
+                  
                     <tr>
 	                    <td><a href="<?php echo base_url();?>service/search_result_service/<?php echo $res->service_id;?>"><?php echo $res->title ?></a> </td>
 	                    <td><?php echo $res->cat_name ?>        </td>
@@ -101,16 +100,13 @@
 	                    <td>  <?php echo $res->subcat_second_name  ?>  </td>
 	                    <td> <?php echo $res->subcat_thired_name ?>  </td>
                     </tr>           
-
-                    
-                            <!-- /.table-responsive -->
+                   
                  <?php   }
 		    		?>
-		    		</tbody>
+				 </tbody>
                     </table>
                     </div>
-
-
+                            <!-- /.table-responsive -->	
  				</div>
  		 	</div>		
 
