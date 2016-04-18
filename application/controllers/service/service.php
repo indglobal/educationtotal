@@ -71,6 +71,13 @@ class Service extends CI_Controller
 
 	function save_service()
 	{
+    $p = $_POST['class_type'];
+    $ct=count($p);
+    $class_type = "";
+    for ($i=0; $i<$ct; $i++) {
+        $class_type.=("'$p[$i]',"); //Now it is string...
+    }
+    //echo $class_type;die();
 		//echo "<pre>";print_r($_POST);die();
     /****** Service details   ******/
 		if(isset($_POST['user_id']))
@@ -309,13 +316,39 @@ class Service extends CI_Controller
 
  /****** Class details   ******/
      	if(!empty($_POST['class_type'])){
-       		$class_type = $_POST['class_type'];
+         $c_t = $_POST['class_type'];
+         $ct=count($c_t);
+         $class_type = "";
+         for ($i=0; $i<$ct; $i++) {
+              $class_type.=("'$c_t[$i]',"); //Now it is string...
+          }
+       	//	$class_type = $_POST['class_type'];
         }
+
         if(!empty($_POST['degree_name'])){
-          $degree_name = $_POST['degree_name'];
+        $d_n = $_POST['degree_name'];
+         $dn=count($d_n);
+         $degree_name = "";
+         for ($i=0; $i<$dn; $i++) {
+              $degree_name.=("'$d_n[$i]',"); //Now it is string...
+          }
+        //  $degree_name = $_POST['degree_name'];       
         }else{
            $degree_name ="";
         }
+
+        if(!empty($_POST['total_admission_intake'])){
+           $t_i = $_POST['total_admission_intake'];
+         $ti=count($t_i);
+         $total_admission_intake = "";
+         for ($i=0; $i<$ti; $i++) {
+              $total_admission_intake.=("'$t_i[$i]',"); //Now it is string...
+          }
+          //$total_admission_intake = $_POST['total_admission_intake'];
+        }else{
+           $total_admission_intake ="";
+        }
+
         if(!empty($_POST['specialization'])){
           $specialization = $_POST['specialization'];
         }else{
@@ -346,11 +379,7 @@ class Service extends CI_Controller
         }else{
            $accriditation ="";
         }
-         if(!empty($_POST['total_admission_intake'])){
-          $total_admission_intake = $_POST['total_admission_intake'];
-        }else{
-           $total_admission_intake ="";
-        }
+         
          if(!empty($_POST['eligibility'])){
           $eligibility = $_POST['eligibility'];
         }else{

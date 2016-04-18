@@ -105,11 +105,27 @@
 				<div id="postprograms">
 					<h2>Courses</h2>
 					<div class="contentBlockSec mar-btm-20">
-						<h4 class="blockSubHeading">Number of Courses Available: 57</h4>
+						<?php $c_t = explode(",",$res->class_type);
+           
+						 $c_t = explode(",",$res->class_type);
+						 $d_n = explode(",",$res->degree_name);
+						 $t_i = explode(",",$res->total_admission_intake);
+
+						  $c_array = array();
+              for($i=0;$i< sizeof($c_t);$i++){
+				$c_array[$i]['class_type'] = $c_t[$i];
+				$c_array[$i]['degree_name'] = $d_n[$i];
+				$c_array[$i]['total_intake'] = $t_i[$i];
+			}
+			$c_json =  json_encode($c_array);
+			echo $c_json;
+                      
+						 ?>
+						<h4 class="blockSubHeading">Number of Courses Available:<?php echo count($c_t); ?></h4>
 						<div class="ugAndPgCourses">
 							<div class="ratingUgAndPg ">
-								<div class="innerUgAndPg " style=" width:56.140350877193%;">UG (32)</div>
-								<span class="text-right">PG (25)</span>
+								<div class="innerUgAndPg " style=" width:56.140350877193%;">UG (<?php echo   count( array_keys( $c_t, "UG" )); ?>)</div>
+								<span class="text-right">PG (<?php echo   count( array_keys( $c_t, "UG" )); ?>)</span>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -135,11 +151,6 @@
 							</div>
 						</div>
 						</div>
-
-
-
-
-
 
 
 

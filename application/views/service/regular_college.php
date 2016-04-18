@@ -226,14 +226,26 @@
 		<h3><span>Courses</span></h3>
 	</div>
 
-	<div class="form-group">  
-	    <select  name="class_type"><option value="">select class</option><option value="course1">course1</option><option value="course2">course2</option></select>  
-    </div>
+  <div class="row">
 
-    <div class="form-group"> 
-	<input type="text" name="degree_name" placeholder="degree name">
-	</div>
+	<div class="col-sm-4"> <div class="form-group"> 
+	 <select id="class_type"  name="class_type[]"><option value="">select course</option><option value="UG">UG</option><option value="PG">PG</option><option value="RESEARCH">RESEARCH</option></select>  
+    </div></div>
 
+    <div class="col-sm-4"> <div class="form-group"> 
+	<input id="degree_name" type="text" name="degree_name[]" placeholder="degree name">
+	</div></div>
+
+	 <div class="col-sm-4"> <div class="form-group"> 
+	<input id="intake" type="text" name="total_admission_intake[]"  placeholder="total admission intake">
+	</div></div>
+
+	
+	<button type="button" id="app_div" class="btn btn-default btn-lg" ><span class="glyphicon glyphicon-plus"></button>
+
+
+  </div>
+     	
 	<div class="form-group"> 
 	<input type="text" name="specialization" placeholder="specialization">
 	</div>
@@ -263,9 +275,9 @@
 		<input type="text" name="accriditation" placeholder="accriditation">
 	</diV>
 
-	<div class="form-group"> 
+	<!--div class="form-group"> 
 	<input type="text" name="total_admission_intake"  placeholder="total admission intake">
-	</div>
+	</div-->
 
 	<div class="form-group"> 
 	<input type="text" name="eligibility"  placeholder="Eligibility">
@@ -437,6 +449,27 @@
 
     
 </div>
+
+<script type="text/javascript">
+jQuery(function($){
+	var $class_type = $('#class_type'), count = 1;
+	var $degree_name = $('#degree_name'), count = 1;
+	var $intake = $('#intake'), count = 1;
+
+	$('#app_div').click(function(e){
+		e.preventDefault();
+		//var idn = 'class_type' + (++count);
+		//var idname = 'degree_name' + (++count);
+        var idn = 'class_type[]';
+        var idname = 'degree_name[]';
+        var idintake = 'intake[]';
+		$class_type.parent().append($class_type.clone().attr({id: idn, name: idn}));
+		$degree_name.parent().append($degree_name.clone().attr({id: idname, name: idname}));
+		$intake.parent().append($intake.clone().attr({id: idintake, name: idintake}));
+	});
+	
+});
+</script>
 
 
 

@@ -44,16 +44,17 @@
 
 						<div class="forum-wrp">
 							<form id="search" method="post" enctype="multipart/form-data" class="forum-form">
-               <?php if(isset($this->session->userdata['is_userlogged_in']['IID']) )  
-               $user_id = $this->session->userdata['is_userlogged_in']['IID'];
-               ?>
+               <?php if(isset($this->session->userdata['is_userlogged_in']['IID']) )  {
+               $user_id = $this->session->userdata['is_userlogged_in']['IID'];  ?>
+               
 	                            <input type="hidden" name="user_id" value="<?php echo  $user_id; ?> ">
-								<br>
+						<?php 	}	?>
+                <br>
 
 								<div class="form-group"> 
 									<input type="text" id="title" name="title" placeholder="Title">
 								</div>
-
+                
 								<div class="form-group"> 
 									<select  id="cat_id" name="cat_id" data-placeholder="Choose a Main Category">
                                         <option required value="0">Choose a menu</option>
@@ -87,13 +88,12 @@
 								</div>
 
 								<div style="height:auto;" id="result">
-									
-                                   
+								                    
 								</div>
                                 
-                                <div id="submit" style="display:none;">
-								<button type="submit" >submit</button> 
-                                </div> 
+                <div id="submit" style="display:none;">
+								    <button type="submit" >submit</button> 
+                </div> 
                           <!--  <input id="save_add_service" type="submit" value="SEARCH">
                              -->   
 							</form>

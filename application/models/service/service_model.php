@@ -112,6 +112,7 @@ class Service_model extends CI_Controller
 		$this->db->join('basic_details', 'service.service_id = basic_details.service_id');
 		$this->db->join('facilities_available_details', 'service.service_id = facilities_available_details.service_id');
 		$this->db->join('contact_details', 'service.service_id = contact_details.service_id');	
+		$this->db->join('classes_details', 'service.service_id = classes_details.service_id');	
 		$this->db->where('service.service_id', $id);
 		$query = $this->db->get();
 		return $query->result();
