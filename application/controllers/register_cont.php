@@ -123,7 +123,6 @@ class register_cont extends CI_Controller
 
                
                redirect('user/provider_panel');
-
 			   }
 			   else
 			   {			   

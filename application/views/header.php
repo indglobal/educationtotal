@@ -125,22 +125,7 @@ textarea {
 					</article>
     			<?php } ?>
 
-				</div>
-			</div>
-		</article>
-		<?php   }else
-		{  ?>
-		<article class="col-sm-3" >
-			<div class="header-signin-wrp">
-				<span><a href="#">List Services</a></span>
-				<ul>
-					<li><a href="<?php echo base_url();?>register_cont/signin">Sign in </a></li>
-					<li><a href="<?php echo base_url();?>register_cont/user_signup"> Sign up </a></li>
-				</ul>
-		    </div>
-		</article>
-        <?php } ?>
-
+			
 	</div>
 	</div>
 	</div><!-- header top end -->
