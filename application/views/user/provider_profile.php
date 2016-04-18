@@ -99,11 +99,11 @@
 							      	</div>
 							      	<div class="col-sm-3">
 							      	</div>
-							      	<div class="col-sm-1">
+							      <!--	<div class="col-sm-1">
 							      		<button class="btn btn-primary btnEdit">
 							      			<i class="fa fa-pencil"></i> Edit
 										</button>
-							      	</div>
+							      	</div>-->
 							      	<div class="clear"></div>
 							      	<div class="row">
 							      		<div class="col-sm-2">

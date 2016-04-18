@@ -42,8 +42,8 @@ class register_cont extends CI_Controller
     public function add_user()
    {
   
-   $this->form_validation->set_rules('usnameF', 'User Name', 'required');
-   $this->form_validation->set_rules('usnameL', 'User Last Name', 'required');
+   $this->form_validation->set_rules('usnameF', 'User Name', 'required|max_length[30]');
+   $this->form_validation->set_rules('usnameL', 'User Last Name', 'required|max_length[30]');
    $this->form_validation->set_rules('uspasw','Password','required|max_length[20]|min_length[6]|alpha_numeric');
    $this->form_validation->set_rules('uscnpasw', 'Password Confirmation', 'required|matches[uspasw]');
    $this->form_validation->set_rules('usemail', 'E-mail', 'required|valid_email|is_unique[user_detail.email]');
@@ -92,10 +92,10 @@ class register_cont extends CI_Controller
        if(isset($submitlog))
         {
 //checking validation
-  
+
    $this->form_validation->set_rules('uname', 'User Name', 'required');
    $this->form_validation->set_rules('pass', 'Password', 'required');
-   $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+   // $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
     if ($this->form_validation->run())
     {
       $usr=$this->input->post('uname');
@@ -109,7 +109,6 @@ class register_cont extends CI_Controller
            {
                foreach($rec as $valu)
                {
-				  // print_r($valu);
                    $iid=$valu['user_id'];
                }
                $S_A=array('UN'=>$usr,'IID'=>$iid);
@@ -130,17 +129,16 @@ class register_cont extends CI_Controller
 			   }
            }
            else
-           {             
-            echo "<script>alert('WRONG PASSWORD'); </script>"; 
-            redirect('register_cont/signin');
+           {       
+           $this->session->set_flashdata('message', '<div class="alert alert-danger">Invalid Username or Password..</div>');
+           redirect(site_url('register_cont/signin'));      
+            // echo "<script>alert('WRONG PASSWORD'); </script>"; 
+            // redirect('register_cont/signin');
            }
 
-    }
-    else
-    {
+    }else{
     $data['cat']=$this->user_model->fetch_category();
     $this->load->view('header',$data);
-    
     $this->load->view('user/signin');
     $this->load->view('footer');
    }

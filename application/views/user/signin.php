@@ -24,18 +24,22 @@ method="POST" >
 <span class="radio-provodr">
 <input type="radio" name="category" value="2" id="radio2" class="css-checkbox" /><!-- checked="checked" -->
 <label for="radio2" class="css-label radGroup1">PROVIDER</label>
-
 </span>
 </div>
+  <?php $msg = $this->session->flashdata('message'); 
+                           echo $msg;
+                           
+                        
+                        ?>
 
 <div class="form-group" id="user-data-grp">
 <label>USER NAME</label>
-<input id="userID" type="text"  name="uname"
-value="<?php if(isset($_POST['uname'])) echo htmlentities($_POST['uname']); ?>" placeholder="User Name">
-<?php echo form_error('uname'); ?>
-<label>PASSWORD</label>
-<input id="password" type="password"  name="pass" placeholder="Password">
-<?php echo form_error('pass'); ?>
+<input id="uame" type="text"  name="uname" placeholder="User Name"><?php echo form_error('uname', '<div class="error" style="color:red;">', '</div>');?>
+<?php //echo form_error('uname'); ?>
+<label>PASSWORD
+</label>
+<input id="password" type="password"  name="pass" placeholder="Password"><?php echo form_error('pass', '<div class="error" style="color:red;">', '</div>');?>
+<?php //echo form_error('pass'); ?>
 </div>
 
 <input type="submit" name="submit" value="SIGNIN" id="btn-signin">
