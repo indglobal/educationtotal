@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <title>My Profile</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
- 	<link rel="stylesheet" href="<?php echo base_url();?>user_panel_design/css/bootstrap.min.css">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 	  <!--link rel="stylesheet" href="<?php echo base_url();?>user_panel_design/css/bootstrap.min.css"-->
   	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>user_panel_design/font-awesome-4.5.0/css/font-awesome.min.css">
   	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>user_panel_design/css/style.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -49,16 +49,17 @@
 <br><br><br>
 	<!-- Start body content.............................................. -->
 	<div class="container-fluid main_body">
-	<div class="row main_face">
+	  
+  <div class="row main_face">
 
-		<div class="col-sm-1 left_cont">
-			<ul class="nav nav-tabs">
-				<li><a data-toggle="tab" href="<?php echo base_url();?>user/provider_panel"><img src="<?php echo base_url();?>user_panel_design/images/profile.png" alt="profile"><p>Profile</p></a></li>
-				<li class="active"><a data-toggle="tab" href="<?php echo base_url();?>service/add_service"><img src="http://115.118.113.154/edutotal/wp-content/uploads/2015/10/download.png" alt="profile"><p> Add Service</p></a></li>
-				<li><a data-toggle="tab" href="<?php echo base_url();?>service/list_service"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>List Services</p></a></li>
-				<li><a data-toggle="tab" href="#"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>Document</p></a></li>
-			</ul>
-		</div>
+    		<div class="col-sm-1 left_cont">
+    			<ul class="nav nav-tabs">
+    				<li><a data-toggle="tab" href="<?php echo base_url();?>user/provider_panel"><img src="<?php echo base_url();?>user_panel_design/images/profile.png" alt="profile"><p>Profile</p></a></li>
+    				<li class="active"><a data-toggle="tab" href="<?php echo base_url();?>service/add_service"><img src="http://115.118.113.154/edutotal/wp-content/uploads/2015/10/download.png" alt="profile"><p> Add Service</p></a></li>
+    				<li><a data-toggle="tab" href="<?php echo base_url();?>service/list_service"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>List Services</p></a></li>
+    				<li><a data-toggle="tab" href="#"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>Document</p></a></li>
+    			</ul>
+    		</div>
 
 		<div class="col-sm-11 mid_cont">
 		<div class="tab-content">
@@ -71,55 +72,55 @@
 					<li class="active">Provider Profile Pages</li>
 				</ol>
 			</div>
+
 			<div class="col-sm-12 body_header_caption">
 				<h2>Add Service</h2>
 			</div>
 
-		    <div class="col-sm-10 body_right">
-		    	<div class="col-sm-12 ">
+		  <div class="col-sm-10 body_right">
+		    <div class="col-sm-12 ">
 
-                    <div id="f_success" class="success"></div>
-                    <div id="f_error" class="error"></div>
+          <div id="f_success" class="success"></div>
+          <div id="f_error" class="error"></div>
 
 						<div class="forum-wrp">
+
 							<form id="search" method="post" enctype="multipart/form-data" class="forum-form">
                <?php if(isset($this->session->userdata['is_userlogged_in']['IID']) )  
                $user_id = $this->session->userdata['is_userlogged_in']['IID'];
                ?>
-	                            <input type="hidden" name="user_id" value="<?php echo  $user_id; ?> ">
+	              <input type="hidden" name="user_id" value="<?php echo  $user_id; ?> ">
 								
-
 								<div class="form-group"> 
 									<input type="text" id="title" name="title" placeholder="Title">
 								</div>
 
 								<div class="form-group"> 
 									<select  id="cat_id" name="cat_id" data-placeholder="Choose a Main Category">
-                                        <option required value="0">Choose a menu</option>
-                                        <?php foreach ($menu as $m) {//echo"<pre>";print_r($categories); ?>
-                                        <option value="<?php echo $m->cat_id ?>"><?php echo $m->cat_name ?></option>
-                                        <?php } ?>
-                                   </select>
+                      <option required value="0">Choose a menu</option>
+                      <?php foreach ($menu as $m) {//echo"<pre>";print_r($categories); ?>
+                      <option value="<?php echo $m->cat_id ?>"><?php echo $m->cat_name ?></option>
+                      <?php } ?>
+                  </select>
 								</div>
 
-                                <div id="menu_sub" style="display:none;" class="form-group"> 
-									<select  id="subcat_id" name="subcat_id">
-                                        <option value="0">Select Sub-menu</option>
-                                    </select>
+                <div id="menu_sub" style="display:none;" class="form-group"> 
+								  <select  id="subcat_id" name="subcat_id">
+                    <option value="0">Select Sub-menu</option>
+                  </select>
 								</div>
 
 								<div id="menu_category"  style="display:none;" class="form-group"> 
 									<select  id="sub_cat_second_id" name="sub_cat_second_id">
-                                       <option value="0">Select category</option>
-                                    </select>
+                    <option value="0">Select category</option>
+                  </select>
 								</div>
 
 								<div id="menu_sub_category"  style="display:none;"  class="form-group"> 
 									<select  id="sub_cat_thired_id" name="sub_cat_thired_id">
-                                        <option value="0">Select sub category</option>
-                                    </select>
+                    <option value="0">Select sub category</option>
+                  </select>
 								</div>
-
 
 								<div class="form-group"> 
 									<textarea name="about" id="about" placeholder="About"></textarea>
@@ -130,20 +131,19 @@
                                    
 								</div>
                                 
-                                <div id="submit" style="display:none;">
-								<button type="submit" >submit</button> 
-                                </div> 
-                          <!--  <input id="save_add_service" type="submit" value="SEARCH">
-                             -->   
+                <div id="submit" style="display:none;">
+								  <button type="submit" >submit</button> 
+                </div> 
+                <!--  <input id="save_add_service" type="submit" value="SEARCH">-->   
 							</form>
 						</div>
 				</div>	
 			</div>	
 
 	    </div>	
-		</div>
+		  </div>
 	    </div>	
-	</div>	
+	  </div>	
 	</div>	
 
 <script>
@@ -241,8 +241,12 @@ var value = $(this).val();
         if(value == 2)
     	{
     		var url = "<?php echo base_url()?>regular_school";
+        }
+        if(value == 4 || value == 5 || value == 6 || value == 7  )
+    	{
+    		var url = "<?php echo base_url()?>regular_college";
         }		
-	
+
         $.ajax({
         url: url,	   	
         dataType: 'html',
@@ -280,7 +284,7 @@ $("#search").ajaxForm({
              $("#f_error").hide();
           $("#f_success").append("Service added successfully");
           setTimeout(function(){
-            window.location = data;
+            window.location = "<?php echo base_url(); ?>" + "service/list_service";
           }, 5000);
 		}
 					 

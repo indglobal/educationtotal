@@ -54,18 +54,21 @@
 <!-- Start body content.............................................. -->
 	<div class="container-fluid main_body">
 		<div class="row main_face">
+
 			<div class="col-sm-1 left_cont">
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="#profile"><img src="<?php echo base_url();?>user_panel_design/images/profile.png" alt="profile"><p>Profile</p></a></li>
-					<li><a data-toggle="tab" href="<?php echo base_url();?>service/add_service"><img src="http://115.118.113.154/edutotal/wp-content/uploads/2015/10/download.png" alt="profile"><p> Add Service</p></a></li>
-			     	<li><a data-toggle="tab" href="<?php echo base_url();?>service/list_service"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>List Services</p></a></li>		
+					<li><a  href="<?php echo base_url();?>service/add_service"><img src="http://115.118.113.154/edutotal/wp-content/uploads/2015/10/download.png" alt="profile"><p> Add Service</p></a></li>
+			     	<li><a  href="<?php echo base_url();?>service/list_service"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>List Services</p></a></li>		
 					<li><a data-toggle="tab" href="#"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>Document</p></a></li>
 				</ul>
 			</div>
+
 			<div class="col-sm-11 mid_cont">
 				<div class="tab-content">
 				    <div id="profile" class="tab-pane fade in active">
 				     <article id="about_profile">
+
 					      <div class="col-sm-12 body_header">
 					      		<ol class="breadcrumb">
 								  <li><a href="#">Home</a></li>
@@ -73,9 +76,11 @@
 								  <li class="active">Provider Profile Pages</li>
 								</ol>
 					      </div>
+
 						  <div class="col-sm-12 body_header_caption">
 						      	<h2>My Profile</h2>
 						  </div>
+
 						   <div class="col-sm-2 left_panel">
 							  <div class="col-sm-12 body_left">
 									<div class="col-sm-12 line_border">
@@ -93,14 +98,14 @@
 					 		</div>
 					 <!--  End of Left content.................................................... -->
 					  		<div class="col-sm-10 body_right">
-							  	 <ul class="nav nav-tabs">
+							  	<ul class="nav nav-tabs">
 								    <li class="active"><a data-toggle="tab" href="#myprofile">My Profile</a></li>
 								    <li><a data-toggle="tab" href="#cour">My Courses</a></li>
 								    <li><a data-toggle="tab" href="#orders">My Orders</a></li>
 								    <li><a data-toggle="tab" href="#fav">Favourates</a></li>
 								    <li><a data-toggle="tab" href="#group">Groups</a></li>
 								    <li><a data-toggle="tab" href="#review">Reviews</a></li>
-								 </ul>
+								</ul>
 							  <div class="tab-content mycontent">
 							    <div id="myprofile" class="tab-pane fade in active">
 							   
@@ -184,6 +189,7 @@
 									
 									
 						    	</div><!-- End of myprofile tab -->
+
 						   <div id="cour" class="tab-pane fade in ">
 						      <section id="about">
 						      	<div class="col-sm-8">
@@ -261,6 +267,7 @@
 						      	</div>
 								</section><!-- End of about section -->
 								</div>
+
 								 <div id="orders" class="tab-pane fade in ">
 						      <section id="about">
 						      	<div class="col-sm-8">
@@ -338,6 +345,7 @@
 						      	</div>
 								</section><!-- End of about section -->
 								</div>
+
 								 <div id="fav" class="tab-pane fade in ">
 						      <section id="about">
 						      	<div class="col-sm-8">
@@ -415,7 +423,8 @@
 						      	</div>
 								</section><!-- End of about section -->
 								</div>
-									 <div id="group" class="tab-pane fade in ">
+
+							 <div id="group" class="tab-pane fade in ">
 						      <section id="about">
 						      	<div class="col-sm-8">
 						      		<h2>My groups</h2>
@@ -492,7 +501,8 @@
 						      	</div>
 								</section><!-- End of about section -->
 								</div>
-								 <div id="review" class="tab-pane fade in ">
+
+							<div id="review" class="tab-pane fade in ">
 						      <section id="about">
 						      	<div class="col-sm-8">
 						      		<h2>My reviews</h2>
@@ -568,11 +578,10 @@
 						      		</div>
 						      	</div>
 								</section><!-- End of about section -->
-								</div>
+							</div>
+                            </article><!-- End of my profile section -->
 						  </div> <!-- End of the innner tab content -->
 					  </div> <!-- End of body_right section -->
-					</article><!-- End of my profile section -->
-					
-	 
+						 
 </body>
 </html>

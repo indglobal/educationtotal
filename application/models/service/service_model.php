@@ -4,19 +4,19 @@ class Service_model extends CI_Controller
 {
 	/********** demo *********/
 
-function get_menu()
+   function get_menu()
 	{
 		$query=$this->db->query('select * from master_categories');
 		return $query->result();
 	}
 
-function get_sub_menu($id)
+    function get_sub_menu($id)
 	{
 		$query=$this->db->query("select * from master_subcategory where cat_id='$id'");
 		return $query->result();
 	}
 
-function get_category($id)
+    function get_category($id)
 	{
 		$query=$this->db->query("select * from master_subcategory_second where subcat_id='$id'");
 		return $query->result();
@@ -28,12 +28,9 @@ function get_category($id)
 		return $query->result();
 	}
 
-
-
 	/********** end demo ********/
 
-
-	/******** Service **********/
+	/********  Add  Service **********/
 
 	public function save_service_data($data)
 	{
@@ -86,7 +83,15 @@ function get_category($id)
 		 return $insert;		
 	}
 
-	/********* End  ********/
+	public function save_placement_data($data)
+	{
+		$insert = $this->db->insert('placement_details', $data);
+		 return $insert;		
+	}
+
+	/********* End Add service ********/
+
+	/*******   **********/
 
 		public function get_search_result($level3_id,$level4_id)
 	{

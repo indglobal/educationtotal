@@ -36,7 +36,7 @@ class Service extends CI_Controller
     $data['result'] = $this->service_model->get_service($id);
 
    // echo "<pre>";print_r($data['result']);die();
-    $this->load->view('service/service',$data);
+    $this->load->view('service/services',$data);
 
   }
 
@@ -69,6 +69,7 @@ class Service extends CI_Controller
 	function save_service()
 	{
 		//echo "<pre>";print_r($_POST);die();
+    /****** Service details   ******/
 		if(isset($_POST['user_id']))
 	   {
 	   	$user_id = $_POST['user_id'];
@@ -111,12 +112,16 @@ class Service extends CI_Controller
 				'created_date' => Date('Y-m-d h:i:s'),
 				'modified_date' => Date('Y-m-d h:i:s')
 			);
+       /****** End Service details   ******/
       $last_insert_id =$this->service_model->save_service_data($service_data);
-
+       /****** Basic details   ******/
       if(isset($last_insert_id) && $last_insert_id > 0)
 	    {
         if(!empty($_POST['school_name'])){
        		$school_name = $_POST['school_name'];
+        }
+        if(!empty($_POST['college_name'])){
+          $school_name = $_POST['college_name'];
         }
         if(!empty($_POST['other_name'])){
        		$other_name = $_POST['other_name'];
@@ -142,6 +147,11 @@ class Service extends CI_Controller
         if(!empty($_POST['days_open'])){
        		$days_open = $_POST['days_open'];
         }
+        if(!empty($_POST['university_affialiated'])){
+          $university_affialiated = $_POST['university_affialiated'];
+        }else{
+          $university_affialiated ="";
+        }
         if(!empty($_POST['board'])){
        		$board = $_POST['board'];
         }
@@ -150,18 +160,33 @@ class Service extends CI_Controller
           $logo_image   = "dist/service_images/".$logo_name;
           copy($_FILES['logo']['tmp_name'],$logo_image );
           //chmod(base_url(). $logo_image , 0777);     
+        }else{
+           $logo_image   ="";
         }
         if(!empty($_FILES['profile_image'])){
        		 $profile_name	=  strtotime(Date('Y-m-d h:i:s')).$_FILES['profile_image']['name'];
 			     $profile_image 	=	"dist/service_images/".$profile_name;
 			     copy($_FILES['profile_image']['tmp_name'],$profile_image );
           // chmod(base_url(). $profile_image, 0777);
+        }else{
+           $profile_image = ""; 
+        }
+        if(!empty($_FILES['prospectus'])){
+           $prospectus_name  =  strtotime(Date('Y-m-d h:i:s')).$_FILES['prospectus']['name'];
+           $prospectus_image   = "dist/service_images/".$prospectus_name;
+           copy($_FILES['prospectus']['tmp_name'],$prospectus_image );
+          // chmod(base_url(). $profile_image, 0777);
+        }else{
+         $prospectus_image = ""; 
         }
         if(!empty($_POST['website'])){
        		$website = $_POST['website'];
         }
         if(!empty($_POST['about_school'])){
        		$about_school = $_POST['about_school'];
+        }
+        if(!empty($_POST['about_college'])){
+          $about_school = $_POST['about_college'];
         }
         if(!empty($_POST['ownership_type'])){
        		$ownership_type = $_POST['ownership_type'];
@@ -189,9 +214,11 @@ class Service extends CI_Controller
 				'state' => $state,
 				'year_established' => $year_established,
 				'days_open'=> $days_open,
+        'university_affialiated' => $university_affialiated,
 				'board' => $board,
 				'logo' =>  $logo_image ,
 				'profile_image' => $profile_image,
+        'prospectus' => $prospectus_image,
 				'website' => $website,
 				'about_school' => $about_school,
 				'ownership_type' => $ownership_type,
@@ -202,9 +229,9 @@ class Service extends CI_Controller
 				'created_date' => Date('Y-m-d h:i:s'),
 				'modified_date' => Date('Y-m-d h:i:s')
 			);
-
+        /****** End Basic details   ******/
         $this->service_model->save_basic_data($basic_data);
-        
+        /****** Contact details   ******/
         if(!empty($_POST['contact_number'])){
        		$contact_number = $_POST['contact_number'];
         }
@@ -229,10 +256,23 @@ class Service extends CI_Controller
         if(!empty($_POST['coordinator_mail_id'])){
        		$coordinator_mail_id = $_POST['coordinator_mail_id'];
         }
-       
-
+        if(!empty($_POST['plsupport_name'])){
+          $plsupport_name = $_POST['plsupport_name'];
+        }else{
+          $plsupport_name ="";
+        }
+        if(!empty($_POST['plsupport_number'])){
+          $plsupport_number = $_POST['plsupport_number'];
+        }else{
+          $plsupport_number = "";
+        }
+        if(!empty($_POST['plsupport_mail_id'])){
+          $plsupport_mail_id = $_POST['plsupport_mail_id'];
+        }else{
+          $plsupport_mail_id = "";
+        }   
         $contact_data = array(
-        	    'service_id' => $last_insert_id,
+        'service_id' => $last_insert_id,
 				'contact_number' => $contact_number,
 				'contact_mail_id' =>$contact_mail_id,
 				'director_name' => $director_name,
@@ -241,11 +281,15 @@ class Service extends CI_Controller
 				'coordinator_name' => $coordinator_name,
 				'coordinator_number' => $coordinator_number,
 				'coordinator_mail_id' => $coordinator_mail_id,
-				
+				'plsupport_name' => $plsupport_name,
+        'plsupport_number' => $plsupport_number,
+        'plsupport_mail_id' => $plsupport_mail_id,
 				'created_date' => Date('Y-m-d h:i:s'),
 				'modified_date' => Date('Y-m-d h:i:s')
 			);
+        /****** End Contact details   ******/
      		$this->service_model->save_contact_data($contact_data);
+        /******  Facilities details   ******/
 
        if(!empty($_POST['facilities_available'])){
           $facilities_available = $_POST['facilities_available'];
@@ -258,13 +302,81 @@ class Service extends CI_Controller
               'modified_date' => Date('Y-m-d h:i:s')
           );
         $this->service_model->save_facilities_data($facilities_data);
+ /****** End Facilities details   ******/
 
-
+ /****** Class details   ******/
      	if(!empty($_POST['class_type'])){
        		$class_type = $_POST['class_type'];
         }
+        if(!empty($_POST['degree_name'])){
+          $degree_name = $_POST['degree_name'];
+        }else{
+           $degree_name ="";
+        }
+        if(!empty($_POST['specialization'])){
+          $specialization = $_POST['specialization'];
+        }else{
+           $specialization ="";
+        }
+        if(!empty($_POST['mode_of_teaching'])){
+          $mode_of_teaching = $_POST['mode_of_teaching'];
+        }else{
+           $mode_of_teaching ="";
+        }
+        if(!empty($_POST['course_duration'])){
+          $course_duration = $_POST['course_duration'];
+        }else{
+           $course_duration ="";
+        }
+         if(!empty($_POST['medium_of_teaching'])){
+          $medium_of_teaching = $_POST['medium_of_teaching'];
+        }else{
+           $medium_of_teaching ="";
+        }
+        if(!empty($_POST['approval'])){
+          $approval = $_POST['approval'];
+        }else{
+           $approval ="";
+        }
+        if(!empty($_POST['accriditation'])){
+          $accriditation = $_POST['accriditation'];
+        }else{
+           $accriditation ="";
+        }
+         if(!empty($_POST['total_admission_intake'])){
+          $total_admission_intake = $_POST['total_admission_intake'];
+        }else{
+           $total_admission_intake ="";
+        }
+         if(!empty($_POST['eligibility'])){
+          $eligibility = $_POST['eligibility'];
+        }else{
+           $eligibility ="";
+        }
+        if(!empty($_POST['entrance_exam'])){
+          $entrance_exam = $_POST['entrance_exam'];
+        }else{
+           $entrance_exam ="";
+        }
+        if(!empty($_POST['exam_fees'])){
+          $exam_fees = $_POST['exam_fees'];
+        }else{
+           $exam_fees ="";
+        }
+        if(!empty($_POST['last_ad_cut_off'])){
+          $last_ad_cut_off = $_POST['last_ad_cut_off'];
+        }else{
+           $last_ad_cut_off ="";
+        }
+        if(!empty($_POST['reservation'])){
+          $reservation = $_POST['reservation'];
+        }else{
+           $reservation ="";
+        }
         if(!empty($_POST['fees'])){
        		$fees = $_POST['fees'];
+        }else{
+          $fees = "";
         }
         if(!empty($_POST['admission_open'])){
        		$admission_open = $_POST['admission_open'];
@@ -290,6 +402,19 @@ class Service extends CI_Controller
            	$classes_data = array(
         	    'service_id' => $last_insert_id,
 				'class_type' => $class_type,
+        'degree_name' =>$degree_name,
+        'specialization' =>$specialization,
+        'mode_of_teaching' =>$mode_of_teaching,
+        'course_duration' =>$course_duration,
+        'medium_of_teaching' =>$medium_of_teaching,
+        'approval' =>$approval,
+        'accriditation' =>$accriditation,
+        'total_admission_intake' =>$total_admission_intake,
+        'eligibility' =>$eligibility,
+        'entrance_exam' =>$entrance_exam,
+        'exam_fees' =>$exam_fees,
+        'last_ad_cut_off' =>$last_ad_cut_off,
+        'reservation' =>$reservation,
 				'fees' =>$fees,
 				'admission_open' => $admission_open,
 				'admission_closed' => $admission_closed,
@@ -301,8 +426,10 @@ class Service extends CI_Controller
 				'created_date' => Date('Y-m-d h:i:s'),
 				'modified_date' => Date('Y-m-d h:i:s')
 			);
+
+       /****** End Class details   ******/
      		$this->service_model->save_classes_data($classes_data);
-    	
+    	 /****** Event details   ******/
     	if(!empty($_POST['past_name'])){
        		$past_name = $_POST['past_name'];
         }
@@ -320,28 +447,93 @@ class Service extends CI_Controller
         }
            	$events_data = array(
         	    'service_id' => $last_insert_id,
-				'past_name' => $past_name,
-				//'past_gallery' =>$past_gallery,
-				'past_date' => $past_date,
-				'upcoming_name' => $upcoming_name,
-				'upcoming_date' => $upcoming_date,
-				'created_date' => Date('Y-m-d h:i:s'),
-				'modified_date' => Date('Y-m-d h:i:s')
-			);
+				      'past_name' => $past_name,
+      				//'past_gallery' =>$past_gallery,
+      				'past_date' => $past_date,
+      				'upcoming_name' => $upcoming_name,
+      				'upcoming_date' => $upcoming_date,
+      				'created_date' => Date('Y-m-d h:i:s'),
+      				'modified_date' => Date('Y-m-d h:i:s')
+      			);
+            /******End  Event details   ******/
      		$this->service_model->save_events_data($events_data);
         
+        /****** Cocurricular details   ******/
         if(!empty($_POST['activities_list'])){
           $activities_list = $_POST['activities_list'];
         }
+        if(!empty($_POST['achivers'])){
+          $achivers = $_POST['achivers'];
+        }else{
+          $achivers = "";
+        }
+        if(!empty($_POST['curricular_category'])){
+          $curricular_category = $_POST['curricular_category'];
+        }else{
+          $curricular_category = "";
+        }
+        if(!empty($_POST['participants_type'])){
+          $participants_type = $_POST['participants_type'];
+        }else{
+          $participants_type = "";
+        }
+        if(!empty($_POST['competition_name'])){
+          $competition_name = $_POST['competition_name'];
+        }else{
+          $competition_name = "";
+        }
+        if(!empty($_POST['student_name'])){
+          $student_name = $_POST['student_name'];
+        }else{
+          $student_name = "";
+        }
+        if(!empty($_POST['level'])){
+          $level = $_POST['level'];
+        }else{
+          $level = "";
+        }
 
-          $cocurricular_data = array(
+        $cocurricular_data = array(
               'service_id' => $last_insert_id,
               'activities_list' => $activities_list,
+              'achivers' => $achivers,
+              'curricular_category' => $curricular_category,
+              'participants_type' => $participants_type,
+              'competition_name' => $competition_name,
+              'student_name' => $student_name,
+              'level' => $level,
+              'created_date' => Date('Y-m-d h:i:s'),
+              'modified_date' => Date('Y-m-d h:i:s')
+        );
+          /******End Cocurricular details   ******/
+        $this->service_model->save_cocurricular_data($cocurricular_data);
+
+        /****** Placement details   ******/
+        if(isset($_POST['company_name']) || isset($_POST['total_student_placed']) || isset($_POST['avg_package']))
+       {
+          if(!empty($_POST['company_name'])){
+             $company_name = $_POST['company_name'];
+          } 
+          if(!empty($_POST['total_student'])){
+             $total_student = $_POST['total_student'];
+          }
+          if(!empty($_POST['average_package'])){
+             $average_package = $_POST['average_package'];
+          }
+
+          $placement_data = array(
+              'service_id' => $last_insert_id,
+              'company_name' => $company_name,
+              'total_student' => $total_student,
+              'average_package' => $average_package,
               'created_date' => Date('Y-m-d h:i:s'),
               'modified_date' => Date('Y-m-d h:i:s')
           );
-        $this->service_model->save_cocurricular_data($cocurricular_data);
-
+        $this->service_model->save_placement_data($placement_data);
+              /****** Placement details   ******/
+       }
+        
+/****** Review details   ******/
         if(!empty($_POST['name'])){
           $name = $_POST['name'];
         } 
@@ -371,19 +563,15 @@ class Service extends CI_Controller
               'created_date' => Date('Y-m-d h:i:s'),
               'modified_date' => Date('Y-m-d h:i:s')
           );
+
         $this->service_model->save_review_data($review_data);
-
+/****** End Review details   ******/
         echo "1";die();
-
-
-      
-	   }else
-     {
+ 
+	    }else
+      {
       echo "0";die();
-     }
-      
-	   
-
+      }
 
 	}
 
@@ -421,9 +609,12 @@ class Service extends CI_Controller
 
    	public function regular_playschool()
    	{
-
    		$this->load->view('service/regular_playschool');
    	}
+    public function regular_college()
+    {
+      $this->load->view('service/regular_college');
+    }
 
 
 

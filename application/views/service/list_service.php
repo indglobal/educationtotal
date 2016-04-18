@@ -94,11 +94,12 @@
                     <th>subcat</th>
                     </tr>
                     </thead>
+                    <tbody>
                     <?php 
                      foreach ($result as $res) {
                      	//echo "<pre>";
                      	//print_r($res);  ?>
-                    <tbody>
+                    
                     <tr>
 	                    <td><a href="<?php echo base_url();?>service/search_result_service/<?php echo $res->service_id;?>"><?php echo $res->title ?></a> </td>
 	                    <td><?php echo $res->cat_name ?>        </td>
@@ -106,12 +107,13 @@
 	                    <td>  <?php echo $res->subcat_second_name  ?>  </td>
 	                    <td> <?php echo $res->subcat_thired_name ?>  </td>
                     </tr>           
-                    </tbody>
-                    </table>
-                    </div>
+                    
                             <!-- /.table-responsive -->
                  <?php   }
 		    		?>
+		    		</tbody>
+                    </table>
+                    </div>
 
  				</div>
  		 	</div>		
