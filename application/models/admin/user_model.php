@@ -30,7 +30,7 @@ class user_model extends CI_Controller
 	}
 
 	 function get_userlist()
-     {
+     { 
 
         $this->db->select('*');
         $this->db->from('user_detail');

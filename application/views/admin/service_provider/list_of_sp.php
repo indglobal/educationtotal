@@ -25,7 +25,6 @@
                         <div class="panel-heading">
                             Service Provider Table
                         </div>
-
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         <div class="box-header">
@@ -55,7 +54,7 @@
                     <td><?php echo $val['phone'];?></td>
                     <td><?php echo $val['email'];?></td>
                     <td>
-                <button id="approved_review_<?php echo $id;?>" <?php if($status=="0"){?>class="btn btn-default"<?php }else{?>class="btn btn-success"<?php } ?>>Approved</button></td>
+                    <button id="approved_review_<?php echo $id;?>" <?php if($status=="0"){?>class="btn btn-default"<?php }else{?>class="btn btn-success"<?php } ?>>Approved</button>
 <!--                     <a href="<?php echo base_url(); ?>admin/categories/delete_cat/<?php echo $cat['cat_id']; ?>" class="btn btn-danger" onclick = "return delConfirm()">Delete</a>
  -->                    </td></tr>
 
@@ -66,22 +65,18 @@
                 $("#approved_review_"+<?php echo $id;?>).click(function(e){
                   e.preventDefault();
                   var id =$("#id_"+<?php echo $id;?>).text();
-               
-                // alert(id);
                   $.ajax({
-                  //url: "<?php echo base_url(); ?>" + "index.php/service_provider/approved",
+                  //url: "<?php echo base_url(); ?>" + "service_provider/approved",
                   url: "approved",
                   type: "POST",
                   data: {id:id},
                   success: function(res){
                  if (res=="success")
                      { 
-                        // alert("okk");
                        $("#approved_review_"+<?php echo $id;?>).removeClass("btn btn-success");
                        $("#approved_review_"+<?php echo $id;?>).addClass("btn btn-default"); 
 
                      }else if(res=="fail"){
-                        // alert("notok");
                       $("#approved_review_"+<?php echo $id;?>).removeClass("btn btn-default");
                        $("#approved_review_"+<?php echo $id;?>).addClass("btn btn-success"); 
                      }                   

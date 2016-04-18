@@ -64,6 +64,11 @@ class Admin_model extends CI_Controller
 	{
 		$this->db->delete('tbl_specialities', array('specialities_id' => $id));
 	}
+	
+	function get_all()
+	{
+		$this->db->delete('tbl_specialities', array('specialities_id' => $id));
+	}
 
 	
 }

@@ -78,17 +78,16 @@ class service_provider_model extends CI_Controller
 {
   $CI =&get_instance();
   $CI->db->select('status');
-  $CI->db->where('id',$id);
+  $CI->db->where('user_id',$id);
   $result = $CI->db->get('users_table');
   $row = $result->row();
   return $row->status;
-
   }
 
    function update_status_sp($id,$data)
   {
       //$data=array('status'=>0);
-      $this->db->where('id', $id);
+      $this->db->where('user_id', $id);
       $this->db->update('users_table', $data);
   }
 	

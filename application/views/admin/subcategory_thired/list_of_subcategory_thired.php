@@ -14,7 +14,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Specialities</h1>
+                    <h1 class="page-header">list of subcategories2</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -38,8 +38,8 @@
                     <th>ID</th>
                     <th>Category Name</th>
                     <th>SubCategory Name</th>
-                    <th>Subcategory2</th>
-                    <th>Subcategory3</th>
+                    <th>Subcategory Name Second</th>
+                    <th>Subcategory Name Thired</th>
                     <th>Action</th>
                     </tr>
                     </thead>

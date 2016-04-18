@@ -121,6 +121,19 @@ Become A Service Provider
 		var wH = $(window).height();
 		$('.signin-all-wrap').css("min-height", wH);
 	});
+			 $(function(){
+    $(".dropdown").hover(            
+            function() {
+                $('.header_cont .dropdown-menu', this).stop( true, true ).fadeIn("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            },
+            function() {
+                $('.header_cont.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            });
+    });
 </script>
 
 
@@ -129,5 +142,5 @@ Become A Service Provider
 
 
 </body>
->>>>>>> 2d350eb2779d0e206d980e1b86020288d28cbe51
+
 </html>

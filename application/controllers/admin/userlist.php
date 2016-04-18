@@ -1,4 +1,3 @@
-
 <?php
 
 class Userlist extends CI_Controller

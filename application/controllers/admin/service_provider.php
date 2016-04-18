@@ -25,6 +25,7 @@ class Service_provider extends CI_Controller
 	{	
 	//$this->load->model('admin/categories_model');		
 		$data['allservice_provider']=$this->service_provider_model->get_service_provider();
+
      	$this->load->view('admin/service_provider/list_of_sp',$data);
 	}
 
@@ -65,7 +66,7 @@ class Service_provider extends CI_Controller
 		redirect("categories");
 	}
 
- function approved(){
+ public function approved(){
     $id=$this->input->post('id');
     $status = $this->service_provider_model->check_status_sp($id);
      if($status=="1")
@@ -73,13 +74,18 @@ class Service_provider extends CI_Controller
       $data=array('status'=>0);
       $this->service_provider_model->update_status_sp($id,$data);
       echo "success";
+      exit;
         }elseif($status=="0"){
       $data=array('status'=>1);
       $this->service_provider_model->update_status_sp($id,$data);
       echo "fail";
+      exit;
     }
 
   }
+
+  // echo "success";
+  //   exit;
 
 	
 }

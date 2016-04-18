@@ -11,6 +11,7 @@ class Service extends CI_Controller
 		// $this->load->view('admin/header');
 		//$this->load->view('admin/leftbar');
 		$this->load->view('admin/footer');
+		
 		//if( ! $this->session->userdata('is_logged_in'))
 		//return	redirect('admin/login/index');
 	}
@@ -27,7 +28,10 @@ class Service extends CI_Controller
    // echo "sub_cat".$level4_id;
 
     $data['result'] = $this->service_model->get_search_result($level3_id,$level4_id);
+	  $data['cat']=$this->user_model->fetch_category();
+	  $this->load->view('header',$data);
       $this->load->view('service/search_result',$data);
+	   $this->load->view('footer',$data);
   }
 
   function search_result_service($id)
@@ -48,8 +52,7 @@ class Service extends CI_Controller
          $user_id = $this->session->userdata['is_userlogged_in']['IID'];
          
          $data['result'] = $this->service_model->list_service($user_id);
-         $this->load->view('service/list_service',$data);
-          $data['cat']=$this->user_model->fetch_category();
+         $this->load->view('service/list_service',$data);        
           $this->load->view('header',$data);
       }      
 

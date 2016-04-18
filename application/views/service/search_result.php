@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<br><br><br><br><!DOCTYPE html>
 <html>
 <head>
 	<title>Education Total</title>
@@ -211,19 +211,7 @@
 				</div> <!-- End of black column -->
 			</div> <!-- End of row -->
 		</div> <!-- End of container -->
-		<div class="container-fluid news">
-			<div class="row">
-				<div class="col-sm-12">
-					<form id="newsForm" class="text-center">
-						<label>Register for Newletters</label>
-						<input type="text" placeholder=" Name">
-						<input type="text" placeholder=" Email">
-						<button class="btn btn-primary btnSignup">Register Now</button>
-					</form>
-				</div>
-			</div>
-		</div>
-		
+
 		<div class="clear">
 		</div>
 		

@@ -7,30 +7,22 @@ class Provider_panel extends CI_Controller
 	{
 		 parent::__construct();
 		 $this->load->model('user_model');
-		//  $this->load->view('admin/header');
-		// $this->load->view('admin/leftbar');
-		// $this->load->view('admin/footer');
 		if( ! $this->session->userdata('is_userlogged_in'))
 		return	redirect('register_cont');
 	}
 
 	function index()
 	{
-		 $data['userid']=$this->session->userdata('is_userlogged_in');
-		//print_r($data['userid']['UN']);
-		//exit();
+		$data['userid']=$this->session->userdata('is_userlogged_in');
 		$data['getDetails_fromsignup']=$this->user_model->getDetails_fromsignup($data['userid']['UN']);
-		//print_r($data['getDetails_fromsignup'][0]['user_id']);
 		$data['getDetails_fromedu_user']=$this->user_model->getDetails_fromedu_user($data['getDetails_fromsignup'][0]['user_id']);
-		// print_r($data['getDetails_fromedu_user']);
-		// exit();
 		if(isset($data['getDetails_fromedu_user'][0]['edu_name']))
 		{
         $data['edu_details']=unserialize($data['getDetails_fromedu_user'][0]['edu_name']);
 		}
 		else
 		{
-			$data['edu_details'] = 1;			
+		$data['edu_details'] = 1;			
 		}
 		$data['cat']=$this->user_model->fetch_category();
         $this->load->view('header.php',$data);

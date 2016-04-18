@@ -21,7 +21,45 @@
 		margin-left: 5px;
 		font-size: 14px;
 	}
-    </style>
+
+	
+	input[type=text],textarea{
+    display: block;
+    width: 50%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+ select{
+	background-color:#fff;
+	 width: 50%;
+	background:url(../images/down.png) no-repeat;
+	background-size: 7px;
+	background-position: 95% 50%;
+	padding-right: 30px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	font-size: 15px;
+	color: #666;
+}
+
+textarea {
+    width: 42em;
+    height: 8em;
+}
+</style>
 
 </head>
 
@@ -62,17 +100,32 @@
 			</div>
 		</article>
   				    
-        <?php if(isset($this->session->userdata['is_userlogged_in']['UN']) )  
-	    { ?>
-        <article class="col-sm-3" >
-            <div class="col-sm-12 chip dropdown" style="padding:0;">
-			    <img src="<?php echo base_url();?>user_panel_design/images/ra.png" alt="ra" class="img-circle img-responsive" width="50" height="50"> <?php echo $this->session->userdata['is_userlogged_in']['UN']; ?>
-			    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
-			    <ul class="dropdown-menu">
-				    <li><a href="#">My Profile</a></li>
-				    <li><a href="#">Edit Profile</a></li>
-				    <li><a href="<?php echo base_url();?>logout">Logout</a></li>
-			    </ul>
+
+                    <?php if(isset($this->session->userdata['is_userlogged_in']['UN']) )  
+	                { ?>
+                 	<article class="col-sm-3" >
+           			<div class="col-sm-12 chip dropdown" style="padding:0;">
+				    <img src="<?php echo base_url();?>user_panel_design/images/ra.png" alt="ra" class="img-circle img-responsive" width="50" height="50"> <?php echo $this->session->userdata['is_userlogged_in']['UN']; ?>
+				     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+		            <ul class="dropdown-menu">
+		            <li><a href="<?php echo base_url();?>logout">Logout</a></li>
+		            </ul>
+			        </div>
+			        </article>
+		       <?php   }else
+		       {  ?>
+					<article class="col-sm-3" >
+						<div class="header-signin-wrp">
+							<span><a href="#">List Services</a></span>
+							<ul>
+<li><a href="<?php echo base_url();?>register_cont/signin">Sign in </a></li>
+<li><a href="<?php echo base_url();?>register_cont/user_signup"> Sign up </a></li>
+							</ul>
+						</div>
+					</article>
+    			<?php } ?>
+
+				</div>
 			</div>
 		</article>
 		<?php   }else

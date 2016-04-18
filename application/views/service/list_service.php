@@ -51,14 +51,7 @@
 	<div class="container-fluid main_body">
 	<div class="row main_face">
 
-		<div class="col-sm-1 left_cont">
-			<ul class="nav nav-tabs">
-				<li><a data-toggle="tab" href="<?php echo base_url();?>user/provider_panel"><img src="<?php echo base_url();?>user_panel_design/images/profile.png" alt="profile"><p>Profile</p></a></li>
-				<li ><a data-toggle="tab" href="<?php echo base_url();?>service/add_service"><img src="http://115.118.113.154/edutotal/wp-content/uploads/2015/10/download.png" alt="profile"><p> Add Service</p></a></li>
-				<li class="active"><a data-toggle="tab" href="<?php echo base_url();?>service/list_service"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>List Services</p></a></li>
-				<li><a data-toggle="tab" href="#"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>Document</p></a></li>
-			</ul>
-		</div>
+	<?php include("leftbar.php");?>
 
 		<div class="col-sm-11 mid_cont">
 		<div class="tab-content">
@@ -94,12 +87,13 @@
                     <th>subcat</th>
                     </tr>
                     </thead>
+
                     <tbody>
+
+
                     <?php 
-                     foreach ($result as $res) {
-                     	//echo "<pre>";
-                     	//print_r($res);  ?>
-                    
+                     foreach ($result as $res) {  ?>
+                     	
                     <tr>
 	                    <td><a href="<?php echo base_url();?>service/search_result_service/<?php echo $res->service_id;?>"><?php echo $res->title ?></a> </td>
 	                    <td><?php echo $res->cat_name ?>        </td>
@@ -107,6 +101,7 @@
 	                    <td>  <?php echo $res->subcat_second_name  ?>  </td>
 	                    <td> <?php echo $res->subcat_thired_name ?>  </td>
                     </tr>           
+
                     
                             <!-- /.table-responsive -->
                  <?php   }
@@ -114,6 +109,7 @@
 		    		</tbody>
                     </table>
                     </div>
+
 
  				</div>
  		 	</div>		

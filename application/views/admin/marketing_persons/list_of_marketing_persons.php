@@ -53,8 +53,8 @@
                     <td><?php echo $val['email'];?></td>
                     <td>
                     <a href="<?php echo base_url(); ?>admin/marketing_persons/edit_marketing_persons/<?php echo $val['user_id']; ?>" class="btn btn-info">Edit</a>
-<!--                     <a href="<?php echo base_url(); ?>admin/marketing_persons/delete_marketing_persons/<?php echo $val['id']; ?>" class="btn btn-danger" onclick = "return delConfirm()">Delete</a>
- -->                    </td></tr>
+                    <a href="<?php echo base_url(); ?>admin/marketing_persons/delete_marketing_persons/<?php echo $val['user_id']; ?>" class="btn btn-danger" onclick = "return delConfirm()">Delete</a>
+                    </td></tr>
                     <?php endforeach;?>
                     <?php else: ?>
                     <tr>
