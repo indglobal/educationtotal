@@ -89,6 +89,8 @@ $route['service/search_result'] = "service/service/search_result";
 $route['service/search_result_service/(:num)'] = "service/service/search_result_service/$1";
 //$route['user'] = "user/user";
 $route['service/list_service'] = "service/service/list_service";
+$route['ug'] = "service/service/ug";
+$route['pg'] = "service/service/pg";
 
 $route['logout'] = "register_cont/logout";
 

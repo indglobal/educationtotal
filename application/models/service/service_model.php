@@ -132,6 +132,17 @@ class Service_model extends CI_Controller
 		return $query->result();
 	}
 
+	public function get_course_details($id)
+	{
+		$this->db->select('class_type,degree_name,total_admission_intake');
+		$this->db->from('service');
+        $this->db->join('classes_details', 'service.service_id = classes_details.service_id');	
+	
+		$this->db->where('service.service_id', $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 
 
 

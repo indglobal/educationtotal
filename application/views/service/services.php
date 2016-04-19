@@ -34,6 +34,12 @@
 	font-size	: 11px;
 	background-color: #283C4A;
     }
+
+    /*.innerUgAndPg{
+
+    	width: 50%!important;
+    	/*float: left;
+    }*/
   	</style>
 
 </head>
@@ -110,22 +116,15 @@
 						 $c_t = explode(",",$res->class_type);
 						 $d_n = explode(",",$res->degree_name);
 						 $t_i = explode(",",$res->total_admission_intake);
-
-						  $c_array = array();
-              for($i=0;$i< sizeof($c_t);$i++){
-				$c_array[$i]['class_type'] = $c_t[$i];
-				$c_array[$i]['degree_name'] = $d_n[$i];
-				$c_array[$i]['total_intake'] = $t_i[$i];
-			}
-			$c_json =  json_encode($c_array);
-			echo $c_json;
-                      
 						 ?>
+						 <input type="hidden" id="service_id" name="service_id" value="<?php echo $res->service_id; ?>" >
 						<h4 class="blockSubHeading">Number of Courses Available:<?php echo count($c_t); ?></h4>
 						<div class="ugAndPgCourses">
 							<div class="ratingUgAndPg ">
-								<div class="innerUgAndPg " style=" width:56.140350877193%;">UG (<?php echo   count( array_keys( $c_t, "UG" )); ?>)</div>
-								<span class="text-right">PG (<?php echo   count( array_keys( $c_t, "UG" )); ?>)</span>
+								<div id="btn_ug" class="text-left test innerUgAndUg">UG (<?php echo   count( array_keys( $c_t, "UG" )); ?>)</div>
+								<!-- <div class="innerUgAndUg " id="btn_ug" >UG (<?php// echo   count( array_keys( $c_t, "UG" )); ?>)</div> -->
+								<!-- <div class="innerUgAndPg bar-show " id="btn_pg">PG (<?php //echo   count( array_keys( $c_t, "UG" )); ?>)</div> -->
+								<div id="btn_pg" class="text-right test">PG (<?php echo   count( array_keys( $c_t, "UG" )); ?>)</div>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -338,8 +337,8 @@
 	</div> <!-- End of main Container -->
 
 
-<?php  }  ?>   <!-- result foreach end  -->
-	bower_components/jquery/dist
+<?php  }  ?>   <!-- result foreach end 	bower_components/jquery/dist -->
+
 	<script src="<?php echo base_url();?>bower_components/jquery/dist/jquery.min.js"></script>
 	
 	<script src="<?php echo base_url();?>ui/jquery-ui-1.11.4/jquery-ui.min.js"></script>
@@ -456,6 +455,103 @@ $(function() {
             }
         });
 		});
+		
+		$('#btn_ug').on('click',function(e){
+			var s_id = $('#service_id').val();
+			$('.ratingUgAndPg ').children().removeClass('innerUgAndPg');
+			$(this).addClass('innerUgAndUg');
+		//alert(s_id);
+		    $.ajax({
+            url:"<?php echo base_url(); ?>" + "ug",
+            data:{service_id:s_id},
+            type:'POST',
+            success:function(result){
+
+            	  var chart = AmCharts.makeChart( "chartdiv", {
+					  "type": "pie",
+					  "theme": "dark",
+					  "dataProvider": $.parseJSON(result),
+					  "valueField": "total_intake",
+					  "titleField": "degree_name",
+					  "outlineAlpha": 0.4,
+					  "depth3D": 15,
+					  "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+					  "angle": 30,
+					  "export": {
+					    "enabled": true
+					  }
+					} );
+            }
+        });
+		
+		});
+		
+		$('#btn_pg').on('click',function(e){
+			var s_id = $('#service_id').val();
+			$('.ratingUgAndPg ').children().removeClass('innerUgAndUg');
+			$(this).addClass('innerUgAndPg');
+
+		$.ajax({
+            url:"<?php echo base_url(); ?>" + "pg",
+            data:{service_id:s_id},
+            type:'POST',
+            success:function(result){
+            	 var chart = AmCharts.makeChart( "chartdiv", {
+					  "type": "pie",
+					  "theme": "dark",
+					  "dataProvider": $.parseJSON(result),
+					  "valueField": "total_intake",
+					  "titleField": "degree_name",
+					  "outlineAlpha": 0.4,
+					  "depth3D": 15,
+					  "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+					  "angle": 30,
+					  "export": {
+					    "enabled": true
+					  }
+					} );
+            }
+        });
+		});
+
+		$(document).ready(function(){
+    var s_id = $('#service_id').val();
+    $.ajax({
+            url:"<?php echo base_url(); ?>" + "ug",
+            data:{service_id:s_id},
+            type:'POST',
+            success:function(result){
+               var chart = AmCharts.makeChart( "chartdiv", {
+            "type": "pie",
+            "theme": "dark",
+            "dataProvider": $.parseJSON(result),
+            "valueField": "total_intake",
+            "titleField": "degree_name",
+            "outlineAlpha": 0.4,
+            "depth3D": 15,
+            "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+            "angle": 30,
+            "export": {
+              "enabled": true
+            }
+          } );
+            }
+        }); 
+});
+jQuery( '.chart-input' ).off().on( 'input change', function() {
+  var property = jQuery( this ).data( 'property' );
+  var target = chart;
+  var value = Number( this.value );
+  chart.startDuration = 0;
+
+  if ( property == 'innerRadius' ) {
+    value += "%";
+  }
+
+  target[ property ] = value;
+  chart.validateNow();
+} );
+		
 
 
 	
@@ -464,6 +560,6 @@ $(function() {
 <script type="text/javascript" src="<?php echo base_url();?>js/amcharts.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>js/pie.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>js/dark.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>js/costom.js"></script>
+<!-- <script type="text/javascript" src="<?php// echo base_url();?>js/costom.js"></script> -->
 </body>
 </html>

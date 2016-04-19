@@ -36,13 +36,67 @@ class Service extends CI_Controller
 
   function search_result_service($id)
   {
-    //echo $id;
+  
     $data['result'] = $this->service_model->get_service($id);
 
    // echo "<pre>";print_r($data['result']);die();
     $this->load->view('service/services',$data);
 
   }
+
+  function ug()
+  {
+       $id = $_POST['service_id'];
+
+       $result = $this->service_model->get_course_details($id);
+
+       foreach($result as $res)
+    {
+             $c_t = explode(",",$res->class_type);
+             $d_n = explode(",",$res->degree_name);
+             $t_i = explode(",",$res->total_admission_intake);
+
+             $ug_array = array();
+             for($i=0;$i< sizeof($c_t);$i++){
+                if($c_t[$i] == "UG"){
+               // $ug_array[$i]['class_type'] = $c_t[$i];
+                $ug_array[$i]['degree_name'] = $d_n[$i];
+                $ug_array[$i]['total_intake'] = $t_i[$i];
+               }
+            }
+           $ug_json =  json_encode($ug_array);
+          echo $ug_json;die();
+        }
+  }
+  function pg()
+  {
+       $id = $_POST['service_id'];
+       $result = $this->service_model->get_course_details($id);
+
+       foreach($result as $res)
+        {
+             $c_t = explode(",",$res->class_type);
+             $d_n = explode(",",$res->degree_name);
+             $t_i = explode(",",$res->total_admission_intake);
+
+             $pg_array = array();
+             $k=0;
+             for($j=0;$j< sizeof($c_t);$j++){
+                if($c_t[$j] == "PG"){
+                //$pg_array[$k]['class_type'] = $c_t[$j];
+                $pg_array[$k]['degree_name'] = $d_n[$j];
+                $pg_array[$k]['total_intake'] = $t_i[$j];
+                $k++;
+               }
+            }
+
+           $c_json =  json_encode($pg_array);
+          echo $c_json;die();
+        }
+  }
+
+
+
 
   function list_service()
   {
