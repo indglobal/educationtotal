@@ -203,7 +203,7 @@ var value = $(this).val();
     	  {
     		var url = "<?php echo base_url()?>regular_school";
         }		
-        if(value == 4)
+        if(value == 4 || value == 5 || value == 6 || value == 7)
         {
         var url = "<?php echo base_url()?>regular_college";
         } 
