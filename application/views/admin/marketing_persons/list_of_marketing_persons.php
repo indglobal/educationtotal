@@ -29,13 +29,13 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         <div class="box-header">
-                        <h3 class="box-title"><div> <a href="<?php echo base_url('create_marketing_persons'); ?>"><button class='btn btn-success'>Add Marketing Perosns</button></a></h3>
+                        <h3 class="box-title"><div> <a href="<?php echo base_url('create_marketing_persons'); ?>"><button class='btn btn-success'>Add Marketing Persons</button></a></h3>
                     </div>
                     <div class="dataTable_wrapper">
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                     <tr>
-                    <th>ID</th>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Email</th>
@@ -43,19 +43,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                     <?php if(count($allmarketing_persons)>0):  ?>
+                     <?php if(count($allmarketing_persons)>0): 
+                     $i=1; ?>
                     <?php foreach($allmarketing_persons as $val): ?>
                     <tr>   
 
-                    <td><?php echo $val['user_id'];?></td>
+                    <td><?php echo $i;?></td>
                     <td><?php echo $val['fname'].' '.$val['lname'];?></td>
                     <td><?php echo $val['phone'];?></td>
                     <td><?php echo $val['email'];?></td>
                     <td>
-                    <a href="<?php echo base_url(); ?>admin/marketing_persons/edit_marketing_persons/<?php echo $val['user_id']; ?>" class="btn btn-info">Edit</a>
+                    <a href="<?php echo base_url(); ?>admin/marketing_persons/edit_marketing_persons/<?php echo $val['user_id']; ?>" class="btn btn-info">Edit</a>&nbsp;&nbsp;
                     <a href="<?php echo base_url(); ?>admin/marketing_persons/delete_marketing_persons/<?php echo $val['user_id']; ?>" class="btn btn-danger" onclick = "return delConfirm()">Delete</a>
                     </td></tr>
-                    <?php endforeach;?>
+                    <?php 
+                    $i ++;
+                    endforeach;?>
                     <?php else: ?>
                     <tr>
                     <td colspan="3">No Data Found</td>

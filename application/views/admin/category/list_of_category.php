@@ -35,28 +35,31 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                     <tr>
-                    <th>ID</th>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                     <?php if(count($categories)>0):  ?>
+                     <?php if(count($categories)>0):  
+                     $i=1;?>
                     <?php foreach($categories as $cat): ?>
                     <tr>   
-
-                    <td><?php echo $cat['cat_id'];?></td>
+                    <td><?php echo $i;?></td>
                     <td><?php echo $cat['cat_name'];?></td>
                     <td>
-                    <a href="<?php echo base_url(); ?>admin/categories/edit_cat/<?php echo $cat['cat_id']; ?>" class="btn btn-info">Edit</a>
+                    <a href="<?php echo base_url(); ?>admin/categories/edit_cat/<?php echo $cat['cat_id']; ?>" class="btn btn-info">Edit</a>&nbsp;&nbsp;
                     <a href="<?php echo base_url(); ?>admin/categories/delete_cat/<?php echo $cat['cat_id']; ?>" class="btn btn-danger" onclick = "return delConfirm()">Delete</a>
                     </td></tr>
-                    <?php endforeach;?>
+
+                    <?php 
+                     $i++;
+                     endforeach;?>
                     <?php else: ?>
                     <tr>
                     <td colspan="3">No Data Found</td>
                      </tr>
-                    <?php endif; ?>
+                    <?php endif;?>
                     </tbody>
                                 </table>
                             </div>

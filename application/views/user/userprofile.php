@@ -27,7 +27,25 @@
 </head>
 
 <body>
-<br><br><br>
+<!-- Start header content.............................................. -->
+	<div class="container-fluid header_cont">
+		<div class="row">
+			<div class="col-sm-10">
+				<h2><img src="<?php echo base_url();?>user_panel_design/images/logo.png" alt="logo" width="40" height="40">   Educationtotal</h2>
+			</div>
+			<div class="col-sm-2 chip dropdown">
+				<img src="<?php echo base_url();?>user_panel_design/images/ra.png" alt="ra" class="img-circle img-responsive" width="50" height="50"> Ramesh
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">My Profile</a></li>
+		            <li><a href="#">Edit Profile</a></li>
+		            <li><a href="#">Logout</a></li>
+		          </ul>
+			</div>
+		</div>
+	</div>
+<!-- End header content.............................................. -->
+
 
 <!-- Start body content.............................................. -->
 	<div class="container-fluid main_body">
@@ -109,12 +127,7 @@
 							      		<div class="col-sm-2">
 							      			<p><?php echo $getDetails_fromsignup[0]['fname'];?></p>
 							      		</div>
-							      		<div class="col-sm-2">
-							      			<p>Birthday</p>
-							      		</div>
-							      		<div class="col-sm-3">
-							      			<p><?php if(isset($getDetails_fromsignup[0]['dob'])){ echo $getDetails_fromsignup[0]['dob'];}else{echo "N/A";}?></p>
-							      		</div>
+
 							      	</div>
 							      	<div class="row">
 							      		<div class="col-sm-2">
@@ -151,6 +164,7 @@
 							      		<div class="col-sm-2">
 							      			<p><?php if(!empty($getDetails_fromsignup[0]['city'])){ echo $getDetails_fromsignup[0]['city'];}else{echo "N/A";}?></p>
 							      		</div>
+										
 							      		<div class="col-sm-2">
 							      			<p> Phone</p>
 							      		</div>
@@ -178,7 +192,10 @@
                  	$i=1;
                       foreach ($edu_details as $key => $value) { ?>
                  <li class="justlist" id="<?php echo $i;?>">
-		   <p><i class="fa fa-circle-thin circle_font" ></i>&nbsp<?php echo $value;?>&nbsp<i class='close fa fa-times'></i> <br></p>
+		   <p><i class="fa fa-circle-thin circle_font" ></i>&nbsp
+
+
+		   	<?php echo $value;?>&nbsp<i class='close fa fa-times'></i> <br></p>
 			     </li>
 
                      <?php  
@@ -207,7 +224,7 @@
 											<h2> <img src="<?php echo base_url();?>user_panel_design/images/skill.png" alt=""> Skills</h2>
 										</div>
 
-										 <?php if(empty($getDetails_fromskill_user)){?>
+				 <?php if(empty($getDetails_fromskill_user)){?>
 
                  <?php }else{
                  	$i=1;
@@ -738,7 +755,27 @@
  -->							  					<input type="text" class="form-control special_text" name="lname_of_user" placeholder="&nbsp; Krishnan" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['lname'];?>">
 
 							  				</div>
-						  				<div class="col-sm-3">
+<div class="col-sm-3">
+							  					<label>Phone Number</label><br>
+							  					 <div class="input-group">
+											      <div class="input-group-addon">+91</div>
+											      <input type="text" name="phone" class=" special_text"  placeholder="7829721660" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['phone'];?>">
+									
+											    </div>
+							  				</div>
+							  				<div class="clear">
+							  				</div>
+							  				<div class="col-sm-3">
+							  					<label>User Name</label><br>
+	<input type="hidden" name="user_id" placeholder="&nbsp; Rameshk12" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['user_id'];?>">
+
+			<input type="text" name="user_name" class="form-control special_text" placeholder="&nbsp; Rameshk12" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['user_name'];?>">
+							  				</div>
+							  				<div class="col-sm-3">
+							  					<label>Email</label><br>
+							  					<input type="text" name="email" class="form-control special_text" placeholder="&nbsp; rameshzz@gmail.com" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['email'];?>">
+							  				</div>
+																	  				<div class="col-sm-3">
 							  					<label>Birth Date</label><br>
                                               <input type="text" class="form-control" style="width:200px" id="dob" name="dob" placeholder="Enter Date of Birth:" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['dob'];?>">
 
@@ -827,26 +864,7 @@
 							  				</div>
 							  				<div class="clear">
 							  				</div>
-							  				<div class="col-sm-3">
-							  					<label>User Name</label><br>
-	<input type="hidden" name="user_id" placeholder="&nbsp; Rameshk12" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['user_id'];?>">
-
-			<input type="text" name="user_name" class="form-control special_text" placeholder="&nbsp; Rameshk12" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['user_name'];?>">
-							  				</div>
-							  				<div class="col-sm-3">
-							  					<label>Email</label><br>
-							  					<input type="text" name="email" class="form-control special_text" placeholder="&nbsp; rameshzz@gmail.com" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['email'];?>">
-							  				</div>
-							  				<div class="col-sm-3">
-							  					<label>Phone Number</label><br>
-							  					 <div class="input-group">
-											      <div class="input-group-addon">+91</div>
-											      <input type="text" name="phone" class="form-control special_text"  placeholder="7829721660" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['phone'];?>">
-									
-											    </div>
-							  				</div>
-							  				<div class="clear">
-							  				</div>
+							  				
 							  				<div class="col-sm-3">
 							  					<label> Interest</label><br>
 							  					<input type="text" name="interest" class="form-control special_text" placeholder="&nbsp; Rameshk12" value="<?php if(isset($getDetails_fromsignup[0]['user_id'])) echo $getDetails_fromsignup[0]['interest'];?>">
@@ -863,25 +881,25 @@
 								  		
 								  	</div> <!-- End of edit about row -->
 								  	<div class="row edit_education">
-								  		<div class="col-sm-12">
-									  		<h2> <i class="fa fa-graduation-cap"></i> Education</h2>
+								  	<div class="col-sm-12">
+									 <h2> <i class="fa fa-graduation-cap"></i> Education</h2>
 									  		<div class="border"></div>
-								  		</div>
-								  	<input type="hidden" name="count_edu" id="count_edu" value="<?php echo count($edu_details);?>">
+								  	</div>
+					<input type="hidden" name="count_edu" id="count_edu" value="<?php if($edu_details==0){ echo "0";}else{ echo count($edu_details);}?>" >
 					   <div class="col-sm-12 container">
                        <div id="row0" class=" col-sm-5 rowIndex fixedRow">
 <!--                   <input  id="edu_0" type="text" name="edu_0"  value="hhh"/>
  --> 
                    <?php if(empty($getDetails_fromedu_user)){ //print_r("empty");
                    	?>
-                 <div id="row1" class="rowIndex fixedRow">
-                 <input  id="edu_1" type="text"  style="display:none;" name="edu_1"  value="" />
-                  </div>
+                 <div id="row0" class="rowIndex fixedRow">
+                 <input  id="edu_0" type="text"  style="display:none;" name="edu_0"  value=""/>
+                 </div>
                  <?php }else{
                  	  $i=1;
                    foreach ($edu_details as $key => $value) { ?>
                     <div id="row<?php echo $i?>" class="rowIndex fixedRow">
-                    <input id="edu_<?php echo $i?>" type="text"  name="edu_<?php echo $i;?>"  value="<?php echo $value;?>" style="display:none;"/>
+                    <input id="edu_<?php echo $i?>" type="text"  name="edu[]" style="display:none;"  value="<?php echo $value;?>"/>
                     </div>
                      <?php  
                      $i++;
@@ -891,13 +909,13 @@
                  ?>
            
 				<ul class="justList" name="education">
-		            <?php if(empty($getDetails_fromedu_user)){ 
+		           <?php if(empty($getDetails_fromedu_user)){ 
                    	?>
                  <?php }else{
                  	$i=1;
                       foreach ($edu_details as $key => $value) { ?>
-                 <li class="justlist" id="<?php echo $i;?>">
-		   <p><i class="fa fa-circle-thin circle_font" ></i>&nbsp<?php echo $value;?>&nbsp<i class='close fa fa-times'></i> <br></p>
+                 <li class="justlist" id="justlist_<?php echo $i?>">
+		   <p><i class="fa fa-circle-thin circle_font" id="1"></i>&nbsp<?php echo $value;?>&nbsp<i class='close fa fa-times' id="<?php echo $i;?>"></i> <br></p>
 			     </li>
 
                      <?php  
@@ -907,7 +925,7 @@
             <?php  }
                  ?>
 </ul>
-									  			</ul>
+					</ul>
 									  		</div>
 									  		<div class="col-sm-4">
 									  		</div>
@@ -921,21 +939,21 @@
 									  		<h2> <img src="<?php echo base_url();?>user_panel_design/images/skill.png" alt=""> Skills</h2>
 									  		<div class="border"></div>
 								  		</div>
-						<input type="hidden" name="count_skill" id="count_skill" value="<?php echo count($skill_details);?>">
+						<input type="hidden" name="count_skill" id="count_skill" value="<?php if($skill_details==0){ echo "0";}else{ echo count($skill_details);}?>">
 					   <div class="col-sm-12 container1">
                        <div id="row0" class="col-sm-7 rowIndex1 fixedRow">
 <!--                   <input  id="edu_0" type="text" name="edu_0"  value="hhh"/>
  --> 
                    <?php if(empty($getDetails_fromskill_user)){ //print_r("empty");
                    	?>
-                 <div id="row0" class="rowIndex1 fixedRow">
-                 <input  id="skill_0" type="text"  name="skill_0" style="display:none;" value="skill" />
+                 <div id="rowskill" class="rowIndex1 fixedRow">
+                 <input  id="skill_0" type="text" style="display:none;" name="skill_0"  value="" />
                  </div>
                  <?php }else{
                  	  $i=1;
                    foreach ($skill_details as $key => $value) { ?>
-                    <div id="row<?php echo $i?>" class="rowIndex1 fixedRow">
-                    <input id="skill_<?php echo $i?>" type="text"  name="skill_<?php echo $i;?>" style="display:none;" value="<?php echo $value;?>"/>
+                    <div id="rowskill<?php echo $i?>" class="rowIndex1 fixedRow">
+                    <input id="skill_<?php echo $i?>" type="text"  name="skill[]" style="display:none;"  value="<?php echo $value;?>"/>
                     </div>
                      <?php  
                      $i++;
@@ -946,11 +964,10 @@
 
 					<ul class="justList1" name="education">
 		            <?php if(empty($getDetails_fromskill_user)){?>
-
                  <?php }else{
                  	$i=1;
                       foreach ($skill_details as $key => $value) { ?>
-               		<li><?php echo $value?>&nbsp;<i class='close fa fa-times'></i></li>
+               		<li class="" id="justlist1_<?php echo $i;?>"><?php echo $value?>&nbsp;<i class='close1 fa fa-times' id="<?php echo $i;?>"></i></li>
 
 
                      <?php  
@@ -1060,31 +1077,29 @@
     i++;
     $('#count_edu').val(i);
     var text = prompt("Enter your college/ Institute details !");
-    var row = '<div id="row'+i+'" class="rowIndex addedRow1"><input type="text" id="edu_'+i+'"  style="display:none" name="edu_'+i+'" value="'+text+'"/></div>';
+    var row = '<div id="row'+i+'" class="rowIndex addedRow1"><input type="text" id="edu_'+i+'" style="display:none;" name="edu[]" value="'+text+'"/></div>';
     $('.container').append(row);
 
     //   var row = '<div id="row'+i+'" class="rowIndex1 addedRow"><input type="text" id="skill_'+i+'" style="display:none" name="skill_'+i+'" value="'+text+'"/></div>';
     // $('.container1').append(row);
       
     if(text.length){
-    	var a='<li class="justlist" id="'+i+'"><p><i class="fa fa-circle-thin circle_font"></i>&nbsp'+text+'&nbsp<i class="close fa fa-times"></i><br></p>';
+    	var a='<li class="justlist" id="justlist_'+i+'"><p><i class="fa fa-circle-thin circle_font"></i>&nbsp'+text+'&nbsp<i class="close fa fa-times" id="'+i+'"></i><br></p>';
     	$('ul.justList').append(a);
 
     }
 	});
 
-	  $('.justList').on('click', '.close',function(){
-	// var currentId = $(this).attr('id');
-	// alert(currentId);
-	//$('.justlist_1').on('click','.close',function(){
-      var i = $('.container .rowIndex:last').attr('id').replace("row","");
-     //alert(i);
-       $('#row'+i).remove();
-       i--;
-       //alert(i);
-		//alert("ok");
-     $(this).parent().remove();
-    $('#count_edu').val(i);
+	  $(document).on('click', '.close',function(){
+	  	
+	  	//var currentId =$(this).closest('ul').attr('id');
+	var currentId = $(this).attr('id');
+	//alert(currentId);
+    $('#row'+currentId).remove();
+    //   var i = $('.container .rowIndex:last').attr('id').replace("row","");
+    $('#justlist_'+currentId).remove();
+     var count = $(".justList").children().length;
+    $('#count_edu').val(count);
 
 	});
 
@@ -1106,31 +1121,44 @@
 	// });
 
 	$('#btnSkill').click(function(){
-	 var i = $('.container1 .rowIndex1:last').attr('id').replace("row","");
+	 var i = $('.container1 .rowIndex1:last').attr('id').replace("rowskill","");
     i++;
     //alert(i);
     $('#count_skill').val(i);
     var text = prompt("Enter your skill details!");
-     var row = '<div id="row'+i+'" class="rowIndex1 addedRow"><input type="text" id="skill_'+i+'" style="display:none" name="skill_'+i+'" value="'+text+'"/></div>';
+     var row = '<div id="rowskill'+i+'" class="rowIndex1 addedRow"><input type="text" id="skill_'+i+'" style="display:none;" name="skill[]" value="'+text+'"/></div>';
     $('.container1').append(row);
-    if(text.length){
-        $('<li />',{html: text + " &nbsp;<i class='close fa fa-times'></i>"}).appendTo('ul.justList1')
+    // if(text.length){
+    //     $('<li/>',{html: text + " &nbsp;<i class='close1 fa fa-times' id="+i+"></i>"}).appendTo('ul.justList1')
+    // }
+     if(text.length){
+    	var a='<li id="justlist1_'+i+'">'+text+'<i class="close1 fa fa-times" id="'+i+'"></i></li>';
+    	$('ul.justList1').append(a);
+
+
     }
 	});
 
-	$('.justList1').on('click', '.close',function(el){
-	// var currentId = $(this).attr('id');
-	// alert(currentId);
-	//$('.justlist_1').on('click','.close',function(){
-      var i = $('.container1 .rowIndex1:last').attr('id').replace("row","");
-      //alert(i);
-       $('#row'+i).remove();
-       i--;
-       //alert(i);
-		//alert("ok");
-     $(this).parent().remove();
-    $('#count_skill').val(i);
+	// $('.justList1').on('click', '.close',function(el){
+ //      var i = $('.container1 .rowIndex1:last').attr('id').replace("row","");
+ //       $('#row'+i).remove();
+ //       i--;
+ //     $(this).parent().remove();
+ //    $('#count_skill').val(i);
+	// });
+
+     $(document).on('click', '.close1',function(){
+
+	var currentId = $(this).attr('id');
+	//alert(currentId);
+   $('#rowskill'+currentId).remove();
+    // //   var i = $('.container .rowIndex:last').attr('id').replace("row","");
+     $('#justlist1_'+currentId).remove();
+     var count = $(".justList1").children().length;
+     $('#count_skill').val(count);
+
 	});
+
 	</script>
 </body>
 </html>

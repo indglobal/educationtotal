@@ -34,7 +34,7 @@
 
                   
                       <label>Subcategory*</label>
-                      <input id="name" name="subcat_name" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_name'];?>">
+                      <input id="name" name="subcat_name" maxlength="30" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_name'];?>">
                       <span id="error" class="name_error"></span>
                       </div>
                                         

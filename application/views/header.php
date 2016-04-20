@@ -42,19 +42,6 @@
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
- select{
-	background-color:#fff;
-	 width: 50%;
-	background:url(../images/down.png) no-repeat;
-	background-size: 7px;
-	background-position: 95% 50%;
-	padding-right: 30px;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-	font-size: 15px;
-	color: #666;
-}
-
 textarea {
     width: 42em;
     height: 8em;
@@ -160,6 +147,7 @@ $(document).ready(function () {
             },
             dataType: "json",
             success: function (data) {
+				//alert(1);
                 if (data.length > 0) {
                     $('#DropdownCountry').empty();
                     $('#serch_area').attr("data-toggle", "dropdown");

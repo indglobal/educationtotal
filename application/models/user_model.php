@@ -83,96 +83,6 @@ public function temp_reset_password($temp_pass){
 
 }
 
-public function save_user_detail_my_profile($filepath,$user_id){
-
-extract($_POST);
-$edu_arr=array();
- $count=$this->input->post('count_edu');
-
-          for($i=1;$i<=$count;$i++){
-            $edu = $this->input->post('edu_'.$i);
-            $edu_arr[]=$edu;
-            //print_r($i.'---'.$edu.'--');
-        }
-    //print_r($edu_arr);
-     //exit();
-    $chk_user_id=$this->getDetails_fromedu_user($user_id);
-
-    if(empty($chk_user_id)){
-     $data_edu_name= array(
-            'user_id'=>$user_id,
-            'edu_name'=>serialize($edu_arr),
-           
-        );
-        $this->db->insert('edu_user', $data_edu_name);
-    }else{
-           $data_edu_name= array(
-          'edu_name'=>serialize($edu_arr),
-           
-        );
-       $this->db->where('user_id',$user_id);
-       $this->db->update('edu_user', $data_edu_name);
-    }
-#########################################################
-  $skill_arr=array();
- $count=$this->input->post('count_skill');
-
-          for($i=1;$i<=$count;$i++){
-            $skill = $this->input->post('skill_'.$i);
-            $skill_arr[]=$skill;
-            //print_r($i.'---'.$edu.'--');
-        }
-    //print_r($skill_arr);
-    //exit();
-    $chk_user_id=$this->getDetails_fromskill_user($user_id);
-
-    if(empty($chk_user_id)){
-     $data_skill_name= array(
-            'user_id'=>$user_id,
-            'skill_name'=>serialize($skill_arr),
-           
-        );
-        $this->db->insert('skill_user', $data_skill_name);
-    }else{
-           $data_skill_name= array(
-          'skill_name'=>serialize($skill_arr),
-           
-        );
-       $this->db->where('user_id',$user_id);
-       $this->db->update('skill_user', $data_skill_name);
-    }
-
-        $data = array(
-            'fname'=>$fname_of_user,
-            'lname'=>$lname_of_user,
-            //'street'=>$street,
-            // 'user_name'=>$user_name,
-            'email'=>$email,
-            'dob'=>$dob,
-            'phone'=>$phone,
-            'address'=>$address,
-            'interest'=>$interest,
-            'city'=>$city,
-            'country'=>$country,
-            'image_url'=>$filepath,
-            
-        );
-        // print_r($data);
-        // exit();
-
-            $this->db->where('user_id',$user_id);
-            $q=$this->db->update('user_detail', $data);
-            // unlink($pathToUpload.$filePath);
-        //exit();
-        
-      
-        if($q){
-            return true;
-        } else {
-            return false;
-        }
-
-}
 
 function getDetails_fromedu_user($user_id)
 {
@@ -217,6 +127,110 @@ public function reset_pass($value){
 
 }	
 
+public function save_user_detail_my_profile($filepath,$user_id){
+
+extract($_POST);
+$edu_arr=array();
+$count=$this->input->post('count_edu');
+$edu=$this->input->post('edu');
+//print_r(count($edu));
+ if($count>0){
+          for($i=0;$i<count($edu);$i++){
+            $edu_arr[]=$edu[$i];
+        }
+        //  print_r($edu_arr);
+        // exit();
+    $chk_user_id=$this->getDetails_fromedu_user($user_id);
+    if(empty($chk_user_id)){
+     $data_edu_name= array(
+            'user_id'=>$user_id,
+            'edu_name'=>serialize($edu_arr),
+           
+        );
+        $this->db->insert('edu_user', $data_edu_name);
+    }else{
+           $data_edu_name= array(
+          'edu_name'=>serialize($edu_arr),
+           
+        );
+       $this->db->where('user_id',$user_id);
+       $this->db->update('edu_user', $data_edu_name);
+    }
+}elseif($count==0){
+    $this->db->delete('edu_user', array('user_id' => $user_id));
+
+}
+#########################################################
+ $skill_arr=array();
+ $count=$this->input->post('count_skill');
+ $skill=$this->input->post('skill');
+
+ if($count>0){
+          for($i=0;$i<count($skill);$i++){
+            $skill_arr[]=$skill[$i];
+        }
+    $chk_user_id=$this->getDetails_fromskill_user($user_id);
+
+    if(empty($chk_user_id)){
+     $data_skill_name= array(
+            'user_id'=>$user_id,
+            'skill_name'=>serialize($skill_arr),
+           
+        );
+        $this->db->insert('skill_user', $data_skill_name);
+    }else{
+           $data_skill_name= array(
+          'skill_name'=>serialize($skill_arr),
+           
+        );
+       $this->db->where('user_id',$user_id);
+       $this->db->update('skill_user', $data_skill_name);
+    }
+}elseif($count==0){
+        $this->db->delete('skill_user', array('user_id' => $user_id));
+
+  }
+  ###############
+
+        $data = array(
+            'fname'=>$fname_of_user,
+            'lname'=>$lname_of_user,
+            //'street'=>$street,
+            // 'user_name'=>$user_name,
+            'email'=>$email,
+            'dob'=>$dob,
+            'phone'=>$phone,
+            'address'=>$address,
+            'interest'=>$interest,
+            'city'=>$city,
+            'country'=>$country,
+            'image_url'=>$filepath,
+            
+        );
+        // print_r($data);
+        // exit();
+
+            $this->db->where('user_id',$user_id);
+            $q=$this->db->update('user_detail', $data);
+            // unlink($pathToUpload.$filePath);
+        //exit();
+        
+      
+        if($q){
+            return true;
+        } else {
+            return false;
+        }
+
+}
+
+public function GetRow($keyword,$cat_id)
+{
+$this->db->order_by('sub_cat_thired_id', 'DESC');
+$this->db->where("sub_cat_second_id", $cat_id);
+$this->db->like("subcat_thired_name", $keyword);
+return $this->db->get('master_subcategory_thired')->result_array();
+}
 public function fetch_category()
 {
 $this->db->select('*');

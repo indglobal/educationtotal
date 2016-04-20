@@ -43,16 +43,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                     <?php if(count($alluser)>0):  ?>
+                     <?php if(count($alluser)>0):  
+                     $i=1;?>
                     <?php foreach($alluser as $val): ?>
                     <tr>   
-                    <td><?php echo $val['user_id'];?></td>
+                    <td><?php echo $i;?></td>
                     <td><?php echo $val['fname'];?></td>
                     <td><?php echo $val['phone'];?></td>
                     <td><?php echo $val['email'];?></td>
                    
                 </tr>
-                    <?php endforeach;?>
+                    <?php 
+                    $i++;
+                    endforeach;?>
                     <?php else: ?>
                     <tr>
                     <td colspan="3">No Data Found</td>

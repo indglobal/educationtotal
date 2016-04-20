@@ -3,7 +3,6 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Specialities</h1>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
@@ -19,7 +18,7 @@
                       <div class="form-group">
                       <input  name="id" class="form-control" value="<?php if(isset($id)) echo $id; ?>" style="display: none" readonly>
                       <label>Name *</label>
-                      <input id="name" name="cat_name" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['cat_name'];?>">
+                      <input id="name" name="cat_name" class="form-control" class="alphaonly" maxlength="30" value="<?php if(isset($details[0])) echo $details[0]['cat_name'];?>">
                       <span id="error" class="name_error"></span>
                       </div>
                                         

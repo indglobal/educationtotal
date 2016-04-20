@@ -33,7 +33,7 @@
                     </select> 
 
                     <label id="label">subcategory: *</label>
-                     <select name="subcat_id" id="subcat_id" class="form-control" style="width:200px;">>
+                    <select name="subcat_id" id="subcat_id" class="form-control" style="width:200px;">>
                   <?php if(isset($id)){ ?>
                    <option value="<?php echo $details[0]['subcat_id'];?>" selected><?php echo subcategory_name_by_id($details[0]['subcat_id']);?></option>
                    <?php } ?>
@@ -43,13 +43,13 @@
                   <label id="label">subcategory2: *</label>
                      <select name="subcat_id2" id="subcat_id2" class="form-control" style="width:200px;">>
                   <?php if(isset($id)){ ?>
-                   <option value="<?php echo $details[0]['subcat_id'];?>" selected><?php echo subcategory_name_by_id($details[0]['subcat_id']);?></option>
+                   <option value="<?php echo $details[0]['subcat_id'];?>" selected><?php echo subcategory2_name_by_id($details[0]['sub_cat_second_id']);?></option>
                    <?php } ?>
                   </select>
 
                   
                       <label>Subcategory3 *</label>
-                      <input id="name" name="subcat_name" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_thired_name'];?>">
+                      <input id="name" name="subcat_name" maxlength="30" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_thired_name'];?>">
                       <span id="error" class="name_error"></span>
                       </div>
                                         

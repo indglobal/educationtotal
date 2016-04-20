@@ -15,7 +15,7 @@
                 <a href="<?php echo base_url('admin');?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>-->
             <li>
-         <a href="<?php echo base_url('categories');?>"><i class="fa fa-table fa-fw"></i>categories</a>
+         <a href="<?php echo base_url('categories');?>"><i class="fa fa-table fa-fw"></i>Categories</a>
            </li> 
 
            <li>
@@ -41,11 +41,15 @@
               <li>
          <a href="<?php echo base_url('service_provider');?>"><i class="fa fa-table fa-fw"></i>Service Provider</a>
            </li>
+
+                 <li>
+         <a href="<?php echo base_url('list_of_services');?>"><i class="fa fa-table fa-fw"></i>List of Services</a>
+           </li>
             
 
-            <li>
+        <!--     <li>
                 <a href="<?php echo base_url('specialities');?>"><i class="fa fa-table fa-fw"></i> Specialities</a>
-            </li> 
+            </li>  -->
 			
                                             
         </ul>

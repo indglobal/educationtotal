@@ -14,7 +14,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">List of subcategory1</h1>
+                    <h1 class="page-header">List of Subcategories_1</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -35,7 +35,7 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                     <tr>
-                    <th>ID</th>
+                    <th>#</th>
                     <th>Category Name</th>
                     <th>SubCategory Name</th>
                     <th>Subcategory Name second</th>
@@ -43,19 +43,21 @@
                     </tr>
                     </thead>
                     <tbody>
-                     <?php if(count($subcategories)>0):  ?>
+                     <?php if(count($subcategories)>0):  
+                     $i=1;?>
                     <?php foreach($subcategories as $subcat): ?>
                     <tr>   
-                    <td><?php echo $subcat['sub_cat_second_id'];?></td>
+                    <td><?php echo $i;?></td>
                     <td><?php echo cetegory_name_by_id($subcat['cat_id']);?></td>
                     <td><?php echo subcategory_name_by_id($subcat['subcat_id']);?></td>
                     <td><?php echo $subcat['subcat_second_name'];?></td>
                     <td>
-                    <a href="<?php echo base_url(); ?>admin/subcategories_second/edit_subcat_second/<?php echo $subcat['sub_cat_second_id']; ?>" class="btn btn-info">Edit</a>
+                    <a href="<?php echo base_url(); ?>admin/subcategories_second/edit_subcat_second/<?php echo $subcat['sub_cat_second_id']; ?>" class="btn btn-info">Edit</a>&nbsp;&nbsp;
                     <a href="<?php echo base_url(); ?>admin/subcategories_second/delete_subcat_second/<?php echo $subcat['sub_cat_second_id']; ?>" class="btn btn-danger" onclick = "return delConfirm()">Delete</a>
                     </td>
                    </tr>
-                    <?php endforeach;?>
+                    <?php $i++;
+                    endforeach;?>
                     <?php else: ?>
                     <tr>
                     <td colspan="3">No Data Found</td>

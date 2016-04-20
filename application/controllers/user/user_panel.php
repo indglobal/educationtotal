@@ -27,8 +27,10 @@ class User_panel extends CI_Controller
 		if(!empty($data['getDetails_fromedu_user'])){
         $data['edu_details']=unserialize($data['getDetails_fromedu_user'][0]['edu_name']);
         }else{
-    	$data['edu_details']="1";
+    	$data['edu_details']=0;
         }
+        // print_r(count($data['edu_details']));
+        // exit();
         //print_r($data['edu_details']);
         //exit();
         // if($data['edu_details']){
@@ -44,10 +46,10 @@ class User_panel extends CI_Controller
   $data['skill_details']=unserialize($data['getDetails_fromskill_user'][0]['skill_name']);
   // print_r(count($data['skill_details']));
         }else{
-        	$data['skill_details']=1;
+        	$data['skill_details']=0;
         }
         $data['cat']=$this->user_model->fetch_category();
-               $this->load->view('header.php',$data);
+        $this->load->view('header.php',$data);
      	$this->load->view('user/userprofile',$data);
 	}
 
@@ -104,7 +106,6 @@ class User_panel extends CI_Controller
   	      $folderName=$user_id;
 
   	    	$pathToUpload ='uploads/user_image/'.$folderName."/";
-
   	    	if ( ! file_exists($pathToUpload) ) {
 			       $create = mkdir($pathToUpload, 0777, TRUE);
 			  }
@@ -125,7 +126,7 @@ class User_panel extends CI_Controller
                     $data = $this->upload->data();
                     $filePath =$data['file_name'];
                     $filepath=$pathToUpload.$filePath;
-                    print_r("upload");
+                    //print_r("upload");
                     //exit();
                   
                 } else {

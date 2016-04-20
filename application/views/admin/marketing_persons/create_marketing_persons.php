@@ -19,17 +19,17 @@
                       <div class="form-group">
                       <input  name="id" class="form-control" value="<?php if(isset($id)) echo $id; ?>" style="display: none" readonly>
                       <label>First Name *</label>
-                      <input id="fname_marketing" name="fname_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['fname'];?>"><span id="fname_error" class="fname_error"></span><br>
+                      <input id="fname_marketing" maxlength="30" name="fname_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['fname'];?>"><span id="fname_error" class="fname_error"></span><br>
                       <label>Last Name*</label>
-                      <input id="lname_marketing" name="lname_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['lname'];?>"><span id="lname_error" class="fname_error"></span><br>
+                      <input id="lname_marketing" maxlength="30" name="lname_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['lname'];?>"><span id="lname_error" class="fname_error"></span><br>
                       <label>Email *</label>
                       <input id="email_marketing" name="email_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['email'];?>"><span id="error_email" class="error_email"></span><br>
                       <label>Phone *</label>
-                      <input id="phone_marketing" name="phone_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['phone'];?>"><span id="error_phone" class="error_phone"></span><br>
-                      <label>Userid *</label>
-                      <input id="userid_marketing" name="userid_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['user_name'];?>"><span id="error_userid" class="error_userid"></span><br>
+                      <input id="phone_marketing" name="phone_marketing" maxlength="10" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['phone'];?>"><span id="error_phone" class="error_phone"></span><br>
+                      <label>User id *</label>
+                      <input id="userid_marketing" maxlength="10" name="userid_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['user_name'];?>"><span id="error_userid" class="error_userid"></span><br>
                       <label>Password *</label>
-                      <input id="password_marketing" name="password_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['password'];?>"><span id="error_password" class="error_password"></span><br>
+                      <input id="password_marketing" maxlength="10" name="password_marketing" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['password'];?>"><span id="error_password" class="error_password"></span><br>
                       <label>Address *</label>
                       <textarea class="form-control" rows="3" cols="8"  id="address_marketing" name="address_marketing"><?php if(isset($details[0])) echo $details[0]['address'];?></textarea> <span id="error_address" class="error_address"></span><br>
 <!--                       <input id="name" name="cat_name" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['cat_name'];?>"> -->
@@ -94,13 +94,7 @@ $("#submit").on('click',function(){
     }
 
     // var phn=[0-9]{10})|(\([0-9]{3}\)\s+[0-9]{3}\-[0-9]{4};
-   
-    // if(!(phn.test($("#phone_marketing").val())))
-    // {
-    //   $("#error_phone").html("Enter valid phone no");
-    //   $('#error_phone').css('color', 'red');
-    //   return false;
-    // }
+  
   if($("#phone_marketing").val() == ''){
     $("#error_phone").html("mobile no is Required");
     $('#error_phone').css('color', 'red');
@@ -114,7 +108,6 @@ if((phone.length < 10) || (!intRegex.test(phone)))
 {
         $("#error_phone").html("Enter valid phone no");
       $('#error_phone').css('color', 'red');
-     //alert('Please enter a valid phone number.');
      return false;
 }
 

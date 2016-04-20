@@ -34,7 +34,7 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                     <tr>
-                    <th>ID</th>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>email</th>
@@ -42,14 +42,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                     <?php if(count($allservice_provider)>0):  ?>
+                     <?php if(count($allservice_provider)>0): 
+                     $i=1; ?>
                     <?php foreach($allservice_provider as $val): 
                     $status =$val['status'];
                     $id=$val['user_id'];
                     ?>
                     <tr>   
-
-                    <td id="id_<?php echo $id;?>"><?php echo $val['user_id'];?></td>
+<!--                     <td id="id_<?php echo $id;?>"><?php echo $val['user_id'];?></td>
+ -->                <td>                    <input type="hidden" name="a" id="id_<?php echo $id;?>" value="<?php echo $val['user_id'];?>">
+<?php echo $i;?></td>
                     <td><?php echo $val['fname'];?></td>
                     <td><?php echo $val['phone'];?></td>
                     <td><?php echo $val['email'];?></td>
@@ -64,7 +66,7 @@
               $(document).ready(function() {
                 $("#approved_review_"+<?php echo $id;?>).click(function(e){
                   e.preventDefault();
-                  var id =$("#id_"+<?php echo $id;?>).text();
+                  var id =$("#id_"+<?php echo $id;?>).val();
                   $.ajax({
                   //url: "<?php echo base_url(); ?>" + "service_provider/approved",
                   url: "approved",
@@ -91,7 +93,9 @@
   </script>
 
 
-                    <?php endforeach;?>
+                    <?php 
+                    $i++;
+                    endforeach;?>
                     <?php else: ?>
                     <tr>
                     <td colspan="3">No Data Found</td>
