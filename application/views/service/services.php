@@ -12,14 +12,9 @@
     <link href="<?php echo base_url();?>css/style3.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/jquery.lightbox-0.5.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/star-rating-svg.css" rel="stylesheet">
- 	<!--link rel="stylesheet" href="css/bootstrap.min.css"-->
- 	<!--link rel="stylesheet" href="css/jquery-ui.css"-->
-  	<!--link rel="stylesheet" type="text/css" href="font-awesome-4.6.1/css/font-awesome.min.css"-->	
-  	<!--link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css"-->
-  	<!--link rel="stylesheet" type="text/css" href="css/style3.css"-->
-  	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-  	<!--link rel="stylesheet" type="text/css" href="css/star-rating-svg.css"-->
-  	
+
+   	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+ 	
   	<style type="text/css">
   	.stars i{
   		font-size: 26px;
@@ -35,26 +30,83 @@
 	background-color: #283C4A;
     }
 
-    /*.innerUgAndPg{
+    @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 
-    	width: 50%!important;
-    	/*float: left;
-    }*/
-  	</style>
+      body {
+        background:#ebebeb;
+      }
+      ul {
+          padding:0 0 0 0;
+          margin:0 0 40px 0;
+      }
+      ul li {
+          list-style:none;
+          margin-bottom:10px;
+      }
+      ul li.bspHasModal {
+          cursor: pointer;
+      }
+      .modal-body {
+          padding:5px !important;
+      }
+      .modal-content {
+          border-radius:0;
+      }
+      .modal-dialog img {
+          text-align:center;
+          margin:0 auto;
+      }
+    .controls{
+        width:50px;
+        display:block;
+        font-size:11px;
+        padding-top:8px;
+        font-weight:bold;
+    }
+    .next {
+        float:right;
+        text-align:right;
+    }
+    .text {
+      font-family: 'Bree Serif';
+      color:#666;
+      font-size:11px;
+      margin-bottom:10px;
+      padding:12px;
+      background:#fff;
+    }
+    .glyphicon-remove-circle:hover {
+      cursor: pointer;
+    }
+    @media screen and (max-width: 380px){
+       .col-xxs-12 {
+         width:100%;
+       }
+       .col-xxs-12 img {
+         width:100%;
+       }
+    }
+  </style>
 
 </head>
+
 <body >
+	
 <?php	foreach($result as $res)
 		{   ?>
+		<input type="hidden" id="ip_address" name="ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
+
 	<div class="container">
 		<div class="row">
 			<div class="thebread"><div class="breadcrumb"><a href="education.html">Education</a> >> >><?php echo  $res->school_name; ?></div></div>			 
 		</div>
 	</div>
+
 	<div class="header_banner">
 		<div class="header-img">
 			<img src="<?php echo  base_url().$res->profile_image; ?>"> 
 		</div>
+
 		<div class="container maincontent" >
 			<div class="row">
 				<div class="main_info">
@@ -88,7 +140,9 @@
 				</div>
 			</div>
 		</div>
+
 	</div>  <!-- End of header_banner Section -->
+
 	<div class="container-fluid" data-spy="scroll" data-target="#one" data-offset="20" >
 		<div class="row">
 			<div class="col-sm-2">
@@ -124,7 +178,7 @@
 								<div id="btn_ug" class="text-left test innerUgAndUg">UG (<?php echo   count( array_keys( $c_t, "UG" )); ?>)</div>
 								<!-- <div class="innerUgAndUg " id="btn_ug" >UG (<?php// echo   count( array_keys( $c_t, "UG" )); ?>)</div> -->
 								<!-- <div class="innerUgAndPg bar-show " id="btn_pg">PG (<?php //echo   count( array_keys( $c_t, "UG" )); ?>)</div> -->
-								<div id="btn_pg" class="text-right test">PG (<?php echo   count( array_keys( $c_t, "UG" )); ?>)</div>
+								<div id="btn_pg" class="text-right test">PG (<?php echo   count( array_keys( $c_t, "PG" )); ?>)</div>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -132,36 +186,42 @@
 						<div class="" id="chartdiv">
 							
 						</div>
-						<div class="container-fluid">
-						  <div class="row text-center" style="overflow:hidden;">
-								<div class="col-sm-3" style="float: none !important;display: inline-block;">
-									<label class="text-left">Angle:</label>
-									<input class="chart-input" data-property="angle" type="range" min="0" max="60" value="30" step="1"/>	
-								</div>
-
-								<div class="col-sm-3" style="float: none !important;display: inline-block;">
-									<label class="text-left">Depth:</label>
-									<input class="chart-input" data-property="depth3D" type="range" min="1" max="25" value="10" step="1"/>
-								</div>
-								<div class="col-sm-3" style="float: none !important;display: inline-block;">
-									<label class="text-left">Inner-Radius:</label>
-									<input class="chart-input" data-property="innerRadius" type="range" min="0" max="80" value="0" step="1"/>
-								</div>
-							</div>
-						</div>
+		
 						</div>
 
 
 
 			</div> <!-- End of programs div -->
+
 				<div id="postcampusfacilities">
 					<h2>Facilities</h2>
 					Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.				
 				</div>
-				<div id="postgallery">
 
+				<div id="postgallery">
 					<h2>Gallery</h2>
-					<div id="thumbnails">
+					<div class="container">
+
+                    <ul class="row first">
+		                 <li>
+		                <img  src="<?php echo base_url();?>images/b1.jpg">
+		             
+		            </li>
+		            <li>
+		                <img  src="<?php echo base_url();?>images/b2.jpg">
+		            </li>
+		            <li>
+		                <img  src="<?php echo base_url();?>images/b3.jpg">
+		             
+		            </li>
+		            <li>
+		                <img  src="<?php echo base_url();?>images/b4.jpg">
+		            </li>
+		            
+
+		        </ul>
+
+
 				     <!--   
 				          <a href="images/b1.jpg" title="Turntable by Jens Kappelmann"><img src="images/m1.jpg" alt="turntable"></a>
 				          <a href="images/b2.jpg" title="DIY Robot by Jory Raphael"><img src="images/m2.jpg" alt="DIY Robot Kit"></a>
@@ -177,6 +237,7 @@
 				</div>
 			</div>
 			</div>
+
 			<div class="col-sm-3 right_side" style="margin-top: 25px;">
 				<div id="block-college-rate-review-right-block" class="block block-college first odd">
 					<div class="review-rating-block customBlock alignCenter">
@@ -320,7 +381,7 @@
 									  </div>
 									  <div class="form-group">
 									    <label>Your Review <small class="smtext">( at least 250 characters ) </small><span class="star">&#42;</span></label><br>
-									    <textarea rows="5" cols="104" placeholder="Your Review should answer the questions in the right-hand side box to wholistically express your college experience"></textarea>
+									    <textarea rows="5" cols="98" placeholder="Your Review should answer the questions in the right-hand side box to wholistically express your college experience"></textarea>
 									  </div>
 									  <center><button type="submit" class="btn btn-default" id="btnSubmit">Submit</button></center>
 									</form>
@@ -332,6 +393,8 @@
 						</div>
 					</div>
 				</div>
+			</div>
+
 			</div> <!-- End of the right side column -->
 		</div> <!-- End of the main row -->
 	</div> <!-- End of main Container -->
@@ -344,6 +407,7 @@
 	<script src="<?php echo base_url();?>ui/jquery-ui-1.11.4/jquery-ui.min.js"></script>
   	<script src="<?php echo base_url();?>bootstrap/js/bootstrap.min.js"></script>
   	<script src="<?php echo base_url();?>js/jquery.lightbox-0.5.min.js"></script>
+  	<script src="<?php echo base_url();?>js/jquery.bsPhotoGallery.js"></script>
   	<script>
 $(function() {
 
@@ -414,8 +478,11 @@ $(function() {
 });
 </script>
   	<script src="<?php echo base_url();?>js/jquery.star-rating-svg.js"></script>
-
+<script type="text/javascript" src="<?php echo base_url();?>js/amcharts.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/pie.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/dark.js"></script>
   	<script >
+  	var chart = "";
   	
   		$(function() {
 		    $('#thumbnails a').lightBox();
@@ -424,8 +491,8 @@ $(function() {
 			e.preventDefault();
 			var rating = $('.live-rating').text();
 			 $.ajax({
-            url:"http://localhost/educationtotal_courses/testcontroller.php",
-            data:{rating:rating,coll_id:2},
+            url:"<?php echo base_url(); ?>" + "review_save",
+            data:{rating:rating},
             type:'POST',
             success:function(result){
             	var j = 0;
@@ -521,7 +588,7 @@ $(function() {
             data:{service_id:s_id},
             type:'POST',
             success:function(result){
-               var chart = AmCharts.makeChart( "chartdiv", {
+         var chart = AmCharts.makeChart( "chartdiv", {
             "type": "pie",
             "theme": "dark",
             "dataProvider": $.parseJSON(result),
@@ -538,28 +605,46 @@ $(function() {
             }
         }); 
 });
-jQuery( '.chart-input' ).off().on( 'input change', function() {
-  var property = jQuery( this ).data( 'property' );
-  var target = chart;
-  var value = Number( this.value );
-  chart.startDuration = 0;
+// jQuery( '.chart-input' ).off().on( 'input change', function() {
+//   var property = jQuery( this ).data( 'property' );
+//   var target = chart;
+//   var value = Number( this.value );
+//   chart.startDuration = 0;
 
-  if ( property == 'innerRadius' ) {
-    value += "%";
-  }
+//   if ( property == 'innerRadius' ) {
+//     value += "%";
+//   }
 
-  target[ property ] = value;
-  chart.validateNow();
-} );
-		
-
-
+//   target[ property ] = value;
+//   chart.validateNow();
+// } );
 	
+//   	</script>
+ <script>
+  	$( document ).ready(function() {
+  		//alert($('#ip_address').val());
+  		var ip =  $('#ip_address').val();
+  		 $.ajax({
+            url:"<?php echo base_url(); ?>" + "visitors_count",
+            data:{ip:ip},
+            type:'POST',
+            success:function(result){
+            }
+        });
+   // console.log(ip);
+});
   	</script>
 <!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
-<script type="text/javascript" src="<?php echo base_url();?>js/amcharts.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>js/pie.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>js/dark.js"></script>
-<!-- <script type="text/javascript" src="<?php// echo base_url();?>js/costom.js"></script> -->
+
+<script>
+      $(document).ready(function(){
+        $('ul.first').bsPhotoGallery({
+          "classes" : "col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12",
+          "hasModal" : true
+        });
+      });
+    </script>
+
+<script type="text/javascript" src="<?php echo base_url();?>js/costom.js"></script> 
 </body>
 </html>

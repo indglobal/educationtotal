@@ -91,6 +91,8 @@ $route['service/search_result_service/(:num)'] = "service/service/search_result_
 $route['service/list_service'] = "service/service/list_service";
 $route['ug'] = "service/service/ug";
 $route['pg'] = "service/service/pg";
+$route['visitors_count'] = "service/service/visitors_count";
+$route['review_save'] = "service/service/review_save";
 
 $route['logout'] = "register_cont/logout";
 

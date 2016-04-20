@@ -143,6 +143,29 @@ class Service_model extends CI_Controller
 		return $query->result();
 	}
 
+	public function check_ip($ip)
+	{
+		$this->db->where('visitor_ip', $ip);
+		$query = $this->db->get('visitors_count');
+		return $query->result();
+		//if($query->num_rows == 1)
+		//{
+		//}
+	}
+  
+    public function save_visitors_data($data)
+	{
+		$insert = $this->db->insert('visitors_count', $data);
+		 return $insert;		
+	}
+
+	public function update_visitors_data($data,$ip)
+	{	
+		$this->db->where('visitor_ip', $ip);
+		$this->db->update('visitors_count', $data);		
+	}
+
+
 
 
 

@@ -19,19 +19,20 @@ class Service extends CI_Controller
 
   function search_result()
   {
-    
+    if(isset($_POST['category']))
+    {
     $level3_id  = $_POST['category'];
     $level4_id = $_POST['sub_cat'];
-
-    //echo "<pre>";print_r($_POST);
-   // echo "cat".$level3_id;
-   // echo "sub_cat".$level4_id;
 
     $data['result'] = $this->service_model->get_search_result($level3_id,$level4_id);
 	  $data['cat']=$this->user_model->fetch_category();
 	  $this->load->view('header',$data);
-      $this->load->view('service/search_result',$data);
-	   $this->load->view('footer',$data);
+    $this->load->view('service/search_result',$data);
+	  $this->load->view('footer',$data);
+  }else{
+      $data['result'] ="";
+    $this->load->view('service/search_result',$data);
+  }
   }
 
   function search_result_service($id)
@@ -94,6 +95,43 @@ class Service extends CI_Controller
           echo $c_json;die();
         }
   }
+
+  function visitors_count(){
+    $ip = $_POST['ip'];
+   // print_r($_POST);
+    $data['result'] = $this->service_model->check_ip($ip);
+
+    if(empty($data['result']) )
+    {
+      $visitors_data = array(
+        'visitor_ip' => $ip,
+        'visitor_count' => 1,
+        'created_date' => Date('Y-m-d h:i:s'),
+        'modified_date' => Date('Y-m-d h:i:s')      
+      );
+      $this->service_model->save_visitors_data($visitors_data);
+
+    }else{
+       foreach ($data['result'] as $res) {
+           $ip = $res->visitor_ip;
+           $count = $res->visitor_count;
+         }
+        $visitors_data = array(
+        'visitor_count' => $count+1,
+        'modified_date' => Date('Y-m-d h:i:s')
+        ); 
+         $this->service_model->update_visitors_data($visitors_data,$ip);
+    }
+  }
+
+  function review_save(){
+echo "<pre>";
+print_r($_POST);die();
+
+
+  }
+
+  
 
 
 
