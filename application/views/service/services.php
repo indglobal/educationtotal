@@ -128,15 +128,15 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-3">
+					<!--div class="col-sm-3">
 						<div id="post-ratings-163" class="post-ratings">
-							<img src="<?php echo base_url();?>images/rating_on.gif" alt="" class="post-ratings-image">
-							<img src="<?php echo base_url();?>images/rating_on.gif" alt="" class="post-ratings-image">
-							<img src="<?php echo base_url();?>images/rating_on.gif" alt="" class="post-ratings-image">
-							<img src="<?php echo base_url();?>images/rating_off.gif" alt="" class="post-ratings-image">
-							<img src="<?php echo base_url();?>images/rating_off.gif" alt="" class="post-ratings-image"><em>3 Reviews</em>
+							<img src="<?php //echo base_url();?>images/rating_on.gif" alt="" class="post-ratings-image">
+							<img src="<?php //echo base_url();?>images/rating_on.gif" alt="" class="post-ratings-image">
+							<img src="<?php //echo base_url();?>images/rating_on.gif" alt="" class="post-ratings-image">
+							<img src="<?php //echo base_url();?>images/rating_off.gif" alt="" class="post-ratings-image">
+							<img src="<?php //echo base_url();?>images/rating_off.gif" alt="" class="post-ratings-image"><em>3 Reviews</em>
 						</div>					
-					</div>
+					</div-->
 				</div>
 			</div>
 		</div>
@@ -160,7 +160,7 @@
 				</ul>
 				<div id="postoverview">
 					<h2>About <?php echo  $res->school_name; ?></h2>
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+				<?php echo $res->about_school;  ?>
 				</div>
 				<div id="postprograms">
 					<h2>Courses</h2>
@@ -195,7 +195,8 @@
 
 				<div id="postcampusfacilities">
 					<h2>Facilities</h2>
-					Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.				
+                  <?php echo $res->facilities_available;  ?>
+
 				</div>
 
 				<div id="postgallery">

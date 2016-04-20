@@ -74,6 +74,25 @@ action="<?php echo base_url();?>register_cont/add_user" method="POST">
 </article>
 </div>
 
+<div class="row">
+    <article class="col-sm-6">
+
+    </article>
+
+	<article class="col-sm-6">
+    <label>SELECT MAIN CATEGORY</label>		
+    <select  id="cat_id" name="cat_id" data-placeholder="Choose a Main Category">
+        <option required value="0">Choose a menu</option>
+        <?php foreach ($menu as $m) {//echo"<pre>";print_r($categories); ?>
+        <option value="<?php echo $m->cat_id ?>"><?php echo $m->cat_name ?></option>
+        <?php } ?>
+    </select>
+    <?php echo form_error('cat_id'); ?>
+    </article>
+</div>                                   
+
+
+
 <input type="submit" value="SIGNUP" id="btn-signup" 
 class="user-btn">
 

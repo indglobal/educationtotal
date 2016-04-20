@@ -8,6 +8,12 @@ class user_model extends CI_Model
 		parent::__construct();
 	}
 
+function get_menu()
+  {
+    $query=$this->db->query('select * from master_categories');
+    return $query->result();
+  }
+
   public function adduser ($aduser)
    {	
 		$data = array(

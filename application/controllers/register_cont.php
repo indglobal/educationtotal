@@ -26,8 +26,13 @@ class register_cont extends CI_Controller
   {
     $data['cat']=$this->user_model->fetch_category();
     $this->load->view('header.php',$data);
-    
-    $this->load->view('user/provider_signup.php');
+
+   
+    $data['menu']=$this->user_model->get_menu();
+
+    //echo "<pre>";
+    //print_r($data['menu']);
+    $this->load->view('user/provider_signup.php',$data);
     $this->load->view('footer.php');
   }
   public function user_signup()
@@ -38,10 +43,13 @@ class register_cont extends CI_Controller
     $this->load->view('user/user_signup.php');
     $this->load->view('footer.php');
   }
+
+  
  
     public function add_user()
    {
   
+  $this->form_validation->set_rules('cat_id', 'category', 'required|callback_category_check');
    $this->form_validation->set_rules('usnameF', 'User Name', 'required|max_length[30]');
    $this->form_validation->set_rules('usnameL', 'User Last Name', 'required|max_length[30]');
    $this->form_validation->set_rules('uspasw','Password','required|max_length[20]|min_length[6]|alpha_numeric');
@@ -75,14 +83,35 @@ class register_cont extends CI_Controller
     {
       
       $this->load->view('header.php');
-      $catesecond['cat']=$this->user_model->fetch_category();
+      $catesecond['menu']=$this->user_model->fetch_category();
         if ($this->input->post('idtype')==3) 
-			
+			    {
           $this->load->view('user/user_signup.php');
+        }
        else 
-          $this->load->view('user/provider_signup.php');
-          $this->load->view('footer.php');
+       {
+         
+       $data['cat']=$this->user_model->fetch_category();
+   
+
+    
+   $data['menu']=$this->user_model->get_menu();
+    $catesecond['cat']=$this->user_model->fetch_category();
+    $this->load->view('user/provider_signup.php',$data);
+    $this->load->view('footer.php');
+        }
      }
+    }
+
+     public function category_check()
+    {
+            if ($this->input->post('cat_id') === '0')  {
+            $this->form_validation->set_message('category_check', 'Please choose your category.');
+            return FALSE;
+        }
+        else {
+            return TRUE;
+        }
     }
 
    public function login()
