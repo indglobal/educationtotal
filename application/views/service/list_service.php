@@ -24,6 +24,26 @@
 		background-color: #DFF2BF;
 		/*background-image:url('success.png');*/
 		}
+		#dataTables-example{
+			background-color: #FFF;
+			border-radius: 10px;
+		}
+		#dataTables-example th{
+			border: 1px solid #FFF;
+			background-color: #167F92;
+			color: #FFF;
+			margin: .5em 1em;
+			text-align: left;
+			font-size: 18px;
+		}
+		#dataTables-example td {
+		    text-align: left;
+		    margin: .5em 1em;
+		}
+		#dataTables-example td {
+		    display: table-cell;
+		    padding: 1em;
+		}
     </style>
 </head>
 
@@ -80,11 +100,11 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                     <tr>
-                    <th>title</th>
-                    <th>menu</th>
-                    <th>submenu</th>
-                    <th>cat</th>
-                    <th>subcat</th>
+                    <th>Title</th>
+                    <th>Menu</th>
+                    <th>Submenu</th>
+                    <th>Cat</th>
+                    <th>Subcat</th>
                     </tr>
                     </thead>
 					  <tbody>

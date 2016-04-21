@@ -41,10 +41,44 @@
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+input[type="file"]{
+	 display: block;
+    width: 50%;
+    height: 34px;
+    font-size: 12px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+ select{
+	
+	 width: 50%;
+	background:url(../images/down.png) no-repeat, #fff;
+	background-size: 10px;
+	background-position: 98% 50%;
+	padding-right: 30px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	font-size: 15px;
+	color: #666;
+	border-radius: 4px;
+
+}
 
 textarea {
-    width: 42em;
+    width: 50%;
     height: 8em;
+    border-radius: 4px;
+}
+.form-head h3{
+	padding: 10px 0px 30px;
 }
 </style>
 

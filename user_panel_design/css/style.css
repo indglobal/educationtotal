@@ -48,9 +48,12 @@ body{
 	z-index: 1000;
 }
 .main_body .left_cont{
-	background-color: #23619C;
+	
 	padding: 0px;
 	min-height: 1325px;
+}
+.main_body .left_cont .nav {
+	background-color: #23619C;
 }
 .main_body .left_cont .nav > li{
 	text-align: center;
@@ -287,6 +290,7 @@ body{
 	bottom: 30px;
 	left: 65px;
 	cursor: pointer;
+	color: #ffffff;
 }
 .name_details{
 	

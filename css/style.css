@@ -509,9 +509,17 @@ margin-top: 15%;
 	padding-bottom: 20px;
 }
 .form-head h3 span{
-	border-bottom: 2px solid #157AC8;
+	
 	font-weight: 400;
-	color: #000;
+	background-color: rgba(255,255,255, 0.7);
+	border-style: solid;
+	
+	border-color: #CDCDCD;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	padding: 10px 20px;
+	
 }
 form.form-usr-signup span{
 	padding-right: 20px;
@@ -556,5 +564,4 @@ form.form-usr-signup .form-group#provdr-signup-data-grp input[type=text]:focus, 
 .mailtext
 {
 margin-left: 95%;
-}
 }

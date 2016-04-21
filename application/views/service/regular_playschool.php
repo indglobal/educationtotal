@@ -1,5 +1,5 @@
 
-<div class="container" style="padding: 0;">
+<div class="container-fluid" style="padding: 0;">
    <!--  <div class="row">
 
 	<div class="forum-wrp">	 -->
@@ -79,7 +79,7 @@
 
         <label>social media link</label>
 	    <div class="form-group"> 
-			<input type="text" name="facebook_link" placeholder="facbook link">
+			<input type="text" name="facebook_link" placeholder="facebook link">
 	    </div>
 
 	    <div class="form-group"> 

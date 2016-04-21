@@ -10,7 +10,21 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="<?php echo base_url('js/jquery.form.js'); ?>"></script>
 	<link href="<?php echo base_url();?>bootstrap/css/bootstrap.css" rel="stylesheet">
-
+  <style>
+    #btnsubmit{
+      padding: 8px 20px;
+      background-color: #157AC8;
+      color: #fff;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    #btnsubmit:hover{
+      box-shadow: 1px 1px 1px 1px rgba(21,122,200,1);
+      background-color: #157AC8;
+      color: #fff;
+    }
+  </style>
   </head>
 
 <body>
@@ -92,7 +106,7 @@
 								</div>
                                 
                 <div id="submit" style="display:none;">
-								    <button type="submit" >submit</button> 
+								    <button type="submit" id="btnsubmit" >Submit</button> 
                 </div> 
                           <!--  <input id="save_add_service" type="submit" value="SEARCH">
                              -->   
