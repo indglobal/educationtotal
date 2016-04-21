@@ -81,7 +81,11 @@ $route['sub_menu/(:num)'] = "service/service/sub_menu/$1";
 $route['get_category/(:num)'] = "service/service/get_category/$1";
 $route['get_sub_category/(:num)'] = "service/service/get_sub_category/$1";
 $route['regular_playschool'] = "service/service/regular_playschool";
+$route['regular_school'] = "service/service/regular_school";
 $route['regular_college'] = "service/service/regular_college";
+$route['abroad_consultants'] = "service/service/abroad_consultants";
+
+$route['distance_edu_consult'] = "service/service/distance_edu_consult";
 
 $route['save_service'] = "service/service/save_service";
 

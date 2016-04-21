@@ -48,65 +48,70 @@ class register_cont extends CI_Controller
  
     public function add_user()
    {
-  
-  $this->form_validation->set_rules('cat_id', 'category', 'required|callback_category_check');
-   $this->form_validation->set_rules('usnameF', 'User Name', 'required|max_length[30]');
-   $this->form_validation->set_rules('usnameL', 'User Last Name', 'required|max_length[30]');
-   $this->form_validation->set_rules('uspasw','Password','required|max_length[20]|min_length[6]|alpha_numeric');
-   $this->form_validation->set_rules('uscnpasw', 'Password Confirmation', 'required|matches[uspasw]');
-   $this->form_validation->set_rules('usemail', 'E-mail', 'required|valid_email|is_unique[user_detail.email]');
-  // $this->form_validation->set_rules('usmobnum', 'Mobile number', 'required');
-  $this->form_validation->set_rules('usmobnum', 'Mobile number', 
-  'required|regex_match[/^[0-9]+$/]|xss_clean');
-    $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
-    if ($this->form_validation->run())
-    {
-       $aduser = array( 
-       'fname'      => $this->input->post('usnameF'),
-       'lname'      => $this->input->post('usnameL'),
-       'phone'      => $this->input->post('usmobnum'),
-       'email'      => $this->input->post('usemail'),
-	     'password'      => $this->input->post('uspasw'),
-       'address'    => $this->input->post('usmobnum'),
-	    'user_type_id'    => $this->input->post('idtype')
-                   );
-      
-       $data['result'] = $this->user_model->adduser($aduser);
-	     $catesecond['cat']=$this->user_model->fetch_category();
-       $this->load->view('header.php');
-       $catesecond['cat']=$this->user_model->fetch_category();
-	  
-     redirect('register_cont');
-	   exit;
-    }
-    else
-    {
-      
-      $this->load->view('header.php');
-      $catesecond['menu']=$this->user_model->fetch_category();
+     $this->form_validation->set_rules('cat_id', 'category', 'required|callback_category_check');
+     $this->form_validation->set_rules('usnameF', 'User Name', 'required|max_length[30]');
+     $this->form_validation->set_rules('usnameL', 'User Last Name', 'required|max_length[30]');
+     $this->form_validation->set_rules('uspasw','Password','required|max_length[20]|min_length[6]|alpha_numeric');
+     $this->form_validation->set_rules('uscnpasw', 'Password Confirmation', 'required|matches[uspasw]');
+     $this->form_validation->set_rules('usemail', 'E-mail', 'required|valid_email|is_unique[user_detail.email]');
+    // $this->form_validation->set_rules('usmobnum', 'Mobile number', 'required');
+     $this->form_validation->set_rules('usmobnum', 'Mobile number', 
+    'required|regex_match[/^[0-9]+$/]|xss_clean');
+     $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+      if ($this->form_validation->run())
+      {
+
+       // echo "<pre>";
+       // print_r($_POST);die();
+     /*   if(isset($_POST['cat_id']))
+        {
+          'cat_id'=> $this->input->post('cat_id');
+        }else{
+          'cat_id'=>'';
+        } */
+         $aduser = array( 
+         'fname'      => $this->input->post('usnameF'),
+         'lname'      => $this->input->post('usnameL'),
+         'phone'      => $this->input->post('usmobnum'),
+         'email'      => $this->input->post('usemail'),
+  	     'password'      => $this->input->post('uspasw'),
+         'address'    => $this->input->post('usmobnum'),
+  	    'user_type_id'    => $this->input->post('idtype'),
+       // 'cat_id'=> $this->input->post('cat_id')
+                     );
+        
+         $data['result'] = $this->user_model->adduser($aduser);
+  	     $catesecond['cat']=$this->user_model->fetch_category();
+         $this->load->view('header.php');
+         $catesecond['cat']=$this->user_model->fetch_category();
+  	  
+         redirect('register_cont');
+  	     exit;
+      }
+      else
+      {  
+        $this->load->view('header.php');
+        $catesecond['menu']=$this->user_model->fetch_category();
         if ($this->input->post('idtype')==3) 
-			    {
+			  {
           $this->load->view('user/user_signup.php');
         }
-       else 
-       {
-         
-       $data['cat']=$this->user_model->fetch_category();
-   
-
-    
-   $data['menu']=$this->user_model->get_menu();
-    $catesecond['cat']=$this->user_model->fetch_category();
-    $this->load->view('user/provider_signup.php',$data);
-    $this->load->view('footer.php');
+        else 
+        {   
+          $data['cat']=$this->user_model->fetch_category();    
+          $data['menu']=$this->user_model->get_menu();
+          $catesecond['cat']=$this->user_model->fetch_category();
+          $this->load->view('user/provider_signup.php',$data);
+          $this->load->view('footer.php');
         }
-     }
+      }
     }
 
      public function category_check()
     {
             if ($this->input->post('cat_id') === '0')  {
-            $this->form_validation->set_message('category_check', 'Please choose your category.');
+            $this->form_validation->set_message('category_check', 'Please choose service type.');
             return FALSE;
         }
         else {

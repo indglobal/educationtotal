@@ -143,7 +143,7 @@
         </div>
 
 	    <div class="form-group"> 
-	    	  <select name="fees"><option value="less than 50k">less than 5s0k</option><option value="1-2 lacks">1-2 lacks</option><option value="2-3 lacks">2-3 lacks</option><option value="6-7 lacks">6-7 lacks</option><option value="8-10 lacks">8-10 lacks</option></select>   
+	    	  <select name="fees"><option value="less than 50k">less than 50k</option><option value="1-2 lacks">1-2 lacks</option><option value="2-3 lacks">2-3 lacks</option><option value="6-7 lacks">6-7 lacks</option><option value="8-10 lacks">8-10 lacks</option></select>   
 			<!-- <input type="text" placeholder="fees"> -->
 	    </div>
         <label>Admission status</label>

@@ -80,7 +80,7 @@ action="<?php echo base_url();?>register_cont/add_user" method="POST">
     </article>
 
 	<article class="col-sm-6">
-    <label>SELECT MAIN CATEGORY</label>		
+    <label>SELECT SERVICE TYPE</label>		
     <select  id="cat_id" name="cat_id" data-placeholder="Choose a Main Category">
         <option required value="0">Choose a menu</option>
         <?php foreach ($menu as $m) {//echo"<pre>";print_r($categories); ?>

@@ -209,17 +209,25 @@ $(document).on('change','#sub_cat_thired_id',function(){
 var value = $(this).val();
     alert(value);
     if(value != 0){	 
-    	if(value == 1)
-    	{
+      	if(value == 1)
+      	{
     		var url = "<?php echo base_url()?>regular_playschool";
         }
-        if(value == 2)
+        if(value == 2 || value == 3)
     	  {
     		var url = "<?php echo base_url()?>regular_school";
         }		
         if(value == 4 || value == 5 || value == 6 || value == 7)
         {
         var url = "<?php echo base_url()?>regular_college";
+        }
+        if(value == 12)
+        {
+        var url = "<?php echo base_url()?>abroad_consultants";
+        } 
+         if(value == 18)
+        {
+        var url = "<?php echo base_url()?>distance_edu_consult";
         } 
 	
         $.ajax({
@@ -259,7 +267,7 @@ $("#search").ajaxForm({
              $("#f_error").hide();
           $("#f_success").append("Service added successfully");
           setTimeout(function(){
-            window.location = "<?php echo base_url(); ?>" + "list_service";
+            window.location = "<?php echo base_url(); ?>" + "service/list_service";
           }, 5000);
 		}
 					 

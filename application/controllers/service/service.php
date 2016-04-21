@@ -735,12 +735,21 @@ print_r($_POST);die();
    	{
    		$this->load->view('service/regular_playschool');
    	}
+    public function regular_school()
+    {
+      $this->load->view('service/regular_school');
+    }
     public function regular_college()
     {
       $this->load->view('service/regular_college');
     }
-
-
-
+    public function abroad_consultants()
+    {
+      $this->load->view('service/abroad_consultants');
+    }  
+    public function distance_edu_consult()
+    {
+      $this->load->view('service/distance_edu_consult');
+    }
 
 }
