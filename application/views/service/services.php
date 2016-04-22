@@ -33,7 +33,7 @@
     @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 
       body {
-        background:#ebebeb;
+       
       }
       ul {
           padding:0 0 0 0;
@@ -162,6 +162,7 @@
 					<h2>About <?php echo  $res->school_name; ?></h2>
 				<?php echo $res->about_school;  ?>
 				</div>
+
 				<div id="postprograms">
 					<h2>Courses</h2>
 					<div class="contentBlockSec mar-btm-20">
@@ -183,15 +184,14 @@
 							<div class="clearfix"></div>
 						</div>
 						<div>
+							</br>
 						<div class="" id="chartdiv">
 							
 						</div>
 		
 						</div>
+                    </div>
 
-
-
-			</div> <!-- End of programs div -->
 
 				<div id="postcampusfacilities">
 					<h2>Facilities</h2>
@@ -202,40 +202,55 @@
 				<div id="postgallery">
 					<h2>Gallery</h2>
 					<div class="container">
-
                     <ul class="row first">
-		                 <li>
-		                <img  src="<?php echo base_url();?>images/b1.jpg">
-		             
-		            </li>
-		            <li>
-		                <img  src="<?php echo base_url();?>images/b2.jpg">
-		            </li>
-		            <li>
-		                <img  src="<?php echo base_url();?>images/b3.jpg">
-		             
-		            </li>
-		            <li>
-		                <img  src="<?php echo base_url();?>images/b4.jpg">
-		            </li>
-		            
-
-		        </ul>
-
-
-				     <!--   
-				          <a href="images/b1.jpg" title="Turntable by Jens Kappelmann"><img src="images/m1.jpg" alt="turntable"></a>
-				          <a href="images/b2.jpg" title="DIY Robot by Jory Raphael"><img src="images/m2.jpg" alt="DIY Robot Kit"></a>
-				          <a href="images/b3.jpg" title="Todly by Scott Wetterschneider"><img src="images/m3.jpg" alt="Todly"></a>
-				          <a href="images/b1.jpg" title="Turntable by Jens Kappelmann"><img src="images/m1.jpg" alt="turntable"></a>
-				          <a href="images/b2.jpg" title="DIY Robot by Jory Raphael"><img src="images/m2.jpg" alt="DIY Robot Kit"></a>
-				          <a href="images/b3.jpg" title="Todly by Scott Wetterschneider"><img src="images/m3.jpg" alt="Todly"></a>
-				     -->   
+		                <li>
+		                    <img  src="<?php echo base_url();?>images/b1.jpg">
+		                </li>
+		                <li>
+		                    <img  src="<?php echo base_url();?>images/b2.jpg">
+		                </li>
+		                <li>
+		                	<img  src="<?php echo base_url();?>images/b3.jpg">
+		                </li>
+		                <li>
+		               	    <img  src="<?php echo base_url();?>images/b4.jpg">
+		                </li>
+		            </ul>      
 				    </div>
 				</div>
+
 				<div id="postplacement">
-				<br>
+					<h2>Placement</h2>
+					<div id="thumbnails">
+				     	<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+				     	</p>
+				    </div>
 				</div>
+
+				<div id="postcontact">
+					<h2>Contact</h2>
+					<div id="thumbnails">
+				     	<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+				     	</p>
+				    </div>
+				</div>
+
+				<div id="postreview">
+					<h2>Review</h2>
+					<div id="thumbnails">
+				     	<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+				     	</p>
+				    </div>
+				</div>
+
+				<div id="postcurrricular">
+					<h2>Extra Currricular</h2>
+					<div id="thumbnails">
+				     	<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+				     	</p>
+				    </div>
+				</div>
+
 			</div>
 			</div>
 

@@ -21,8 +21,18 @@
 		margin-left: 5px;
 		font-size: 14px;
 	}
-
-	
+	#child{
+		width:40%;
+		background:url(../images/down.png) no-repeat, #fff;
+		background-size: 10px;
+		background-position: 98% 50%;
+		padding-right: 30px;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+		font-size: 15px;
+		color: #666;
+		border-radius: 4px;
+	}
 	input[type=text],textarea{
     display: block;
     width: 50%;
@@ -116,7 +126,7 @@ textarea {
 			        <input type="select" id="serch_area" name="serch-area" placeholder="search colleges, notes,stores..">
 					<input type="hidden" id="sub_cat" value="" name="sub_cat">
 					<input id="serch-btn" type="submit" value="SEARCH">
-					<ul class="dropdown-menu txtcountry" style="left:32%;margin-left:15px;margin-right:0px;" role="menu" aria-labelledby="dropdownMenu"  id="DropdownCountry">					
+					<ul class="dropdown-menu txtcountry" style="left:32%;margin-left:48px;margin-right:0px;padding:10px;" role="menu" aria-labelledby="dropdownMenu"  id="DropdownCountry">					
 				</form>
 			</div>
 		</article>

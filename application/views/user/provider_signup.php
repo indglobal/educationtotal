@@ -74,18 +74,26 @@ action="<?php echo base_url();?>register_cont/add_user" method="POST">
 </article>
 </div>
 
+<style>
+    #cat_id{
+        width: 86%;
+        margin-bottom: 10px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+</style>
 <div class="row">
     <article class="col-sm-6">
-    </article>
-	<article class="col-sm-6">
-    <label>SELECT SERVICE TYPE</label>		
-    <select style="transition: all 0.3s ease-in-out 0s;outline: medium none;border: 1px solid #DDD;" id="cat_id" name="cat_id" data-placeholder="Choose a Main Category">
+       <label>SELECT SERVICE TYPE</label><br>       
+    <select id="cat_id" name="cat_id" data-placeholder="Choose a Main Category">
         <option required value="0">Choose a menu</option>
         <?php foreach ($menu as $m) {//echo"<pre>";print_r($categories); ?>
         <option value="<?php echo $m->cat_id ?>"><?php echo $m->cat_name ?></option>
         <?php } ?>
     </select>
-    <?php echo form_error('cat_id'); ?>
+    <?php echo form_error('cat_id'); ?>   
+    </article>
+	<article class="col-sm-6">
+  
     </article>
 </div>                                   
 
