@@ -27,7 +27,7 @@
 	width		: 100%;
 	height		: 435px;
 	font-size	: 11px;
-	background-color: #283C4A;
+	 background: linear-gradient(to bottom, rgba(102, 140, 255,1), rgba(255, 217, 102,1));
     }
 
     @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
