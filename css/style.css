@@ -309,11 +309,12 @@ ul,ol{
 }
 .signin-all-wrap .signin-form-wrp{
 	margin: 0 auto;
-	margin-top: 15%;
+	margin-top: 20%;
 	max-width: 600px;
 	padding: 20px;
 	background-color: rgba(255,255,255,0.5);
 	border:1px solid #aaa;
+	border-radius: 10px;
 }
 .signin-form-wrp .form-head{
 	margin: 10px 0;
@@ -360,7 +361,13 @@ input#btn-signin{
  	padding:7px 15px;
  	color:#fff;
  	font-weight: 400;
+ 	border-radius: 3px;
 }
+input#btn-signin:hover{
+	color: #000000;
+	background-color: #B1BCBF;
+
+	}
 
 /*RADIO BUTTON STYLE*/
 input[type=radio].css-checkbox {
@@ -496,11 +503,13 @@ form.form-usr-signup .form-group#user-signup-data-grp input[type=text]:focus, in
 }
 .provdr-sinup-wrp .provdr-signup-form{
 	margin: 0 auto;
-margin-top: 15%;
+	margin-top: 20%;
 	max-width: 700px;
 	padding: 20px;
 	background-color: rgba(255,255,255,0.5);
 	border:1px solid #aaa;
+	border-radius: 10px;
+	margin-bottom: 45%;
 }
 .provdr-signup-form .form-head{
 	margin: 10px 0;
@@ -508,18 +517,22 @@ margin-top: 15%;
 	text-align: center;
 	padding-bottom: 20px;
 }
+.form-head h2 span{
+	font-weight: 400;
+	color: #633F0F;
+
+}
 .form-head h3 span{
 	
 	font-weight: 400;
-	background-color: rgba(255,255,255, 0.7);
+	background-color: #FFFFFF;
 	border-style: solid;
-	
+	border-width: .2ex;
 	border-color: #CDCDCD;
 	border-radius: 8px;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	padding: 10px 20px;
-	
 }
 form.form-usr-signup span{
 	padding-right: 20px;
@@ -555,13 +568,20 @@ form.form-usr-signup .form-group#provdr-signup-data-grp input[type=text]:focus, 
  	padding:7px 15px;
  	color:#fff;
  	font-weight: 400;
- 	max-width: 150px;
+ 	max-width: 110px;
+ 	border-radius: 3px;
+ 	margin-top: 2%;
+}
+#provdr-signup-data-grp input#btn-signup:hover{
+	color: #000000;
+	background-color: #B1BCBF;
 }
 .forgetmail
 {
 	margin-left: 51%;
+	margin-top: 2%;
 }
 .mailtext
 {
-margin-left: 95%;
+	margin: 0% 0% 0% 51%;
 }

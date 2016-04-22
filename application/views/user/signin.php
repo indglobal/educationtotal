@@ -8,7 +8,7 @@
 <div class="signin-form-wrp">
 
 <div class="form-head">
-<h3><span>SIGN-IN</span></h3>
+<h2><span>SIGN-IN</span></h2>
 </div>
 
 <form class="form-signin" id="form-signin" 
@@ -43,10 +43,21 @@ method="POST" >
 </div>
 
 <input type="submit" name="submit" value="SIGNIN" id="btn-signin">
-<a href="<?php echo base_url();?>register_cont/recover" 
-style="color:purple";>FORGOT PASSWORD</a>
+<a id="forget_pass" href="<?php echo base_url();?>register_cont/recover";>FORGOT PASSWORD</a>
 
 </form>
+<style>
+	#forget_pass{
+		color:rgba(38, 37, 36, 0.8); 
+		font-size: 16px; 
+		font-weight: bold;
+	}
+	#forget_pass:hover{
+		color: #FFAD00;
+		opacity: 1;
+	}
+	
+</style>
 
 </div>
 

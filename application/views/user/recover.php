@@ -7,7 +7,7 @@
 <div class="provdr-signup-form">
 
 <div class="form-head">
-<h3><span>Forget Password</span></h3>
+<h2><span>Forget Password</span></h2>
 </div>
 
 <form class="form-usr-signup" id="form-usr-signup"
