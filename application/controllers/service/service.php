@@ -163,14 +163,15 @@ print_r($_POST);die();
 
 	function save_service()
 	{
-    $p = $_POST['class_type'];
+
+  /*  $p = $_POST['class_type'];
     $ct=count($p);
     $class_type = "";
     for ($i=0; $i<$ct; $i++) {
         $class_type.=("'$p[$i]',"); //Now it is string...
-    }
+    } */
     //echo $class_type;die();
-		//echo "<pre>";print_r($_POST);die();
+		echo "<pre>";print_r($_POST);die();
     /****** Service details   ******/
 		if(isset($_POST['user_id']))
 	   {

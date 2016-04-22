@@ -221,10 +221,10 @@ var value = $(this).val();
         {
         var url = "<?php echo base_url()?>regular_college";
         }
-        if(value == 12)
+       /* if(value == 12)
         {
         var url = "<?php echo base_url()?>abroad_consultants";
-        } 
+        }  */
          if(value == 18)
         {
         var url = "<?php echo base_url()?>distance_edu_consult";

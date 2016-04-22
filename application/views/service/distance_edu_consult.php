@@ -34,7 +34,7 @@
 </div>
 
 <div class="form-group"> 
-<input type="workingdays" name="workingdays" placeholder="Working Days &Time">
+<input type="text" name="workingdays" placeholder="Working Days &Time">
 </div>
 
 <div class="form-group"> 
