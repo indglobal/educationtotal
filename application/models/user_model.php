@@ -27,6 +27,19 @@ function get_menu()
 		);
 		 $this->db->insert('users_table', $data); 
 		 $user_id = $this->db->insert_id();
+
+     if(isset($aduser['cat_id']) && !empty($aduser['cat_id']) )
+     {
+
+      $data = array(
+       'user_id' => $user_id,
+       'cat_id'=> $this->input->post('cat_id'),
+       'status' => "1",
+       'created_date' => date('Y-m-d H:i:s'),
+       'modified_date' => date('Y-m-d H:i:s')
+        );
+    $this->db->insert('user_service_cat', $data); 
+     }
 		
 		$data_details = array(
 		'user_id' => $user_id,
@@ -38,6 +51,7 @@ function get_menu()
 		'created_date' => date('Y-m-d H:i:s'),
 		'modified_date' => date('Y-m-d H:i:s')
 		);
+
    $insert_details = $this->db->insert('user_detail',$data_details);
 	if($insert_details)
 		return 1;

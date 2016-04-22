@@ -4,6 +4,19 @@ class Service_model extends CI_Controller
 {
 	/********** demo *********/
 
+	function get_menu_cat($id)
+	{
+        $this->db->select('*');
+		$this->db->from('master_categories');
+		$this->db->join('user_service_cat', 'master_categories.cat_id = user_service_cat.cat_id');
+		$this->db->where('user_service_cat.user_id', $id);
+		$this->db->where('user_service_cat.status', "1");
+        $query = $this->db->get();
+		return $query->result();
+		//$query=$this->db->query('select * from master_categories');
+		//return $query->result();
+	}
+
    function get_menu()
 	{
 		$query=$this->db->query('select * from master_categories');
@@ -99,6 +112,7 @@ class Service_model extends CI_Controller
 		$this->db->from('service');
 		$this->db->join('basic_details', 'service.service_id = basic_details.service_id');
 		$this->db->where('sub_cat_thired_id', $level4_id);
+		$this->db->where('service.status', "1");
 		$query = $this->db->get();
 		return $query->result();
 		//$result = $this->db->query("SELECT * FROM service WHERE sub_cat_second_id ='$level3_id' AND sub_cat_thired_id='$level4_id'  ");
@@ -112,7 +126,8 @@ class Service_model extends CI_Controller
 		$this->db->join('basic_details', 'service.service_id = basic_details.service_id');
 		$this->db->join('facilities_available_details', 'service.service_id = facilities_available_details.service_id');
 		$this->db->join('contact_details', 'service.service_id = contact_details.service_id');	
-		$this->db->join('classes_details', 'service.service_id = classes_details.service_id');	
+		$this->db->join('classes_details', 'service.service_id = classes_details.service_id');		
+		$this->db->join('placement_details', 'service.service_id = placement_details.service_id');	
 		$this->db->where('service.service_id', $id);
 		$query = $this->db->get();
 		return $query->result();
@@ -128,6 +143,7 @@ class Service_model extends CI_Controller
 		$this->db->join('master_subcategory_thired', 'service.sub_cat_thired_id = master_subcategory_thired.sub_cat_thired_id');
 		
 		$this->db->where('service.user_id', $id);
+		$this->db->where('service.status', "1");
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -164,6 +180,38 @@ class Service_model extends CI_Controller
 		$this->db->where('visitor_ip', $ip);
 		$this->db->update('visitors_count', $data);		
 	}
+
+
+     /*******   **********/
+
+     /******* search filter   **********/
+
+    public function filter_location($data)
+           {
+          $this->db->select('*');
+          $this->db->from('service');
+		  $this->db->join('basic_details', 'service.service_id = basic_details.service_id');
+
+          $this->db->where_in('basic_details.district', $data);
+          $this->db->where('service.status', "1");
+          $query = $this->db->get();
+         $a= $query->result();
+          //  print_r($a);exit;
+          return $a;
+           } 
+
+
+    public function show_location()
+   {
+        $this->db->select('*');
+        $this->db->from('citylist');
+        $query = $this->db->get();
+        return $query->result_array();
+   }       
+
+
+
+     /******* End  search filter     **********/
 
 
 

@@ -12,6 +12,7 @@
 
 <body>
 	<div class="container">
+
 		<div class="row">
 			<div class="">
 				<div class="col-sm-3 left_cont">
@@ -33,6 +34,18 @@
 								<label><input type="checkbox"> 7-8 year</label><br>
 							</div>
 						</fieldset>
+
+                        <fieldset class="checkbox">
+                            <legend>Location</legend>	
+                            <div class="">    
+                            <?php        
+                             	foreach ($city as $c) {
+                            ?>
+                            <label><input type="checkbox" class="city_class" name="<?php echo $c['city'];?>" id="area" value="<?php echo $c['city'];?> "><?php echo $c['city'];?> </label><br>
+                           <?php } ?>
+                            </div>
+                        </fieldset>
+
 						<fieldset class="checkbox">
 							<legend>Course Fee</legend>	
 							<div class="">
@@ -108,22 +121,26 @@
 								</div>
 							</div>
 						</div>
+
 						<!--div class="col-sm-8 top_header">
 								<span class="foundcount">Showing 1 results in Under-graduation</span>				
 						</div-->
-						<?php	
-                         if(count($result)){
-						foreach($result as $res)
-						{   ?>
-						<div class="col-sm-8 postdata">
-								<ul class="result">
-									<li style="height: auto;"><div style="float:left;">
-									<a href="edu.html">
+
+                <div id="search_result">   <!-- search result staart -->
+					<?php	
+                    if(count($result)){
+				    foreach($result as $res)
+					{   ?>
+					    <div class="col-sm-8 postdata">
+						    <ul class="result">
+							    <li style="height: auto;">
+							    <div style="float:left;">
+								    <a href="edu.html">
 										<img src="<?php echo  base_url().$res->logo; ?>" alt="Demo other" height="150" width="98">
 									</a>
 								</div>
 								<div class="search_content">
-								<h3><a href="<?php echo base_url();?>service/search_result_service/<?php echo $res->service_id;?>"><?php echo  $res->title; ?></a></h3>
+								<h3><a href="<?php echo base_url();?>service/search_result_service/<?php echo $res->service_id;?>"><?php echo  $res->school_name; ?></a></h3>
 								<p><?php echo  $res->state; ?>, <?php echo  $res->district; ?></p>
 								<p class="rating"></p>
 								<div id="post-ratings-163" class="post-ratings">
@@ -156,7 +173,10 @@
 							<div class="col-sm-8 top_header">
 								<span class="foundcount">No Results found</span>				
 						</div>
-					<?php	}  ?>
+					<?php	}  ?>  
+                </div>   <!-- End search result staart -->
+
+
 
                        
 						<div class="col-sm-4 postImage">
@@ -232,5 +252,38 @@
 		}
 		);
 	</script>
+
+	<script type="text/javascript">
+        $(document).ready(function()
+        {         
+            $("input:checkbox.city_class").click(function() {
+            var a = [];
+            $("input:checkbox.city_class").each(function () {
+            var sThisVal = (this.checked ? $(this).val() : "");
+            if(sThisVal != '')
+            {
+                a.push(sThisVal);
+            }
+        });
+
+        if(a!=''){
+        $.ajax({  
+            url:"<?php echo base_url(); ?>service/area_filter",  
+            data: {area:a},  
+            type: "POST",  
+            cache: true,
+            //dataType: "json",
+            success:function(data){
+            alert(data);
+
+            $("#search_result").html(data);
+                                    
+            }  
+        });
+         }    
+    
+        });
+    });
+</script>       
 </body>
 </html>

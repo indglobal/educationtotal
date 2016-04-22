@@ -10,7 +10,7 @@ class Service extends CI_Controller
 		 $this->load->model('service/service_model');
 		// $this->load->view('admin/header');
 		//$this->load->view('admin/leftbar');
-		$this->load->view('admin/footer');
+		//$this->load->view('admin/footer');
 		
 		//if( ! $this->session->userdata('is_logged_in'))
 		//return	redirect('admin/login/index');
@@ -23,16 +23,30 @@ class Service extends CI_Controller
     {
     $level3_id  = $_POST['category'];
     $level4_id = $_POST['sub_cat'];
-
+    
+    $data['city']=$this->service_model->show_location();
     $data['result'] = $this->service_model->get_search_result($level3_id,$level4_id);
 	  $data['cat']=$this->user_model->fetch_category();
 	  $this->load->view('header',$data);
     $this->load->view('service/search_result',$data);
 	  $this->load->view('footer',$data);
-  }else{
-      $data['result'] ="";
-    $this->load->view('service/search_result',$data);
+    }else{
+      $location=$this->input->post('fc_location'); 
+      $data['result']=$this->service_model->filter_location($location);
+      $data['city']=$this->service_model->show_location();
+      $this->load->view('service/search_result',$data);
+     // echo json_encode($data);exit;
+    }
   }
+
+  function area_filter()
+  {
+    
+      $area=$this->input->post('area');
+      $data['sel_area']=$area;
+      $data['result'] = $this->service_model->filter_location($area);
+      $this->load->view('service/search_result_filter',$data);
+                                     
   }
 
   function search_result_service($id)
@@ -144,8 +158,9 @@ print_r($_POST);die();
          $user_id = $this->session->userdata['is_userlogged_in']['IID'];
          
          $data['result'] = $this->service_model->list_service($user_id);
-         $this->load->view('service/list_service',$data);        
-          $this->load->view('header',$data);
+         $this->load->view('service/list_service',$data);   
+         $data['cat']=$this->user_model->fetch_category();
+         $this->load->view('header',$data);
       }      
 
      
@@ -155,23 +170,23 @@ print_r($_POST);die();
 
 	function add_service()
 	{
-		  $data['menu']=$this->service_model->get_menu();
+      if(isset($this->session->userdata['is_userlogged_in']['IID']) ) 
+      { 
+         $user_id = $this->session->userdata['is_userlogged_in']['IID'];
+      }
+
+		  $data['menu']=$this->service_model->get_menu_cat($user_id);
+     // echo "<pre>";
+     // print_r($data['menu']);die();
+
      	$this->load->view('service/add_service',$data);
-     $data['cat']=$this->user_model->fetch_category();
-    $this->load->view('header',$data);
+      $data['cat']=$this->user_model->fetch_category();
+      $this->load->view('header',$data);
 	}
 
 	function save_service()
 	{
-
-  /*  $p = $_POST['class_type'];
-    $ct=count($p);
-    $class_type = "";
-    for ($i=0; $i<$ct; $i++) {
-        $class_type.=("'$p[$i]',"); //Now it is string...
-    } */
-    //echo $class_type;die();
-		echo "<pre>";print_r($_POST);die();
+	//	echo "<pre>";print_r($_POST);die();
     /****** Service details   ******/
 		if(isset($_POST['user_id']))
 	   {
@@ -690,6 +705,7 @@ print_r($_POST);die();
           );
 
         $this->service_model->save_review_data($review_data);
+
 /****** End Review details   ******/
         echo "1";die();
  

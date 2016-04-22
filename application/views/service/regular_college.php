@@ -1,5 +1,5 @@
 
-<div class="container" style="padding: 0;">
+<div class="container-fluid" style="padding: 0;">
 	<!--  <div class="row">
 
 	<div class="forum-wrp">	 -->
@@ -226,7 +226,7 @@
 		<h3><span>Courses</span></h3>
 	</div>
 
-  <div class="row">
+    <div class="row">
 
 	<div class="col-sm-4"> <div class="form-group"> 
 	 <select id="class_type"  name="class_type[]"><option value="">select course</option><option value="UG">UG</option><option value="PG">PG</option><option value="RESEARCH">RESEARCH</option></select>  
@@ -244,7 +244,7 @@
 	<button type="button" id="app_div" class="btn btn-default btn-lg" ><span class="glyphicon glyphicon-plus"></button>
 
 
-  </div>
+    </div>
      	
 	<div class="form-group"> 
 	<input type="text" name="specialization" placeholder="specialization">
@@ -463,9 +463,9 @@ jQuery(function($){
         var idn = 'class_type[]';
         var idname = 'degree_name[]';
         var idintake = 'intake[]';
-		$class_type.parent().append($class_type.clone().attr({id: idn, name: idn}));
-		$degree_name.parent().append($degree_name.clone().attr({id: idname, name: idname}));
-		$intake.parent().append($intake.clone().attr({id: idintake, name: idintake}));
+		$class_type.parent().append($class_type.clone().attr({name: idn}));
+		$degree_name.parent().append($degree_name.clone().attr({name: idname}));
+		$intake.parent().append($intake.clone().attr({name: idintake}));
 	});
 	
 });

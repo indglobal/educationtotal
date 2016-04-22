@@ -90,6 +90,8 @@ $route['distance_edu_consult'] = "service/service/distance_edu_consult";
 $route['save_service'] = "service/service/save_service";
 
 $route['service/search_result'] = "service/service/search_result";
+$route['service/area_filter'] = "service/service/area_filter";
+
 $route['service/search_result_service/(:num)'] = "service/service/search_result_service/$1";
 //$route['user'] = "user/user";
 $route['service/list_service'] = "service/service/list_service";

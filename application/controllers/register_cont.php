@@ -48,7 +48,10 @@ class register_cont extends CI_Controller
  
     public function add_user()
    {
+     if(isset($_POST['cat_id']))
+        {
      $this->form_validation->set_rules('cat_id', 'category', 'required|callback_category_check');
+     }
      $this->form_validation->set_rules('usnameF', 'User Name', 'required|max_length[30]');
      $this->form_validation->set_rules('usnameL', 'User Last Name', 'required|max_length[30]');
      $this->form_validation->set_rules('uspasw','Password','required|max_length[20]|min_length[6]|alpha_numeric');
@@ -62,14 +65,14 @@ class register_cont extends CI_Controller
       if ($this->form_validation->run())
       {
 
-       // echo "<pre>";
-       // print_r($_POST);die();
-     /*   if(isset($_POST['cat_id']))
+       //echo "<pre>";
+       //print_r($_POST);die();
+       if(isset($_POST['cat_id']))
         {
-          'cat_id'=> $this->input->post('cat_id');
+          $cat_id= $this->input->post('cat_id');
         }else{
-          'cat_id'=>'';
-        } */
+          $cat_id="";
+        } 
          $aduser = array( 
          'fname'      => $this->input->post('usnameF'),
          'lname'      => $this->input->post('usnameL'),
@@ -77,8 +80,8 @@ class register_cont extends CI_Controller
          'email'      => $this->input->post('usemail'),
   	     'password'      => $this->input->post('uspasw'),
          'address'    => $this->input->post('usmobnum'),
-  	    'user_type_id'    => $this->input->post('idtype'),
-       // 'cat_id'=> $this->input->post('cat_id')
+  	     'user_type_id'    => $this->input->post('idtype'),
+         'cat_id'=> $cat_id
                      );
         
          $data['result'] = $this->user_model->adduser($aduser);

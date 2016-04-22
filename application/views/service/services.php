@@ -30,11 +30,7 @@
 	 background: linear-gradient(to bottom, rgba(102, 140, 255,1), rgba(255, 217, 102,1));
     }
 
-    @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
-
-      body {
-       
-      }
+    @import url(https://fonts.googleapis.com/css?family=Bree+Serif);   
       ul {
           padding:0 0 0 0;
           margin:0 0 40px 0;
@@ -222,16 +218,19 @@
 				<div id="postplacement">
 					<h2>Placement</h2>
 					<div id="thumbnails">
-				     	<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-				     	</p>
+						Company Name  :  <?php echo $res->company_name;  ?>
+					<br>	Total Students placed  :  <?php echo $res->total_student;  ?>
+					<br>	Average Package  :  <?php echo $res->average_package;  ?>
+				     	
 				    </div>
 				</div>
 
 				<div id="postcontact">
 					<h2>Contact</h2>
 					<div id="thumbnails">
-				     	<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-				     	</p>
+						Contact Number  :  <?php echo $res->contact_number;  ?><br>
+						Contact Mail  :  <?php echo $res->contact_mail_id;  ?>
+				     	
 				    </div>
 				</div>
 
