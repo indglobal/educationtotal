@@ -69,6 +69,20 @@ class Subcategories extends CI_Controller
 		}
 		redirect("subcategories");
 	}
+    
+    function check_subcategory_name(){
+	 $name=$this->input->post('name');
+     $status = $this->subcategories_model->check_subcategory_name($name);
+     //echo $status;
+     if(!$status==0)
+    {
+      echo "success";
+      exit;
+        }else{
+      echo "fail";
+      exit;
+    }
 
+	}
 	
 }

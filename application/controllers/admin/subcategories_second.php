@@ -7,8 +7,8 @@ class Subcategories_second extends CI_Controller
 	{		
 		parent::__construct();
 		// $this->load->model('admin/admin_model');
-		  $this->load->model('admin/subcategories_model_second');
-		 $this->load->view('admin/header');
+		 $this->load->model('admin/subcategories_model_second');
+		$this->load->view('admin/header');
 		$this->load->view('admin/leftbar');
 		$this->load->view('admin/footer');
 	    $this->load->helper('base');
@@ -86,6 +86,21 @@ class Subcategories_second extends CI_Controller
 			$this->subcategories_model_second->delete_subcat_second($this->uri->segment(4, 0));	
 		}
 		redirect("subcategories_second");
+	}
+
+	function check_subcategory1_name(){
+	 $name=$this->input->post('name');
+     $status = $this->subcategories_model_second->check_second_subcategory_name($name);
+
+     if(!$status==0)
+    {
+      echo "success";
+      exit;
+        }else{
+      echo "fail";
+      exit;
+    }
+
 	}
 
 	

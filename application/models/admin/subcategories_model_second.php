@@ -89,7 +89,20 @@ class subcategories_model_second extends CI_Controller
 	{
 		$this->db->delete('master_subcategory_second', array('sub_cat_second_id' => $id));
 	}
-
+    
+    function check_second_subcategory_name($name)
+ {
+  $CI =&get_instance();
+  $CI->db->select('sub_cat_second_id');
+  $CI->db->where('subcat_second_name',$name);
+  $result = $CI->db->get('master_subcategory_second');
+  $row = $result->row();
+  if($row){
+  return $row->sub_cat_second_id;
+  }else{
+  return 0; 
+  }
+  }
 	
 }
 ?>

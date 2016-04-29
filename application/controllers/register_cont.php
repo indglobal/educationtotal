@@ -18,9 +18,11 @@ class register_cont extends CI_Controller
 	{    
        $data['cat']=$this->user_model->fetch_category();
        $this->load->view('header',$data);
-		$this->load->view('user/signin.php');
+		$this->load->view('user/home.php');
 		$this->load->view('footer.php');
 	}
+	
+	
 
   public function provider_signup()
   {

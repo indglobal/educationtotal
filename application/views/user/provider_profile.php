@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>My Profile</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
- 	<link rel="stylesheet" href="<?php echo base_url();?>user_panel_design/css/bootstrap.min.css">
-  	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>user_panel_design/font-awesome-4.5.0/css/font-awesome.min.css">
-  	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>user_panel_design/css/style.css">
 
-
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="<?php echo base_url('js/jquery.form.js'); ?>"></script>
 
   <script>
       $(document).ready(function(){
@@ -30,21 +17,14 @@
 
  </head>
 
-<body>
+
 	
 
-<br><br><br>
+
 <!-- Start body content.............................................. -->
 	<div class="container-fluid main_body">
 		<div class="row main_face">
-			<div class="col-sm-1 left_cont">
-				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#profile"><img src="<?php echo base_url();?>user_panel_design/images/profile.png" alt="profile"><p>Profile</p></a></li>
-					<li><a  href="<?php echo base_url();?>service/add_service"><img src="http://115.118.113.154/edutotal/wp-content/uploads/2015/10/download.png" alt="profile"><p> Add Service</p></a></li>
-			     	<li><a  href="<?php echo base_url();?>service/list_service"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>List Services</p></a></li>		
-					<li><a  href="#"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>Document</p></a></li>
-				</ul>
-			</div>
+			<?php  $path_to_view = get_view_path('left_menu'); include($path_to_view);?>
 			<div class="col-sm-11 mid_cont">
 				<div class="tab-content">
 				    <div id="profile" class="tab-pane fade in active">
@@ -273,6 +253,9 @@
    //      $(this).datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true, yearRange: '1900:+0'});
    //  });
 	</script>
-	 
+	 </div>
+	 </div>
+	  </div>
+	 </div>
 </body>
 </html>

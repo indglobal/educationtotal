@@ -75,7 +75,7 @@ class Service_provider extends CI_Controller
       $this->service_provider_model->update_status_sp($id,$data);
       echo "success";
       exit;
-        }elseif($status=="0"){
+       }elseif($status=="0"){
       $data=array('status'=>1);
       $this->service_provider_model->update_status_sp($id,$data);
       echo "fail";
@@ -83,6 +83,47 @@ class Service_provider extends CI_Controller
     }
 
   }
+
+   public function approved_services(){
+    $user_id=$this->input->post('user_id');
+    $service_id=$this->input->post('service_id');
+
+    $status = $this->service_provider_model->check_status_services($user_id,$service_id);
+     if($status=="1")
+    {
+      $data=array('status'=>0);
+      $this->service_provider_model->update_status_services($user_id,$service_id,$data);
+      echo "success";
+      exit;
+        }elseif($status=="0"){
+      $data=array('status'=>1);
+      $this->service_provider_model->update_status_services($user_id,$service_id,$data);
+      echo "fail";
+      exit;
+    }
+
+  }
+
+   public function approved_request(){
+    $id=$this->input->post('id');
+    $status = $this->service_provider_model->check_approved_request($id);
+
+     if($status=="1")
+    {
+      $data=array('status'=>0);
+      $this->service_provider_model->update_approved_request($id,$data);
+      echo "success";
+      exit;
+        }elseif($status=="0"){
+      $data=array('status'=>1);
+      $this->service_provider_model->update_approved_request($id,$data);
+      echo "fail";
+      exit;
+    }
+
+  }
+
+  
 
   // echo "success";
   //   exit;

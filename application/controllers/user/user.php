@@ -8,6 +8,7 @@ class User extends CI_Controller
 		 parent::__construct();
 		 $this->load->model('user_model');
 		 $this->load->model('service/service_model');
+		  $this->load->helper('base_helper');
 		// $this->load->view('header');
 		//$this->load->view('admin/leftbar');
 		$this->load->view('admin/footer');

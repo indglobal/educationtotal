@@ -84,7 +84,14 @@
    
 
    <script>
-
+$(document).ready(function() {
+     $("#dataTables-example").dataTable({
+        "paging":   true,
+        "ordering": false,
+        "info":     true
+    } );
+} );
+    });
     function delConfirm()
     {
         var r=confirm('Do you want to delete');

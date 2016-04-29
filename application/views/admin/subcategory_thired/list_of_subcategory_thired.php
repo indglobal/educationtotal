@@ -35,12 +35,12 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                     <tr>
-                    <th>#</th>
-                    <th>Category Name</th>
-                    <th>SubCategory Name</th>
-                    <th>Subcategory Name Second</th>
-                    <th>Subcategory Name Third</th>
-                    <th>Action</th>
+                    <th width="10%">#</th>
+                    <th width="10%">Category Name</th>
+                    <th width="20%">SubCategory Name</th>
+                    <th width="20%">Subcategory Name Second</th>
+                    <th width="20%">Subcategory Name Third</th>
+                    <th width="20%">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -79,31 +79,5 @@
             </div>
             </div>
             
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="<?php echo base_url('bower_components/metisMenu/dist/metisMenu.min.js');?>"></script>
-
-    <!-- DataTables JavaScript -->
-    <script src="<?php echo base_url('bower_components/datatables/media/js/jquery.dataTables.min.js');?>"></script>
-    <script src="<?php echo base_url('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js');?>"></script>
-
    
-
-   <script>
-
-    function delConfirm()
-    {
-        var r=confirm('Do you want to delete');
-        if( r == true )
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    </script>
-
-</body>
-
-</html>
+   

@@ -83,6 +83,20 @@ class subcategories_model extends CI_Controller
 		$this->db->delete('master_subcategory', array('subcat_id' => $id));
 	}
 
+	 function check_subcategory_name($name)
+ {
+  $CI =&get_instance();
+  $CI->db->select('subcat_id');
+  $CI->db->where('subcat_name',$name);
+  $result = $CI->db->get('master_subcategory');
+  $row = $result->row();
+  if($row){
+  return $row->subcat_id;
+  }else{
+  return 0; 
+  }
+  }
+
 	
 }
 ?>

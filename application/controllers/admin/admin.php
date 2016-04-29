@@ -63,5 +63,12 @@ class Admin extends CI_Controller
 		redirect("specialities");
 	}
 
+	function list_of_visitors()
+	{
+		
+		$data['all_visitors']=$this->categories_model->get_All_visitors();
+     	$this->load->view('admin/visitors/list_of_visitors',$data);
+	}
+
 	
 }

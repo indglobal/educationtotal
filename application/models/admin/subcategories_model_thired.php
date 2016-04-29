@@ -99,5 +99,20 @@ class subcategories_model_thired extends CI_Controller
 	}
 
 	
+   function check_subcategory2_name($name)
+  {
+  $CI =&get_instance();
+  $CI->db->select('sub_cat_thired_id');
+  $CI->db->where('subcat_thired_name',$name);
+  $result = $CI->db->get('master_subcategory_thired');
+  $row = $result->row();
+  if($row){
+  return $row->sub_cat_thired_id;
+  }else{
+  return 0; 
+  }
+  }
+
+	
 }
 ?>

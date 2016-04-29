@@ -83,12 +83,48 @@ class service_provider_model extends CI_Controller
   $row = $result->row();
   return $row->status;
   }
+  function check_status_services($user_id,$service_id)
+{
+  $CI =&get_instance();
+  $CI->db->select('status');
+  // $CI->db->where('user_id',$id);
+  $CI->db->where(array('service.user_id'=>$user_id,'service.service_id'=>$service_id));
+  $result = $CI->db->get('service');
+  $row = $result->row();
+  return $row->status;
+  }
+
+  function check_approved_request($id)
+{
+  $CI =&get_instance();
+  $CI->db->select('status');
+  // $CI->db->where('user_id',$id);
+  $CI->db->where(array('service_request.id'=>$id));
+  $result = $CI->db->get('service_request');
+  $row = $result->row();
+  return $row->status;
+  }
+  
+   function update_approved_request($id,$data)
+  {
+      //$data=array('status'=>0);
+      $this->db->where('id', $id);
+      $this->db->update('service_request', $data);
+  }
+  
 
    function update_status_sp($id,$data)
   {
       //$data=array('status'=>0);
       $this->db->where('user_id', $id);
       $this->db->update('users_table', $data);
+  }
+
+   function update_status_services($user_id,$service_id,$data)
+  {
+      //$data=array('status'=>0);
+      $this->db->where(array('service.user_id'=>$user_id,'service.service_id'=>$service_id));
+      $this->db->update('service', $data);
   }
 	
 }

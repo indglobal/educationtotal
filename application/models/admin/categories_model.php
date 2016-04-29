@@ -36,6 +36,13 @@ class categories_model extends CI_Controller
         $result = $this->db->get();
         return $result->result_array();
      }
+      function get_All_visitors()
+     {
+        $this->db->select('*');
+        $this->db->from('visitors_count');
+        $result = $this->db->get();
+        return $result->result_array();
+     }
 
 
 	
@@ -63,7 +70,6 @@ class categories_model extends CI_Controller
 	{
 		$date = Date('Y-m-d H:i:s');
 		$data = array('cat_name'=>$name , 'modified_date'=>$date);
-
 		return $sql = $this->db->where('cat_id', $id)
 						->update('master_categories',$data);
 		
@@ -74,6 +80,20 @@ class categories_model extends CI_Controller
 		$this->db->delete('master_categories', array('cat_id' => $id));
 	}
 
+
+   function check_category_name($name)
+  {
+  $CI =&get_instance();
+  $CI->db->select('cat_id');
+  $CI->db->where('cat_name',$name);
+  $result = $CI->db->get('master_categories');
+  $row = $result->row();
+  if($row){
+  return $row->cat_id;
+  }else{
+  return 0; 
+  }
+  }
 	
 }
 ?>

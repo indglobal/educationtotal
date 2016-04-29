@@ -24,17 +24,16 @@
       background-color: #157AC8;
       color: #fff;
     }
+	
   </style>
   </head>
 
 <body>
-
-<br><br><br>
 	<!-- Start body content.............................................. -->
 	<div class="container-fluid main_body">
 	<div class="row main_face">
 
-	<?php include("left_panel_provider.php");?>
+	<?php  $path_to_view = get_view_path('left_menu'); include($path_to_view);?>
 		<div class="col-sm-11 mid_cont">
 		<div class="tab-content">
 		<div id="profile" class="tab-pane fade in active">
@@ -207,7 +206,6 @@ $(document).on('change','#sub_cat_second_id',function(){
 $(document).on('change','#sub_cat_thired_id',function(){
 //$('#result').hide(); 
 var value = $(this).val();
-    alert(value);
     if(value != 0){	 
       	if(value == 1)
       	{

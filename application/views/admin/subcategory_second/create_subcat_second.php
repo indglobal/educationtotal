@@ -41,15 +41,15 @@
 
                   
                       <label>Subcategory1 *</label>
-                      <input id="name" name="subcat_name" maxlength="30" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_second_name'];?>">
+                      <input id="name" name="subcat_name" autocomplete="off" maxlength="30" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_second_name'];?>">
                       <span id="error" class="name_error"></span>
+                      <div class="success" ></div>
                       </div>
                                         
                     <div class="box-footer">
                     <a href="<?php echo base_url('subcategories'); ?>"><button type="button" class="btn btn-info">Cancel</button></a>
                     <button type="submit" id="category" class="btn btn-warning">Submit</button>
-                    </div>
-                                                                           
+                    </div>                                                     
                   </form> 
                             </div>
                           </div>
@@ -63,26 +63,22 @@
 $("#category").on('click',function(){
   //alert();
   $("#error").html('');
-  if($("#name").val() == ''){
+  if($("#name").val() == '' || $.trim($("#name").val()) == ''){
     $(".name_error").html("Name is Required");
     return false;
   }
-
   var name_exp=/^[A-Za-z ]+$/;
   if(!(name_exp.test($("#name").val())))
   {
         $("#name").focus().val('');
         $("#error").html("Enter only alphabets");
         return false;
-  }
-   
+  }  
 }).submit();
 
 $(document).ready(function() {
 $('#cat_id').on('change', function() {
             var me = $(this);
-            //var a=$('#state').val();
-            alert(me.val()); 
             $.post('<?php echo base_url("getsubcat"); ?>',{cat_id: me.val()}, function(data) {
                 console.log(data);
              //$('#city').html(data);
@@ -92,3 +88,56 @@ $('#cat_id').on('change', function() {
         });
 });
 </script>
+
+
+<script type="text/javascript">
+//$(document).ready(function() {  
+$("#name").on('keyup',function(){
+var name =$("#name").val();
+  $.ajax({
+                  url: "check_second_subcategory_name",
+                  type: "POST",
+                  data: {name:name},
+                  success: function(res){
+                 if (res=="success")
+                     { 
+    // $(".name_error").html("Category name is already exists");
+    //  $(".name_error").css("color", "red");
+    // $('#category').attr('disabled', true);
+
+    $(".name_error").html("Subcategory_1 name already exists");
+    $(".name_error").css("color", "red");
+    $('#category').attr('disabled',true);
+     $(".success").hide();
+                     }else if(res=="fail"){
+    // $(".name_error").html('<img src="<?php echo base_url();?>check.png">');
+    // // <img src="<?php echo base_url();?>bookmyplot_design/images/logo.png"
+    // $(".name_error").html("ok");
+    //  $(".name_error").css("color", "black");
+    // $('#category').attr('disabled', false);
+        $(".name_error").html("");
+
+
+    //$(".name_error").html('<img style="height:30px;width:50px" src="<?php echo base_url();?>check.png">');
+    $('#category').attr('disabled', false);
+
+                     }                   
+          }
+      });
+
+});
+//});
+
+  </script>
+  <style type="text/css">
+  .success{
+color: #4F8A10;
+background-color: #DFF2BF;
+}
+ .name_error{
+color:#FF0000;
+background-color:#FFFFFF;
+}
+
+
+  </style>

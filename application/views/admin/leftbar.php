@@ -45,6 +45,11 @@
                  <li>
          <a href="<?php echo base_url('list_of_services');?>"><i class="fa fa-table fa-fw"></i>List of Services</a>
            </li>
+
+
+                 <li>
+         <a href="<?php echo base_url('list_of_visitors');?>"><i class="fa fa-table fa-fw"></i>List of Visitors</a>
+           </li>
             
 
         <!--     <li>

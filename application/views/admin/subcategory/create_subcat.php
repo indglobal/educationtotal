@@ -26,7 +26,6 @@
                          <?php if($cat['cat_id'] == $details[0]['cat_id']) { ?>
                         <option value="<?php echo $cat['cat_id']; ?>" selected><?php echo $cat['cat_name']; ?></option>
                     <?php } else { ?>
-
                         <option value="<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_name']; ?></option>
                     <?php } ?>
                     <?php } ?>
@@ -34,7 +33,7 @@
 
                   
                       <label>Subcategory*</label>
-                      <input id="name" name="subcat_name" maxlength="30" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_name'];?>">
+                      <input id="name" name="subcat_name" autocomplete="off" maxlength="30" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_name'];?>">
                       <span id="error" class="name_error"></span>
                       </div>
                                         
@@ -54,9 +53,8 @@
 <script type="text/javascript">
 
 $("#category").on('click',function(){
-  //alert();
   $("#error").html('');
-  if($("#name").val() == ''){
+  if($("#name").val() == '' || $.trim($("#name").val()) == ''){
     $(".name_error").html("Name is Required");
     return false;
   }
@@ -72,3 +70,59 @@ $("#category").on('click',function(){
    
 }).submit();
 </script>
+
+
+<script type="text/javascript">
+//$(document).ready(function() {  
+$("#name").on('keyup',function(){
+var name =$("#name").val();
+//alert(name);
+  $.ajax({
+                  url: "check_subcategory_name",
+                  type: "POST",
+                  data: {name:name},
+                  success: function(res){
+                 if (res=="success")
+                     { 
+                  //alert("ok");
+    //$("#success").append("Name is Required");
+    //    $(".name_error").html("Subcategory name is already exists");
+    //  $(".name_error").css("color", "red");
+    // $('#category').attr('disabled', true);
+       $(".name_error").html("Subcategory name  already exists");
+    $(".name_error").css("color", "red");
+    $('#category').attr('disabled',true);
+     $(".success").hide();
+
+                     }else if(res=="fail"){
+   // $(".name_error").html('<img src="<?php echo base_url();?>check.png">');
+   //  // <img src="<?php echo base_url();?>bookmyplot_design/images/logo.png"
+   //  $(".name_error").html("ok");
+   //   $(".name_error").css("color", "black");
+   //  $('#category').attr('disabled', false);
+          $(".name_error").html("");
+
+     //$(".name_error").html('<img style="height:30px;width:50px" src="<?php echo base_url();?>check.png">');
+    $('#category').attr('disabled', false);
+
+                     }                   
+          }
+      });
+
+});
+//});
+
+  </script>
+
+    <style type="text/css">
+  .success{
+color: #4F8A10;
+background-color: #DFF2BF;
+}
+ .name_error{
+color:#FF0000;
+background-color:#FFFFFF;
+}
+
+
+  </style>

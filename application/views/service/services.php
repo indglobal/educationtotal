@@ -82,6 +82,13 @@
          width:100%;
        }
     }
+	
+	.header_banner img {
+      width: 100%;
+	  height:500px
+    }
+	
+	
   </style>
 
 </head>

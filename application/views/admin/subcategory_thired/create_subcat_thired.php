@@ -49,8 +49,9 @@
 
                   
                       <label>Subcategory3 *</label>
-                      <input id="name" name="subcat_name" maxlength="30" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_thired_name'];?>">
+                      <input id="name" name="subcat_name" autocomplete="off" maxlength="30" class="form-control" class="alphaonly" value="<?php if(isset($details[0])) echo $details[0]['subcat_thired_name'];?>">
                       <span id="error" class="name_error"></span>
+                      <div class="success" ></div>
                       </div>
                                         
                     <div class="box-footer">
@@ -71,7 +72,7 @@
 $("#category").on('click',function(){
   //alert();
   $("#error").html('');
-  if($("#name").val() == ''){
+  if($("#name").val() == '' || $.trim($("#name").val()) == ''){
     $(".name_error").html("Name is Required");
     return false;
   }
@@ -89,8 +90,6 @@ $("#category").on('click',function(){
 $(document).ready(function() {
 $('#cat_id').on('change', function() {
             var me = $(this);
-            //var a=$('#state').val();
-            alert(me.val()); 
             $.post('<?php echo base_url("getsubcat"); ?>',{cat_id: me.val()}, function(data) {
                 console.log(data);
              //$('#city').html(data);
@@ -101,8 +100,6 @@ $('#cat_id').on('change', function() {
 
 $('#subcat_id').on('change', function() {
             var me = $(this);
-            //var a=$('#state').val();
-            alert(me.val()); 
             $.post('<?php echo base_url("getsubcat2"); ?>',{subcat_id: me.val()}, function(data) {
                 console.log(data);
              //$('#city').html(data);
@@ -113,3 +110,47 @@ $('#subcat_id').on('change', function() {
 
 });
 </script>
+
+<script type="text/javascript">
+//$(document).ready(function() {  
+$("#name").on('keyup',function(){
+var name =$("#name").val();
+
+  $.ajax({
+                  url: "check_third_subcategory_name",
+                  type: "POST",
+                  data: {name:name},
+                  success: function(res){
+
+                 if (res=="success")
+                     { 
+    $(".name_error").html("Category name is already exists");
+    $(".name_error").css("color", "red");
+    $('#category').attr('disabled',true);
+     $(".success").hide();
+
+                     }else if(res=="fail"){
+        $(".name_error").html("");
+
+        $('#category').attr('disabled', false);
+
+                     }                   
+          }
+      });
+
+});
+//});
+
+  </script>
+  <style type="text/css">
+  .success{
+color: #4F8A10;
+background-color: #DFF2BF;
+}
+ .name_error{
+color:#FF0000;
+background-color:#FFFFFF;
+}
+
+
+  </style>

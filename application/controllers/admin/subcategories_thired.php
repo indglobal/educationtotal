@@ -103,5 +103,19 @@ class Subcategories_thired extends CI_Controller
 		redirect("subcategories_thired");
 	}
 
+	function check_subcategory2_name(){
+	 $name=$this->input->post('name');
+     $status = $this->subcategories_model_thired->check_subcategory2_name($name);
+     if(!$status==0)
+    {
+      echo "success";
+      exit;
+        }else{
+      echo "fail";
+      exit;
+    }
+
+	}
+
 	
 }

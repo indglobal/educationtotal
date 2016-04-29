@@ -13,9 +13,11 @@ class Provider_panel extends CI_Controller
 
 	function index()
 	{
-		$data['userid']=$this->session->userdata('is_userlogged_in');
+		$data['userid']=$this->session->userdata('is_userlogged_in');		
 		$data['getDetails_fromsignup']=$this->user_model->getDetails_fromsignup($data['userid']['UN']);
 		$data['getDetails_fromedu_user']=$this->user_model->getDetails_fromedu_user($data['getDetails_fromsignup'][0]['user_id']);
+		//print_r($data['getDetails_fromedu_user']);
+		//exit;
 		if(isset($data['getDetails_fromedu_user'][0]['edu_name']))
 		{
         $data['edu_details']=unserialize($data['getDetails_fromedu_user'][0]['edu_name']);
@@ -25,8 +27,11 @@ class Provider_panel extends CI_Controller
 		$data['edu_details'] = 1;			
 		}
 		$data['cat']=$this->user_model->fetch_category();
+				//print_r($data['getDetails_fromedu_user']);
+		//exit;
         $this->load->view('header.php',$data);
      	$this->load->view('user/provider_profile',$data);
+		 $this->load->view('footer',$data);
      	
 
 	}

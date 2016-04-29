@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(0);
 
 class User_panel extends CI_Controller
 {

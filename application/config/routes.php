@@ -37,9 +37,10 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-$route['default_controller'] = "user/user";
-//$route['default_controller'] = "register_cont";
+$route['home'] = "register_cont";
+//$route['default_controller'] = "admin/admin/index";
 //$route['404_override'] = '';
+//$route['home'] = "register_cont/index";
 
 //Admin
 $route['admin'] = "admin/admin/index";
@@ -66,14 +67,23 @@ $route['create_subcat_thired'] = "admin/subcategories_thired/create_subcat_thire
 $route['update_subcat_thired'] = "admin/subcategories_thired/update_subcat_thired";
 $route['getsubcat2'] = "admin/subcategories_thired/getSubcategory2";
 
-$route['marketing_persons'] = "admin/marketing_persons/marketing_persons_list";
-$route['create_marketing_persons'] = "admin/marketing_persons/create_marketing_persons";
-$route['update_marketing_persons'] = "admin/marketing_persons/update_marketing_persons";
+$route['marketing_persons'] ="admin/marketing_persons/marketing_persons_list";
+$route['create_marketing_persons'] ="admin/marketing_persons/create_marketing_persons";
+$route['update_marketing_persons'] ="admin/marketing_persons/update_marketing_persons";
 
 $route['userlist'] = "admin/userlist/list_of_user";
 $route['service_provider'] = "admin/service_provider/list_of_sp";
 
 $route['approved'] = "admin/service_provider/approved";
+
+$route['check_category_name'] = "admin/categories/check_category_name";
+$route['check_subcategory_name'] = "admin/subcategories/check_subcategory_name";
+$route['check_second_subcategory_name'] = "admin/subcategories_second/check_subcategory1_name";
+$route['check_third_subcategory_name'] = "admin/subcategories_thired/check_subcategory2_name";
+
+$route['check_email_marketing'] = "admin/marketing_persons/check_email_marketing";
+$route['check_phone_marketing'] = "admin/marketing_persons/check_phone_marketing";
+$route['check_username_marketing'] = "admin/marketing_persons/check_username_marketing";
 
 /**** bharath      ********/
 $route['service/add_service'] = "service/service/add_service";
@@ -88,6 +98,12 @@ $route['abroad_consultants'] = "service/service/abroad_consultants";
 $route['distance_edu_consult'] = "service/service/distance_edu_consult";
 
 $route['save_service'] = "service/service/save_service";
+
+
+$route['list_of_services'] = "admin/list_of_services/list_of_service";
+
+$route['list_of_visitors'] = "admin/admin/list_of_visitors";
+
 
 $route['service/search_result'] = "service/service/search_result";
 $route['service/area_filter'] = "service/service/area_filter";

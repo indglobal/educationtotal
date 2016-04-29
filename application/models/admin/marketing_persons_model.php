@@ -1,6 +1,6 @@
 <?php
 
-class marketing_persons_model extends CI_Controller
+class Marketing_persons_model extends CI_Controller
 {
 
 
@@ -114,6 +114,58 @@ if ($this->db->trans_status() === FALSE) {
 
 	}
 
+    function check_email_marketing($email)
+  {
+
+  $user_type_id=4;
+  $CI =&get_instance();
+  $CI->db->select('user_id');
+  //$CI->db->where('email',$email);
+  $CI->db->where(array('users_table.user_type_id'=>$user_type_id,'users_table.email'=>$email));
+  $result = $CI->db->get('users_table');
+  $row = $result->row();
+  if($row){
+  return $row->user_id;
+  }else{
+  return 0; 
+  }
+  }
+
+  
+
+    function check_phone_marketing($phone)
+  {
+  $user_type_id=4;
+  $CI =&get_instance();
+  $CI->db->select('users_table.user_id');
+  $CI->db->where(array('users_table.user_type_id'=>$user_type_id));
+  $CI->db->join('user_detail', 'user_detail.user_id = users_table.user_id', 'inner');
+  $CI->db->where(array('user_detail.phone'=>$phone));
+
+  $result = $CI->db->get('users_table');
+  $row = $result->row();
+  if($row){
+  return $row->user_id;
+  }else{
+  return 0; 
+  }
+   
+   }
+
+   function check_username_marketing($username)
+  {
+
+  $user_type_id=4;
+  $CI =&get_instance();
+  $CI->db->select('user_id');
+  $CI->db->where(array('users_table.user_type_id'=>$user_type_id,'users_table.user_name'=>$username));
+  $result = $CI->db->get('users_table');
+  $row = $result->row();
+  if($row){
+  return $row->user_id;
+  }else{
+  return 0; 
+  }
+  }
 	
 }
-?>

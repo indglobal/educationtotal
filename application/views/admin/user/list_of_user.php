@@ -14,7 +14,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Userlist</h1>
+                    <h1 class="page-header">User list</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -23,7 +23,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Userlist Table
+                            User list Table
                         </div>
 
                         <!-- /.panel-heading -->
@@ -38,7 +38,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Phone</th>
-                    <th>email</th>
+                    <th>Email</th>
 
                     </tr>
                     </thead>
@@ -75,31 +75,4 @@
             </div>
             </div>
             
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="<?php echo base_url('bower_components/metisMenu/dist/metisMenu.min.js');?>"></script>
-
-    <!-- DataTables JavaScript -->
-    <script src="<?php echo base_url('bower_components/datatables/media/js/jquery.dataTables.min.js');?>"></script>
-    <script src="<?php echo base_url('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js');?>"></script>
-
-   
-
-   <script>
-
-    function delConfirm()
-    {
-        var r=confirm('Do you want to delete');
-        if( r == true )
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    </script>
-
-</body>
-
-</html>
+ 

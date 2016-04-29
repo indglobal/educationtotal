@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>My Profile</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
- 	<link rel="stylesheet" href="<?php echo base_url();?>user_panel_design/css/bootstrap.min.css">
-  	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>user_panel_design/font-awesome-4.5.0/css/font-awesome.min.css">
-  	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>user_panel_design/css/style.css">
 
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
  <script>
       $(document).ready(function(){
@@ -27,36 +15,12 @@
 </head>
 
 <body>
-<!-- Start header content.............................................. -->
-	<div class="container-fluid header_cont">
-		<div class="row">
-			<div class="col-sm-10">
-				<h2><img src="<?php echo base_url();?>user_panel_design/images/logo.png" alt="logo" width="40" height="40">   Educationtotal</h2>
-			</div>
-			<div class="col-sm-2 chip dropdown">
-				<img src="<?php echo base_url();?>user_panel_design/images/ra.png" alt="ra" class="img-circle img-responsive" width="50" height="50"> Ramesh
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="#">My Profile</a></li>
-		            <li><a href="#">Edit Profile</a></li>
-		            <li><a href="#">Logout</a></li>
-		          </ul>
-			</div>
-		</div>
-	</div>
-<!-- End header content.............................................. -->
 
 
 <!-- Start body content.............................................. -->
 	<div class="container-fluid main_body">
 		<div class="row main_face">
-			<div class="col-sm-1 left_cont">
-				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#profile"><img src="<?php echo base_url();?>user_panel_design/images/profile.png" alt="profile"><p>Profile</p></a></li>
-					<li><a data-toggle="tab" href="#"><img src="<?php echo base_url();?>user_panel_design/images/forum.png" alt="profile"><p> Forum</p></a></li>
-					<li><a data-toggle="tab" href="#"><img src="<?php echo base_url();?>user_panel_design/images/doc.png" alt="profile"><p>Document</p></a></li>
-				</ul>
-			</div>
+			<?php  $path_to_view = get_view_path('user_left_menu'); include($path_to_view);?>
 			<div class="col-sm-11 mid_cont">
 				<div class="tab-content">
 				    <div id="profile" class="tab-pane fade in active">

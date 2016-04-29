@@ -40,9 +40,17 @@ class user_model extends CI_Controller
         return $result->result_array();
 
      }
+      function get_request_for_specific_sp($sp_user_id)
+     { 
+        $this->db->select('*');
+        $this->db->from('service');
+        $this->db->join('service_request','service_request.service_id = service.service_id', 'inner');
+        $this->db->where(array('service.user_id' =>$sp_user_id));
+        $result = $this->db->get();
+        return $result->result_array();
 
+     }
 
-	
 	function get_details($id)
 	{
 		$this->db->select('*');

@@ -1,5 +1,10 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+function get_view_path($view_name)
+{
+    $target_file=APPPATH.'views/'.$view_name.'.php';
+    if(file_exists($target_file)) return $target_file;
+}
 
 function cetegory_name_by_id($id)
 {
@@ -29,4 +34,13 @@ function subcategory2_name_by_id($id)
 	$result = $CI->db->get('master_subcategory_second');
 	$row = $result->row();
 	return $row->subcat_second_name;
+}
+function subcategory3_name_by_id($id)
+{
+	$CI =& get_instance();
+	$CI->db->select('subcat_thired_name');
+	$CI->db->where('sub_cat_thired_id',$id);
+	$result = $CI->db->get('master_subcategory_thired');
+	$row = $result->row();
+	return $row->subcat_thired_name;
 }

@@ -19,6 +19,7 @@ class Categories extends CI_Controller
 	{
 		
      	$this->load->view('admin/dashboard');
+		
 	}
 
 	function categories_list()
@@ -26,6 +27,7 @@ class Categories extends CI_Controller
 	//$this->load->model('admin/categories_model');		
 		$data['categories']=$this->categories_model->get_categories();
      	$this->load->view('admin/category/list_of_category',$data);
+		
 	}
 
 	function create_cat()
@@ -63,6 +65,20 @@ class Categories extends CI_Controller
 			$this->categories_model->delete_cat($this->uri->segment(4, 0));	
 		}
 		redirect("categories");
+	}
+
+	function check_category_name(){
+	 $name=$this->input->post('name');
+     $status = $this->categories_model->check_category_name($name);
+     if(!$status==0)
+    {
+      echo "success";
+      exit;
+        }else{
+      echo "fail";
+      exit;
+    }
+
 	}
 
 	

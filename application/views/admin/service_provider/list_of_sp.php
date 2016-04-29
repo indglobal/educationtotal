@@ -37,7 +37,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Phone</th>
-                    <th>email</th>
+                    <th>Email</th>
                     <th>Action</th>
                     </tr>
                     </thead>
@@ -50,8 +50,9 @@
                     ?>
                     <tr>   
 <!--                     <td id="id_<?php echo $id;?>"><?php echo $val['user_id'];?></td>
- -->                <td>                    <input type="hidden" name="a" id="id_<?php echo $id;?>" value="<?php echo $val['user_id'];?>">
-<?php echo $i;?></td>
+ -->                <td>
+ <input type="hidden" name="a" id="id_<?php echo $id;?>" value="<?php echo $val['user_id'];?>">
+                   <?php echo $i;?></td>
                     <td><?php echo $val['fname'];?></td>
                     <td><?php echo $val['phone'];?></td>
                     <td><?php echo $val['email'];?></td>
@@ -125,7 +126,9 @@
    
 
    <script>
-
+$(document).ready(function() {
+     $("#dataTables-example").dataTable();
+    });
     function delConfirm()
     {
         var r=confirm('Do you want to delete');
